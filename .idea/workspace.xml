@@ -8,9 +8,9 @@
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
-    <file path="/Dummy.txt" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1493042040278" ignored="false" />
+    <file path="/Dummy.txt" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1493042580661" ignored="false" />
     <file path="/Editor.java" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1493040785413" ignored="false" />
-    <file path="/Css.css" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1493042160938" ignored="false" />
+    <file path="/Css.css" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" time="1493043211623" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,7 @@
       <file leaf-file-name="Css.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="22" selection-start="298" selection-end="298" vertical-scroll-proportion="0.30307943">
+            <state line="8" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.22042139">
               <folding />
             </state>
           </provider>
@@ -140,6 +140,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Push.Settings">
+    <option name="myUpdateMethod" value="REBASE" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -301,7 +304,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="eDesign" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -517,7 +526,15 @@
       <created>1493042047536</created>
       <updated>1493042047536</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Menu bar bearbeitet">
+      <created>1493042226025</created>
+      <updated>1493042226025</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Menu bar bearbeitet">
+      <created>1493042585776</created>
+      <updated>1493042585776</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -730,7 +747,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="298" selection-end="298" vertical-scroll-proportion="0.30307943">
+        <state line="8" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.22042139">
           <folding />
         </state>
       </provider>
