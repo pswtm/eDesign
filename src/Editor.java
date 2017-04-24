@@ -26,17 +26,8 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-<<<<<<< HEAD
-<<<<<<< HEAD
-        window.getIcons().add(new Image("file:Images/eIcon.jpg"));
-=======
-        //TODO: ProgrammIcon einbauen
-=======
-        //TODO: ProgrammIcon einbauen     dfgoidfopghdh
->>>>>>> origin/master
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
-        //System.out.println(eIcon.getWidth());
->>>>>>> origin/master
+
 
         /*
         * Menüleiste mit folgenden Punkten und Unterpunkten
