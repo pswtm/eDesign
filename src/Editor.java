@@ -27,7 +27,7 @@ public class Editor extends Application {
         window = primaryStage;
         window.setTitle("eDesign");
         //TODO: ProgrammIcon einbauen
-       // Image eIcon = new Image("eIcon.jpg");
+        window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
         //System.out.println(eIcon.getWidth());
 
         /*
