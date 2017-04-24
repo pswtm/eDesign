@@ -1,32 +1,38 @@
-/*@CHARSET "UTF-8";
-*/
+/*@CHARSET "UTF-8";     */
+
 .root
 {
--fx-background-color: #000000,
-linear-gradient(from 0.5px 0px to 12px 0px, repeat, darkgrey 5%, transparent 5%),
-linear-gradient(from 0px 0.5px to 0px 12px, repeat, darkgrey 5%, transparent 5%);
+    -fx-background-color: #000000,
+    linear-gradient(from 0.5px 0px to 12px 0px, repeat, darkgrey 5%, transparent 5%),
+    linear-gradient(from 0px 0.5px to 0px 12px, repeat, darkgrey 5%, transparent 5%);
 }
-.menu-bar 
+.menu-bar
 {
--fx-background-color:#000000;
+    -fx-background-color:#000000;
+
 }
-.menu-bar .label 
+.menu-bar .label
 {
--fx-text-fill:white;
+    -fx-text-fill:white;
 }
 
-.menu-bar .label:hover 
-{       
-/*-fx-background-color:red;*/
+.menu-bar .separator{
+    -fx-background-color:#000000;
 }
 
-.menu-item 
+.menu-item
 {
--fx-background-color: green;
--fx-border-color: black;
+    -fx-top:0px;
+    -fx-background-color: black;
+    -fx-text-fill:white;
 }
-.menu-item .label:hover
+
+.menu-item:hover
 {
--fx-text-fill:green;
--fx-background-color:red;   
+    -fx-text-fill:green;
+    -fx-background-color:#0096C9;
+}
+
+.context-menu {
+    -fx-padding: 0;
 }
