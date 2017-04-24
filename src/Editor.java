@@ -27,7 +27,8 @@ public class Editor extends Application {
         window = primaryStage;
         window.setTitle("eDesign");
         //TODO: ProgrammIcon einbauen
-        
+        Image eIcon = new Image("eIcon.jpg");
+        System.out.println(eIcon.getWidth());
 
         /*
         * Menüleiste mit folgenden Punkten und Unterpunkten
