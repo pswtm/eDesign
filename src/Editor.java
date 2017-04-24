@@ -119,6 +119,7 @@ public class Editor extends Application {
 
 
         Scene scene = new Scene(layout, 1000, 600);
+        scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
 
