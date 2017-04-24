@@ -215,14 +215,10 @@ xmlstring+=xmlheader;
             System.err.println("Error: " + f.getMessage());
         }
 
-
-
-
 }
 //Öffnen
 public void open()
 {
-    //Test Ints nachher löschen und richtige funktionen eintragen
     int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
     int konOr,spaOr,widOr,spuOr;
         FileChooser fileChooser = new FileChooser();
