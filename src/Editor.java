@@ -56,6 +56,9 @@ public class Editor extends Application {
         openMenuItem.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Öffnen");
+            FileChooser.ExtensionFilter extFilter =
+                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+            fileChooser.getExtensionFilters().add(extFilter);
             File file = fileChooser.showOpenDialog(window);
             if (file != null) {
                 //TODO: herausfinden wie man XML-Datei einliest
