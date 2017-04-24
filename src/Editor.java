@@ -9,7 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
+import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
@@ -25,12 +25,14 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.util.Iterator;
+import javafx.scene.image.ImageView;
+
 
 public class Editor extends Application {
 
     //unser Fenster
     Stage window;
-    String xmlstring;
+    String xmlstring="XML";
     public static void main(String[] args) {
         launch(args);
     }
@@ -40,8 +42,7 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-
-        //TODO: ProgrammIcon einbauen 
+        //TODO: ProgrammIcon einbauen
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
         //System.out.println(eIcon.getWidth());
 
@@ -77,7 +78,37 @@ public class Editor extends Application {
             File file = fileChooser.showOpenDialog(window);
             if (file != null) {
                 //TODO: herausfinden wie man XML-Datei einliest
+                //Zeig den File Inhalt in Console an
+                try (Scanner scanner = new Scanner(new File(file.toString()))) {
+                    String word = "Teile";
+
+                    while(scanner.hasNext())
+                    {
+                        String line=scanner.nextLine();
+                        if(line.indexOf("Spule")!=-1)
+                        {
+                            System.out.println("neue Spule");
+                        }
+                        else if(line.indexOf("Kondensator")!=-1)
+                        {
+                            System.out.println("neuer Kondensator");
+                        }
+                        else if(line.indexOf("Widerstand")!=-1)
+                        {
+                            System.out.println("neuer Widerstand");
+                        }
+                        else if(line.indexOf("Spannungsquelle")!=-1)
+                        {
+                            System.out.println("neue Spannungsquelle");
+                        }
+                    }
+                } catch (Exception f){//Catch exception if any
+                    System.err.println("Error: " + f.getMessage());
+                }
+
             }
+
+
         });
         fileMenu.getItems().add(openMenuItem);
         fileMenu.getItems().add(new SeparatorMenuItem());
@@ -164,6 +195,15 @@ public class Editor extends Application {
         * */
         VBox kit = new VBox();
         kit.setPrefWidth(100);
+
+        //Icon Versuch
+        final ImageView imageview = new ImageView();
+        Image image=new Image("file:Images/widerstand.png");
+        imageview.setX(1300);
+        imageview.setY(1300);
+        imageview.setImage(image);
+        kit.getChildren().addAll(imageview);
+
         //TODO: Raster
 
 
@@ -179,6 +219,7 @@ public class Editor extends Application {
 
         Scene scene = new Scene(layout, 1000, 600);
         scene.getStylesheets().add("Css.css");
+        //scene.setRoot(kit); //dann nur noch icon
         window.setScene(scene);
         window.show();
 
