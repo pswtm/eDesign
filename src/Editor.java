@@ -119,8 +119,6 @@ public class Editor extends Application {
         //Menüleiste zusammenüfhren
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
-
-
         /*
         * Baukasten als eine VBox
         * folgende Icons sollen rein:
@@ -159,20 +157,22 @@ public class Editor extends Application {
         window.setScene(scene);
         window.show();
     }
+    //Speichern unter
 public void saveas()
 {
-    String xkon="1";
-    String ykon="2";
-    String xspu="3";
-    String yspu="4";
-    String xwid="5";
-    String ywid="6";
-    String xspa="7";
-    String yspa="8";
-    String konor="1";
-    String spaor="2";
-    String widor="3";
-    String spuor="4";
+    //Test Ints nachher löschen und richtige funktionen eintragen
+    int xkon=1;
+    int ykon=2;
+    int xspu=3;
+    int yspu=4;
+    int xwid=5;
+    int ywid=6;
+    int xspa=7;
+    int yspa=8;
+    int konor=1;
+    int spaor=2;
+    int widor=3;
+    int spuor=4;
     String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 xmlstring+=xmlheader;
@@ -219,8 +219,10 @@ xmlstring+=xmlheader;
 
 
 }
+//Öffnen
 public void open()
 {
+    //Test Ints nachher löschen und richtige funktionen eintragen
     int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
     int konOr,spaOr,widOr,spuOr;
         FileChooser fileChooser = new FileChooser();
@@ -232,8 +234,8 @@ public void open()
         if (file != null) {
             //Zeig den File Inhalt in Console an
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
-
-
+                //entscheidet ob Kondensator usw
+                //TODO substrings noch bearbeiten, wegen Länge
                 while(scanner.hasNext())
                 {
                     String line=scanner.nextLine();
@@ -287,6 +289,7 @@ public void open()
 
 
 }
+//Speichern
 public void autosave()
 {
 
