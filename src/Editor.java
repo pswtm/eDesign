@@ -26,15 +26,12 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-        //TODO: ProgrammIcon einbauen
-       // Image eIcon = new Image("eIcon.jpg");
-        //System.out.println(eIcon.getWidth());
+        window.getIcons().add(new Image("file:Images/eIcon.jpg"));
 
         /*
         * Menüleiste mit folgenden Punkten und Unterpunkten
         * Datei: Speichern, Speichern unter...
         * Bearbeiten:
-        *
         *
         * !!! Unterstrichener Anfangsbuchstabe: IM CSS ändern
         * http://stackoverflow.com/questions/20541038/how-to-have-the-menu-mnemonic-underline-appearing-always
@@ -82,10 +79,11 @@ public class Editor extends Application {
         editMenu.getItems().add(new MenuItem("Screenshot"));
 
         //Menüpunkt "Ansicht" erstellen
-        Menu viewMenu = new Menu("_Ansicht");
+        Menu viewMenu = new Menu("_Editoreinstellungen");
         //Submenü/Unterpunkte zu editMenu
         viewMenu.getItems().add(new MenuItem("Theme ändern"));
-        viewMenu.getItems().add(new MenuItem("Schriftgröße ändern"));
+        viewMenu.getItems().add(new MenuItem("Schriftgröße ändern..."));
+        viewMenu.getItems().add(new MenuItem("Rastergröße ändern..."));
 
         //Menüpunkt "Ansicht" erstellen
         Menu helpMenu = new Menu("_Hilfe");

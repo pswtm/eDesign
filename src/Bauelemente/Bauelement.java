@@ -1,5 +1,7 @@
 package Bauelemente;
 
+import javafx.scene.image.Image;
+
 /**
  * Created by Merve on 24.04.2017.
  */
@@ -24,7 +26,7 @@ public interface Bauelement {
     int snap2X=0,snap2Y=0;
 
     //Icon
-
+    Image bauelementIcon = new Image("file:Images/eIcon.jpg");
 
 
 
