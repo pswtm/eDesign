@@ -133,7 +133,7 @@ public class Editor extends Application {
                     + "		<y>"+"ywid"+"</y>\n"
                     + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                     + "		<x>"+"xspa"+"</x>\n"
-                    + "		<y>"+"yspaHALLOKUSCHKE"+"</y>\n"
+                    + "		<y>"+"yspa"+"</y>\n"
                     +"\n"
                     + "		</Teile>\n"
                     + "        </leer>\n";
