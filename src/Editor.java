@@ -1,3 +1,5 @@
+import Bauelemente.Spannungsquelle;
+import Bauelemente.Widerstand;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -12,6 +14,10 @@ import javafx.stage.Stage;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import Bauelemente.Spannungsquelle;
+import Bauelemente.Spule;
+import Bauelemente.Widerstand;
+import Bauelemente.Kondensator;
 
 
 import javax.imageio.IIOImage;
@@ -218,8 +224,8 @@ xmlstring+=xmlheader;
 }
 public void open()
 {
-    String xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
-    String konor,spaor,widor,spuor;
+    int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
+    int konOr,spaOr,widOr,spuOr;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
@@ -237,43 +243,47 @@ public void open()
                     if(line.indexOf("Kondensator")!=-1)
                     {
                         line=scanner.nextLine();
-                         xkon=line.substring(8,9);
+                         xkon=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                         ykon=line.substring(8,9);
+                         ykon=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        konor=line.substring(9,10);
-                        System.out.println(xkon+ykon+konor);
+                        konOr=Integer.parseInt(line.substring(9,10));
+                        System.out.println(xkon+ykon+konOr);
+                        new Kondensator(xkon,ykon,konOr);
                     }
                     else if(line.indexOf("Spule")!=-1)
                     {
                         line=scanner.nextLine();
-                         xspu=line.substring(8,9);
+                         xspu=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        yspu=line.substring(8,9);
+                        yspu=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        spaor=line.substring(9,10);
-                        System.out.println(xspu+ yspu+spaor);
+                        spaOr=Integer.parseInt(line.substring(9,10));
+                        System.out.println(xspu+ yspu+spaOr);
+                        new Spule(xspu,yspu,spaOr);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
                         line=scanner.nextLine();
-                         xwid=line.substring(8,9);
+                         xwid=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        ywid=line.substring(8,9);
+                        ywid=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        widor= line.substring(9,10);
-                        System.out.println(xwid+ywid+widor);
+                        widOr= Integer.parseInt(line.substring(9,10));
+                        System.out.println(xwid+ywid+widOr);
+                        new Widerstand(xwid,ywid,widOr);
                     }
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
                     {
                         line=scanner.nextLine();
-                         xspa=line.substring(8,9);
+                         xspa=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        yspa=line.substring(8,9);
+                        yspa=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
-                        spuor =line.substring(9,10);
-                        System.out.println(xspa+yspa+spuor);
+                        spuOr =Integer.parseInt(line.substring(9,10));
+                        System.out.println(xspa+yspa+spuOr);
+                        new Spannungsquelle(xspa,yspa,spuOr);
                     }
 
 

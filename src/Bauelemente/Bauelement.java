@@ -3,12 +3,11 @@ package Bauelemente;
 /**
  * Created by Merve on 24.04.2017.
  */
-public interface Bauelement {
-
+public abstract class Bauelement {
 
     //Position des Bauelements auf dem Raster
     int posX = 0, posY = 0;
-
+    int Orientation=0;
     //Ausrichtung des Bauelements (Himmelsrichtung)
     final int ausrN = 0;
     final int ausrNO = 1;
@@ -25,8 +24,7 @@ public interface Bauelement {
 
     //Icon
 
-
-
-
+public Bauelement() {
+}
 
 }
