@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 public class XMLCreater {
 
+
     public String create(String xmlstring) {
         xmlstring += "			XML Datei\n"
                 + "        <leer>\n"
