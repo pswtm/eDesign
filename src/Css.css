@@ -9,7 +9,7 @@ linear-gradient(from 0px 0.5px to 0px 12px, repeat, darkgrey 5%, transparent 5%)
 .menu-bar 
 {
 -fx-background-color:#000000;
--fx-background-insets:
+
 }
 .menu-bar .label 
 {
