@@ -33,6 +33,8 @@ public class Editor extends Application {
     //unser Fenster
     Stage window;
     String xmlstring="XML";
+    File file;
+ XMLCreater xmlcreater;
     public static void main(String[] args) {
         launch(args);
     }
@@ -69,91 +71,19 @@ public class Editor extends Application {
 
         //Unterpunkt: Öffnen
         MenuItem openMenuItem = new MenuItem("Öffnen");
-        openMenuItem.setOnAction(e -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Öffnen");
-            FileChooser.ExtensionFilter extFilter =
-                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
-            fileChooser.getExtensionFilters().add(extFilter);
-            File file = fileChooser.showOpenDialog(window);
-            if (file != null) {
-                //TODO: herausfinden wie man XML-Datei einliest
-                //Zeig den File Inhalt in Console an
-                try (Scanner scanner = new Scanner(new File(file.toString()))) {
-                    String word = "Teile";
-
-                    while(scanner.hasNext())
-                    {
-                        String line=scanner.nextLine();
-                        if(line.indexOf("Spule")!=-1)
-                        {
-                            System.out.println("neue Spule");
-                        }
-                        else if(line.indexOf("Kondensator")!=-1)
-                        {
-                            System.out.println("neuer Kondensator");
-                        }
-                        else if(line.indexOf("Widerstand")!=-1)
-                        {
-                            System.out.println("neuer Widerstand");
-                        }
-                        else if(line.indexOf("Spannungsquelle")!=-1)
-                        {
-                            System.out.println("neue Spannungsquelle");
-                        }
-                    }
-                } catch (Exception f){//Catch exception if any
-                    System.err.println("Error: " + f.getMessage());
-                }
-
-            }
-
-
-        });
+        openMenuItem.setOnAction(e -> {open();});
         fileMenu.getItems().add(openMenuItem);
         fileMenu.getItems().add(new SeparatorMenuItem());
 
-        fileMenu.getItems().add(new MenuItem("Speichern"));
 
+        MenuItem autosave=new MenuItem("Speichern");
+        autosave.setOnAction(e->{
+            autosave();
+        });
+        fileMenu.getItems().add(autosave);
         MenuItem save=new MenuItem("Speichern unter");
         save.setOnAction(e->{
-
-            xmlstring+= "			XML Datei\n"
-                    + "        <leer>\n"
-                    + "                <name>XML File</name>\n"
-                    + "		<Teile>\n\n"
-                    + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
-                    + "		<x>"+"xkon"+"</x>\n"
-                    + "		<y>"+"ykon"+"</y>\n"
-                    + "		<Spule>" + "Spule" + "</Spule>\n"
-                    + "		<x>"+"xspu"+"</x>\n"
-                    + "		<y>"+"yspu"+"</y>\n"
-                    + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
-                    + "		<x>"+"xwid"+"</x>\n"
-                    + "		<y>"+"ywid"+"</y>\n"
-                    + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
-                    + "		<x>"+"xspa"+"</x>\n"
-                    + "		<y>"+"yspa"+"</y>\n"
-                    +"\n"
-                    + "		</Teile>\n"
-                    + "        </leer>\n";
-
-            FileChooser fileChoose= new FileChooser();
-            fileChoose.setTitle("Speichern unter...");
-            FileChooser.ExtensionFilter extFilter =
-                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
-            fileChoose.getExtensionFilters().add(extFilter);
-            File file = fileChoose.showSaveDialog(window);
-            try {
-                FileWriter writer = new FileWriter(file);
-               writer.write(xmlstring);
-               writer.close();
-
-            }catch (Exception f){//Catch exception if any
-                System.err.println("Error: " + f.getMessage());
-            }
-
-
+            save();
         });
         fileMenu.getItems().add(save);
         fileMenu.getItems().add(new SeparatorMenuItem());
@@ -226,5 +156,140 @@ public class Editor extends Application {
 
 
     }
+public void save()
+{
+    String xkon="1";
+    String ykon="2";
+    String xspu="3";
+    String yspu="4";
+    String xwid="5";
+    String ywid="6";
+    String xspa="7";
+    String yspa="8";
+    String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
+xmlstring+=xmlheader;
+    xmlstring+= "			XML Datei\n"
+            + "        <leer>\n"
+            + "                <name>XML File</name>\n"
+            + "		<Teile>\n\n"
+            + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+            + "		<xkon>"+xkon+"</xkon>\n"
+            + "		<ykon>"+ykon+"</ykon>\n"
+            + "		<Spule>" + "Spule" + "</Spule>\n"
+            + "		<xspu>"+xspu+"</xspu>\n"
+            + "		<yspu>"+yspu+"</yspu>\n"
+            + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
+            + "		<xwid>"+xwid+"</xwid>\n"
+            + "		<yswid>"+ywid+"</yswid>\n"
+            + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
+            + "		<xspa>"+xspa+"</xspa>\n"
+            + "		<yspa>"+yspa+"</yspa>\n"
+            +"\n"
+            + "		</Teile>\n"
+            + "        </leer>\n";
+        //xmlcreater.create(xmlstring); Warum funktioniert das nicht?
+        FileChooser fileChoose= new FileChooser();
+        fileChoose.setTitle("Speichern unter...");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+        fileChoose.getExtensionFilters().add(extFilter);
+        file = fileChoose.showSaveDialog(window);
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(xmlstring);
+            writer.close();
+
+        }catch (Exception f){//Catch exception if any
+            System.err.println("Error: " + f.getMessage());
+        }
+
+
+
+
+}
+public void open()
+{
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Öffnen");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+        fileChooser.getExtensionFilters().add(extFilter);
+         file = fileChooser.showOpenDialog(window);
+        if (file != null) {
+            //TODO: herausfinden wie man XML-Datei einliest
+            //Zeig den File Inhalt in Console an
+            try (Scanner scanner = new Scanner(new File(file.toString()))) {
+                String word = "Teile";
+
+                while(scanner.hasNext())
+                {
+                    String line=scanner.nextLine();
+                    if(line.indexOf("xkon")!=-1)
+                    {
+                        String xkon=line.substring(8,9);
+                        System.out.println(xkon);
+                    }
+                    else if(line.indexOf("ykon")!=-1)
+                    {
+                        String ykon=line.substring(8,9);
+                        System.out.println(ykon);
+                    }
+                    else if(line.indexOf("xspu")!=-1)
+                    {
+                        String xspu=line.substring(8,9);
+                        System.out.println(xspu);
+                    }
+                    else if(line.indexOf("yspu")!=-1)
+                    {
+                        String yspu=line.substring(8,9);
+                        System.out.println(yspu);
+                    }
+                    else if(line.indexOf("xwid")!=-1)
+                    {
+                        String xwid=line.substring(8,9);
+                        System.out.println(xwid);
+                    }
+                    else if(line.indexOf("ywid")!=-1)
+                    {
+                        String ywid=line.substring(8,9);
+                        System.out.println(ywid);
+                    }else if(line.indexOf("xspa")!=-1)
+                    {
+                        String xspa=line.substring(8,9);
+                        System.out.println(xspa);
+                    }
+                    else if(line.indexOf("yspa")!=-1)
+                    {
+                        String yspa=line.substring(8,9);
+                        System.out.println(yspa);
+                    }
+
+                }
+            } catch (Exception f){//Catch exception if any
+                System.err.println("Error: " + f.getMessage());
+            }
+
+        }
+
+
+}
+public void autosave()
+{
+
+    if(file==null) {
+        System.out.println("Error kein Dateipfad vorhanden");
+    }
+    else
+    {
+        try {
+        FileWriter writer = new FileWriter(file);
+        writer.write(xmlstring);
+        writer.close();
+        }catch (Exception f) {//Catch exception if any
+    System.err.println("Error: " + f.getMessage());
+    }
+    }
+}
 
 }
