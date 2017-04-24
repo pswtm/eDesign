@@ -3,27 +3,28 @@
 .root
 {
 -fx-background-color: #000000;
-
+}
+.menu-bar 
+{
+-fx-background-color:#000000;
+}
+.menu-bar .label 
+{
+-fx-text-fill:white;
 }
 
-.menu-bar {
-      -fx-background-color:#000000;
-    }
-.menu-bar .label {
-       -fx-text-fill:white;
-    }
+.menu-bar .label:hover 
+{       
+/*-fx-background-color:red;*/
+}
 
-.menu-bar .label:hover {       
-       
-    }
-
-.menu-item {
-       -fx-background-color:#000000;
-       -fx-foreground-color:#000000;
-       -fx-border-color: black;
-    }
-.menu-item .label:hover{
-    fx-text-fill:green;
-    -fx-background-color:red;
-    
-    }
+.menu-item 
+{
+-fx-background-color: green;
+-fx-border-color: black;
+}
+.menu-item .label:hover
+{
+-fx-text-fill:green;
+-fx-background-color:red;   
+}
