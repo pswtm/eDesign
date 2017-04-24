@@ -158,9 +158,6 @@ public class Editor extends Application {
         //scene.setRoot(kit); //dann nur noch icon
         window.setScene(scene);
         window.show();
-
-
-
     }
 public void saveas()
 {
@@ -172,10 +169,10 @@ public void saveas()
     String ywid="6";
     String xspa="7";
     String yspa="8";
-    String konor="a";
-    String spaor="b";
-    String widor="c";
-    String spuor="d";
+    String konor="1";
+    String spaor="2";
+    String widor="3";
+    String spuor="4";
     String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 xmlstring+=xmlheader;
@@ -248,7 +245,6 @@ public void open()
                          ykon=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
                         konOr=Integer.parseInt(line.substring(9,10));
-                        System.out.println(xkon+ykon+konOr);
                         new Kondensator(xkon,ykon,konOr);
                     }
                     else if(line.indexOf("Spule")!=-1)
@@ -259,7 +255,6 @@ public void open()
                         yspu=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
                         spaOr=Integer.parseInt(line.substring(9,10));
-                        System.out.println(xspu+ yspu+spaOr);
                         new Spule(xspu,yspu,spaOr);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
@@ -270,7 +265,6 @@ public void open()
                         ywid=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
                         widOr= Integer.parseInt(line.substring(9,10));
-                        System.out.println(xwid+ywid+widOr);
                         new Widerstand(xwid,ywid,widOr);
                     }
 
@@ -282,11 +276,8 @@ public void open()
                         yspa=Integer.parseInt(line.substring(8,9));
                         line=scanner.nextLine();
                         spuOr =Integer.parseInt(line.substring(9,10));
-                        System.out.println(xspa+yspa+spuOr);
                         new Spannungsquelle(xspa,yspa,spuOr);
                     }
-
-
                 }
             } catch (Exception f){//Catch exception if any
                 System.err.println("Error: " + f.getMessage());
