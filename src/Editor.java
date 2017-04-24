@@ -10,13 +10,27 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
+import java.util.Iterator;
 
 public class Editor extends Application {
 
     //unser Fenster
     Stage window;
-
+    String xmlstring;
     public static void main(String[] args) {
         launch(args);
     }
@@ -26,6 +40,7 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
+
         //TODO: ProgrammIcon einbauen 
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
         //System.out.println(eIcon.getWidth());
@@ -68,7 +83,48 @@ public class Editor extends Application {
         fileMenu.getItems().add(new SeparatorMenuItem());
 
         fileMenu.getItems().add(new MenuItem("Speichern"));
-        fileMenu.getItems().add(new MenuItem("Speichern unter..."));
+
+        MenuItem save=new MenuItem("Speichern unter");
+        save.setOnAction(e->{
+
+            xmlstring+= "			XML Datei\n"
+                    + "        <leer>\n"
+                    + "                <name>XML File</name>\n"
+                    + "		<Teile>\n\n"
+                    + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+                    + "		<x>"+"xkon"+"</x>\n"
+                    + "		<y>"+"ykon"+"</y>\n"
+                    + "		<Spule>" + "Spule" + "</Spule>\n"
+                    + "		<x>"+"xspu"+"</x>\n"
+                    + "		<y>"+"yspu"+"</y>\n"
+                    + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
+                    + "		<x>"+"xwid"+"</x>\n"
+                    + "		<y>"+"ywid"+"</y>\n"
+                    + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
+                    + "		<x>"+"xspa"+"</x>\n"
+                    + "		<y>"+"yspa"+"</y>\n"
+                    +"\n"
+                    + "		</Teile>\n"
+                    + "        </leer>\n";
+
+            FileChooser fileChoose= new FileChooser();
+            fileChoose.setTitle("Speichern unter...");
+            FileChooser.ExtensionFilter extFilter =
+                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+            fileChoose.getExtensionFilters().add(extFilter);
+            File file = fileChoose.showSaveDialog(window);
+            try {
+                FileWriter writer = new FileWriter(file);
+               writer.write(xmlstring);
+               writer.close();
+
+            }catch (Exception f){//Catch exception if any
+                System.err.println("Error: " + f.getMessage());
+            }
+
+
+        });
+        fileMenu.getItems().add(save);
         fileMenu.getItems().add(new SeparatorMenuItem());
         fileMenu.getItems().add(new MenuItem("Schließen"));
 
@@ -129,4 +185,5 @@ public class Editor extends Application {
 
 
     }
+
 }
