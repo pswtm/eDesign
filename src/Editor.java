@@ -83,7 +83,7 @@ public class Editor extends Application {
         fileMenu.getItems().add(autosave);
         MenuItem save=new MenuItem("Speichern unter");
         save.setOnAction(e->{
-            save();
+            saveas();
         });
         fileMenu.getItems().add(save);
         fileMenu.getItems().add(new SeparatorMenuItem());
@@ -156,7 +156,7 @@ public class Editor extends Application {
 
 
     }
-public void save()
+public void saveas()
 {
     String xkon="1";
     String ykon="2";
@@ -166,29 +166,37 @@ public void save()
     String ywid="6";
     String xspa="7";
     String yspa="8";
+    String konor="a";
+    String spaor="b";
+    String widor="c";
+    String spuor="d";
     String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 xmlstring+=xmlheader;
-    xmlstring+= "			XML Datei\n"
-            + "        <leer>\n"
+    xmlstring+= "			XML File\n"
+            + "        <Header>\n"
             + "                <name>XML File</name>\n"
             + "		<Teile>\n\n"
             + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
             + "		<xkon>"+xkon+"</xkon>\n"
             + "		<ykon>"+ykon+"</ykon>\n"
+            + "		<konor>"+konor+"</konor>\n\n"
             + "		<Spule>" + "Spule" + "</Spule>\n"
             + "		<xspu>"+xspu+"</xspu>\n"
             + "		<yspu>"+yspu+"</yspu>\n"
+            + "		<spaor>"+spaor+"</spaor>\n\n"
             + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
             + "		<xwid>"+xwid+"</xwid>\n"
-            + "		<yswid>"+ywid+"</yswid>\n"
+            + "		<ywid>"+ywid+"</ywid>\n"
+            + "		<widor>"+widor+"</widor>\n\n"
             + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
             + "		<xspa>"+xspa+"</xspa>\n"
             + "		<yspa>"+yspa+"</yspa>\n"
+            + "		<spuor>"+spuor+"</spour>\n\n"
             +"\n"
             + "		</Teile>\n"
-            + "        </leer>\n";
-        //xmlcreater.create(xmlstring); Warum funktioniert das nicht?
+            + "        </Header>\n";
+        //xmlcreater.create(xmlstring); //Warum funktioniert das nicht?
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
         FileChooser.ExtensionFilter extFilter =
@@ -210,6 +218,8 @@ xmlstring+=xmlheader;
 }
 public void open()
 {
+    String xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
+    String konor,spaor,widor,spuor;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
@@ -217,53 +227,55 @@ public void open()
         fileChooser.getExtensionFilters().add(extFilter);
          file = fileChooser.showOpenDialog(window);
         if (file != null) {
-            //TODO: herausfinden wie man XML-Datei einliest
             //Zeig den File Inhalt in Console an
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
-                String word = "Teile";
+
 
                 while(scanner.hasNext())
                 {
                     String line=scanner.nextLine();
-                    if(line.indexOf("xkon")!=-1)
+                    if(line.indexOf("Kondensator")!=-1)
                     {
-                        String xkon=line.substring(8,9);
-                        System.out.println(xkon);
+                        line=scanner.nextLine();
+                         xkon=line.substring(8,9);
+                        line=scanner.nextLine();
+                         ykon=line.substring(8,9);
+                        line=scanner.nextLine();
+                        konor=line.substring(9,10);
+                        System.out.println(xkon+ykon+konor);
                     }
-                    else if(line.indexOf("ykon")!=-1)
+                    else if(line.indexOf("Spule")!=-1)
                     {
-                        String ykon=line.substring(8,9);
-                        System.out.println(ykon);
+                        line=scanner.nextLine();
+                         xspu=line.substring(8,9);
+                        line=scanner.nextLine();
+                        yspu=line.substring(8,9);
+                        line=scanner.nextLine();
+                        spaor=line.substring(9,10);
+                        System.out.println(xspu+ yspu+spaor);
                     }
-                    else if(line.indexOf("xspu")!=-1)
+                    else if(line.indexOf("Widerstand")!=-1)
                     {
-                        String xspu=line.substring(8,9);
-                        System.out.println(xspu);
+                        line=scanner.nextLine();
+                         xwid=line.substring(8,9);
+                        line=scanner.nextLine();
+                        ywid=line.substring(8,9);
+                        line=scanner.nextLine();
+                        widor= line.substring(9,10);
+                        System.out.println(xwid+ywid+widor);
                     }
-                    else if(line.indexOf("yspu")!=-1)
+
+                    else if(line.indexOf("Spannungsquelle")!=-1)
                     {
-                        String yspu=line.substring(8,9);
-                        System.out.println(yspu);
+                        line=scanner.nextLine();
+                         xspa=line.substring(8,9);
+                        line=scanner.nextLine();
+                        yspa=line.substring(8,9);
+                        line=scanner.nextLine();
+                        spuor =line.substring(9,10);
+                        System.out.println(xspa+yspa+spuor);
                     }
-                    else if(line.indexOf("xwid")!=-1)
-                    {
-                        String xwid=line.substring(8,9);
-                        System.out.println(xwid);
-                    }
-                    else if(line.indexOf("ywid")!=-1)
-                    {
-                        String ywid=line.substring(8,9);
-                        System.out.println(ywid);
-                    }else if(line.indexOf("xspa")!=-1)
-                    {
-                        String xspa=line.substring(8,9);
-                        System.out.println(xspa);
-                    }
-                    else if(line.indexOf("yspa")!=-1)
-                    {
-                        String yspa=line.substring(8,9);
-                        System.out.println(yspa);
-                    }
+
 
                 }
             } catch (Exception f){//Catch exception if any
