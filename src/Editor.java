@@ -26,7 +26,7 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-        //TODO: ProgrammIcon einbauen
+        //TODO: ProgrammIcon einbauen     dfgoidfopghdh
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
         //System.out.println(eIcon.getWidth());
 
