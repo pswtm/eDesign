@@ -40,7 +40,11 @@ public class Editor extends Application {
     Stage window;
     String xmlstring="XML";
     File file;
+<<<<<<< HEAD
     XMLCreater xmlcreater;
+=======
+ XMLCreater xmlcreater;
+>>>>>>> origin/master
     public static void main(String[] args) {
         launch(args);
     }
@@ -158,6 +162,7 @@ public class Editor extends Application {
         window.show();
     }
     //Speichern unter
+<<<<<<< HEAD
     public void saveas()
     {
         //Test Ints nachher löschen und richtige funktionen eintragen
@@ -199,6 +204,49 @@ public class Editor extends Application {
                 +"\n"
                 + "		</Teile>\n"
                 + "        </Header>\n";
+=======
+public void saveas()
+{
+    //Test Ints nachher löschen und richtige funktionen eintragen
+    int xkon=1;
+    int ykon=2;
+    int xspu=3;
+    int yspu=4;
+    int xwid=5;
+    int ywid=6;
+    int xspa=7;
+    int yspa=8;
+    int konor=1;
+    int spaor=2;
+    int widor=3;
+    int spuor=4;
+    String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
+xmlstring+=xmlheader;
+    xmlstring+= "			XML File\n"
+            + "        <Header>\n"
+            + "                <name>XML File</name>\n"
+            + "		<Teile>\n\n"
+            + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+            + "		<xkon>"+xkon+"</xkon>\n"
+            + "		<ykon>"+ykon+"</ykon>\n"
+            + "		<konor>"+konor+"</konor>\n\n"
+            + "		<Spule>" + "Spule" + "</Spule>\n"
+            + "		<xspu>"+xspu+"</xspu>\n"
+            + "		<yspu>"+yspu+"</yspu>\n"
+            + "		<spaor>"+spaor+"</spaor>\n\n"
+            + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
+            + "		<xwid>"+xwid+"</xwid>\n"
+            + "		<ywid>"+ywid+"</ywid>\n"
+            + "		<widor>"+widor+"</widor>\n\n"
+            + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
+            + "		<xspa>"+xspa+"</xspa>\n"
+            + "		<yspa>"+yspa+"</yspa>\n"
+            + "		<spuor>"+spuor+"</spour>\n\n"
+            +"\n"
+            + "		</Teile>\n"
+            + "        </Header>\n";
+>>>>>>> origin/master
         //xmlcreater.create(xmlstring); //Warum funktioniert das nicht?
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
@@ -214,6 +262,7 @@ public class Editor extends Application {
         }catch (Exception f){//Catch exception if any
             System.err.println("Error: " + f.getMessage());
         }
+<<<<<<< HEAD
 
     }
     //Öffnen
@@ -265,6 +314,76 @@ public class Editor extends Application {
                         widOr= Integer.parseInt(line.substring(9,10));
                         new Widerstand(xwid,ywid,widOr);
                     }
+=======
+
+}
+//Öffnen
+public void open()
+{
+    int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
+    int konOr,spaOr,widOr,spuOr;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Öffnen");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+        fileChooser.getExtensionFilters().add(extFilter);
+         file = fileChooser.showOpenDialog(window);
+        if (file != null) {
+            //Zeig den File Inhalt in Console an
+            try (Scanner scanner = new Scanner(new File(file.toString()))) {
+                //entscheidet ob Kondensator usw
+                //TODO substrings noch bearbeiten, wegen Länge
+                while(scanner.hasNext())
+                {
+                    String line=scanner.nextLine();
+                    if(line.indexOf("Kondensator")!=-1)
+                    {
+                        line=scanner.nextLine();
+                         xkon=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                         ykon=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        konOr=Integer.parseInt(line.substring(9,10));
+                        new Kondensator(xkon,ykon,konOr);
+                    }
+                    else if(line.indexOf("Spule")!=-1)
+                    {
+                        line=scanner.nextLine();
+                         xspu=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        yspu=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        spaOr=Integer.parseInt(line.substring(9,10));
+                        new Spule(xspu,yspu,spaOr);
+                    }
+                    else if(line.indexOf("Widerstand")!=-1)
+                    {
+                        line=scanner.nextLine();
+                         xwid=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        ywid=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        widOr= Integer.parseInt(line.substring(9,10));
+                        new Widerstand(xwid,ywid,widOr);
+                    }
+
+                    else if(line.indexOf("Spannungsquelle")!=-1)
+                    {
+                        line=scanner.nextLine();
+                         xspa=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        yspa=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        spuOr =Integer.parseInt(line.substring(9,10));
+                        new Spannungsquelle(xspa,yspa,spuOr);
+                    }
+                }
+            } catch (Exception f){//Catch exception if any
+                System.err.println("Error: " + f.getMessage());
+            }
+
+        }
+>>>>>>> origin/master
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
                     {
@@ -283,6 +402,7 @@ public class Editor extends Application {
 
         }
 
+<<<<<<< HEAD
 
     }
     //Speichern
@@ -302,6 +422,26 @@ public class Editor extends Application {
                 System.err.println("Error: " + f.getMessage());
             }
         }
+=======
+}
+//Speichern
+public void autosave()
+{
+
+    if(file==null) {
+        System.out.println("Error kein Dateipfad vorhanden");
     }
+    else
+    {
+        try {
+        FileWriter writer = new FileWriter(file);
+        writer.write(xmlstring);
+        writer.close();
+        }catch (Exception f) {//Catch exception if any
+    System.err.println("Error: " + f.getMessage());
+>>>>>>> origin/master
+    }
+    }
+}
 
 }
