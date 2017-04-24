@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/eDesign/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Bauelement.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Bauelement.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eDesign.iml" afterPath="$PROJECT_DIR$/eDesign.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Css.css" afterPath="$PROJECT_DIR$/src/Css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.java" afterPath="$PROJECT_DIR$/src/Editor.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,8 +77,8 @@
       <file leaf-file-name="Css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,8 +116,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Css.css" />
         <option value="$PROJECT_DIR$/src/Editor.java" />
+        <option value="$PROJECT_DIR$/src/Css.css" />
       </list>
     </option>
   </component>
@@ -711,7 +701,7 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1493039975442" duration="1135000" />
+      <workItem from="1493039975442" duration="1912000" />
     </task>
     <task id="LOCAL-00001" summary="Ich habe einen Kommentar eingefügt">
       <created>1493039058456</created>
@@ -724,7 +714,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2437000" />
+    <option name="totallyTimeSpent" value="3214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="718" height="900" extended-state="0" />
@@ -958,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
