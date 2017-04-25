@@ -288,7 +288,6 @@ public class Editor extends Application {
     //Speichern
     public void autosave()
     {
-
         if(file==null) {
             System.out.println("Error kein Dateipfad vorhanden");
         }
