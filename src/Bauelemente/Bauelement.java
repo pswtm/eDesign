@@ -26,29 +26,12 @@ public abstract class Bauelement {
     protected int posX = 0, posY = 0, Orientation=0;
     //Icon
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
     public Bauelement(int posX, int posY, int Orientation) {
         this.posX = posX;
         this.posY = posY;
         this.Orientation = Orientation;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-public Bauelement(int posX, int posY, int Orientation) {
-    this.posX = posX;
-    this.posY = posY;
-    this.Orientation = Orientation;
-}
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
+
+
+
 }
