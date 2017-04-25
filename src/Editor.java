@@ -282,8 +282,6 @@ public class Editor extends Application {
             }
 
         }
-
-
     }
     //Speichern
     public void autosave()
