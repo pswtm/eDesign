@@ -27,6 +27,10 @@
     -fx-text-fill:white;
 }
 
+.context-menu{
+   -fx-padding:0;
+}
+
 .menu-item:hover
 {
     -fx-text-fill:green;
