@@ -1,14 +1,21 @@
 import Bauelemente.Spannungsquelle;
 import Bauelemente.Widerstand;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.util.Scanner;
@@ -52,6 +59,10 @@ public class Editor extends Application {
         window.setTitle("eDesign");
         //TODO: ProgrammIcon einbauen
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
+
+        BorderPane layout = new BorderPane();
+        Scene scene = new Scene(layout, 1000, 600);
+
         //System.out.println(eIcon.getWidth());
 
         /*
@@ -127,19 +138,46 @@ public class Editor extends Application {
         * - Kondensator
         * - Widerstand
         * */
-        VBox kit = new VBox();
-        kit.setPrefWidth(100);
 
+
+
+        VBox kit = new VBox();
+        kit.setPrefSize(100,600);
+        //kit.setAlignment(Pos.BOTTOM_LEFT);
         //Icon Versuch
-        final ImageView imageview = new ImageView();
-        Image image=new Image("file:Images/widerstand.png");
-        imageview.setX(1300);
-        imageview.setY(1300);
-        imageview.setImage(image);
-        kit.getChildren().addAll(imageview);
+
+        final ImageView imageviewWiderstand = new ImageView();
+        Image widerstand=new Image("file:Images/widerstand.png");
+        imageviewWiderstand.setImage(widerstand);
+        //System.out.println(image.getHeight());
+        kit.getChildren().addAll(imageviewWiderstand);
+
+        final ImageView imageviewKondensator = new ImageView();
+        Image kondensator=new Image("file:Images/kondensator.png");
+        imageviewKondensator.setImage(kondensator);
+
+        kit.getChildren().addAll(imageviewKondensator);
+
+        final ImageView imageviewSpule = new ImageView();
+        Image spule=new Image("file:Images/spule.png");
+        imageviewSpule.setImage(spule);
+
+        kit.getChildren().addAll(imageviewSpule);
+
+        final ImageView imageviewStromquelle = new ImageView();
+        Image stromquelle=new Image("file:Images/stromquelle.png");
+        imageviewStromquelle.setImage(stromquelle);
+      
+        kit.getChildren().addAll(imageviewStromquelle);
+
 
         //TODO: Raster
-
+        Line line =new Line();
+        line.setStartX(185);
+        line.setStartY(185);
+        line.setEndX(438);
+        line.setEndY(438);
+        line.setStroke(Color.WHITE);
 
         /*
         * Ab hier ensteht das Layout des Editors
@@ -147,13 +185,16 @@ public class Editor extends Application {
         * Left: Baukasten als eine VBox
         * Central: EditorFläche
         * */
-        BorderPane layout = new BorderPane();
+
         layout.setTop(menuBar);
+        layout.setLeft(kit);
+        layout.getChildren().add(line);
 
 
-        Scene scene = new Scene(layout, 1000, 600);
+
+
+
         scene.getStylesheets().add("Css.css");
-        //scene.setRoot(kit); //dann nur noch icon
         window.setScene(scene);
         window.show();
     }

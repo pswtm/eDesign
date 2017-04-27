@@ -36,4 +36,10 @@
     -fx-text-fill:green;
     -fx-background-color:#0096C9;
 }
+.vbox
+{
+    -fx-background-color: black;
+    -fx-spacing: 8;
+    -fx-fill: black;
+}
 
