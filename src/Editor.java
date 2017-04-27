@@ -18,6 +18,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javafx.event.EventHandler;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -25,7 +27,9 @@ import Bauelemente.Spannungsquelle;
 import Bauelemente.Spule;
 import Bauelemente.Widerstand;
 import Bauelemente.Kondensator;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.Event;
 
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
@@ -33,13 +37,13 @@ import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.util.Iterator;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.shape.Rectangle;
+import javafx.scene.input.MouseEvent;
 
 public class Editor extends Application {
 
@@ -48,6 +52,7 @@ public class Editor extends Application {
     String xmlstring="XML";
     File file;
     XMLCreater xmlcreater;
+    final static int hoehe = 500, weite = 500;
     public static void main(String[] args) {
         launch(args);
     }
@@ -143,31 +148,41 @@ public class Editor extends Application {
 
         VBox kit = new VBox();
         kit.setPrefSize(100,600);
+        //TODO Hintergrundfarbe funktioniert nicht
+        kit.getStyleClass().add("Css.css");
         //kit.setAlignment(Pos.BOTTOM_LEFT);
-        //Icon Versuch
 
         final ImageView imageviewWiderstand = new ImageView();
         Image widerstand=new Image("file:Images/widerstand.png");
         imageviewWiderstand.setImage(widerstand);
-        //System.out.println(image.getHeight());
         kit.getChildren().addAll(imageviewWiderstand);
 
         final ImageView imageviewKondensator = new ImageView();
         Image kondensator=new Image("file:Images/kondensator.png");
         imageviewKondensator.setImage(kondensator);
-
         kit.getChildren().addAll(imageviewKondensator);
+        Image kondensatorSchrift=new Image("file:Images/kondensatorSchrift.png");
+
+
+        imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
+          @Override
+           public void handle(MouseEvent event) {
+              imageviewKondensator.setImage(kondensatorSchrift);
+             }});
+        imageviewKondensator.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewKondensator.setImage(kondensator);
+            }});
 
         final ImageView imageviewSpule = new ImageView();
         Image spule=new Image("file:Images/spule.png");
         imageviewSpule.setImage(spule);
-
         kit.getChildren().addAll(imageviewSpule);
 
         final ImageView imageviewStromquelle = new ImageView();
         Image stromquelle=new Image("file:Images/stromquelle.png");
         imageviewStromquelle.setImage(stromquelle);
-      
         kit.getChildren().addAll(imageviewStromquelle);
 
 
@@ -178,7 +193,7 @@ public class Editor extends Application {
         line.setEndX(438);
         line.setEndY(438);
         line.setStroke(Color.WHITE);
-
+        layout.getChildren().add(line);
         /*
         * Ab hier ensteht das Layout des Editors
         * Top: Menüleiste als ein MenuBar
@@ -188,12 +203,6 @@ public class Editor extends Application {
 
         layout.setTop(menuBar);
         layout.setLeft(kit);
-        layout.getChildren().add(line);
-
-
-
-
-
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
