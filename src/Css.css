@@ -3,12 +3,15 @@
 .root
 {
     -fx-background-color: #000000,
-   linear-gradient(from 0.5px 0px to 12px 0px, repeat, darkgrey 5%, transparent 5%),
+  linear-gradient(from 0.5px 0px to 12px 0px, repeat, darkgrey 5%, transparent 5%),
     linear-gradient(from 0px 0.5px to 0px 12px, repeat, darkgrey 5%, transparent 5%);
 }
 .menu-bar
 {
     -fx-background-color:#000000;
+    -fx-border-style: solid;
+    -fx-border-color: darkgrey;
+    -fx-border-width: 0 0 3 0;
 
 }
 .menu-bar .label
@@ -36,10 +39,5 @@
     -fx-text-fill:green;
     -fx-background-color:#0096C9;
 }
-#vbox
-{
-    -fx-background-color: white;
-    -fx-spacing: 8;
-    -fx-fill: black;
-}
+
 

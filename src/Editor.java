@@ -1,6 +1,7 @@
 import Bauelemente.Spannungsquelle;
 import Bauelemente.Widerstand;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -9,10 +10,9 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -63,10 +63,10 @@ public class Editor extends Application {
         window = primaryStage;
         window.setTitle("eDesign");
         //TODO: ProgrammIcon einbauen
-        window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
+        window.getIcons().add(new Image ("file:Images/eIcon.png"));
 
-        BorderPane layout = new BorderPane();
-        Scene scene = new Scene(layout, 1000, 600);
+        BorderPane borderPane = new BorderPane();
+        Scene scene = new Scene(borderPane, 1000, 600);
 
         //System.out.println(eIcon.getWidth());
 
@@ -144,18 +144,18 @@ public class Editor extends Application {
         * - Widerstand
         * */
 
-
-
         VBox kit = new VBox();
         kit.setPrefSize(100,600);
         //TODO Hintergrundfarbe funktioniert nicht
         kit.getStyleClass().add("Css.css");
         //kit.setAlignment(Pos.BOTTOM_LEFT);
-        kit.setStyle("-fx-background-color: black;"
-                       + "-fx-border-style: solid;"
-                       + "-fx-border-color: darkgrey;"
-                       + "-fx-border-width: 0 3 0 0;"
-                       + "-fx-padding: 5.5px;");
+       kit.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-color: darkgrey;"
+                + "-fx-border-width: 0 3 0 0;"
+                + "-fx-padding: 5.5px;");
+
+
 
         //Icon für die Widerstand
         final ImageView imageviewWiderstand = new ImageView();
@@ -163,6 +163,7 @@ public class Editor extends Application {
         imageviewWiderstand.setImage(widerstand);
         kit.getChildren().addAll(imageviewWiderstand);
         Image widerstandSchrift= new Image("file:Images/widerstandSchrift.png",100,100,false,false);
+
 
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewWiderstand.setOnMouseEntered(new EventHandler<MouseEvent>(){
@@ -194,6 +195,7 @@ public class Editor extends Application {
             public void handle(MouseEvent event) {
                 imageviewKondensator.setImage(kondensator);
             }});
+
 
         //Icon für die Spule
         final ImageView imageviewSpule = new ImageView();
@@ -233,6 +235,16 @@ public class Editor extends Application {
                 imageviewSpannungsquelle.setImage(spannungsquelle);
             }});
 
+        //TODO: Editorfläche
+
+        GridPane gridpane = new GridPane();
+        gridpane.setPadding(new Insets(5));
+        gridpane.setHgap(5);
+        gridpane.setVgap(5);
+        ColumnConstraints column1 = new ColumnConstraints(100);
+        ColumnConstraints column2 = new ColumnConstraints(50, 150, 300);
+        column2.setHgrow(Priority.ALWAYS);
+        gridpane.getColumnConstraints().addAll(column1, column2);
 
         //TODO: Raster
         Line line =new Line();
@@ -241,19 +253,24 @@ public class Editor extends Application {
         line.setEndX(438);
         line.setEndY(438);
         line.setStroke(Color.WHITE);
-        layout.getChildren().add(line);
+        borderPane.getChildren().add(line);
+
+
+
         /*
         * Ab hier ensteht das Layout des Editors
         * Top: Menüleiste als ein MenuBar
         * Left: Baukasten als eine VBox
         * Central: EditorFläche
         * */
-
-        layout.setTop(menuBar);
-        layout.setLeft(kit);
+        borderPane.setTop(menuBar);
+        borderPane.setLeft(kit);
+        //TODO: Editofläche erstellen
+        //borderPane.setCenter(editSpace);
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
+
     }
     //Speichern unter
     public void saveas()
