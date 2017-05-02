@@ -238,7 +238,7 @@ public class Editor extends Application {
             }});
 
         //TODO: Editorfläche
-
+                      //hjsdgasfh
         GridPane gridpane = new GridPane();
         gridpane.setPadding(new Insets(5));
         gridpane.setHgap(5);
