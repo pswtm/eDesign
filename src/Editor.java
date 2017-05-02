@@ -240,7 +240,7 @@ public class Editor extends Application {
             }});
 
         //TODO: Editorfläche
-        Canvas canvas = new Canvas(scene.getHeight(),scene.getWidth());
+        Canvas canvas = new Canvas(1920,1080);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         drawLines(gc);
 
@@ -283,13 +283,13 @@ public class Editor extends Application {
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
          //TODO:Es muss noch über die ganze seite gehen 99999 nur Platzhalter
-         for(i =0; i<=999999; i+=25){ //Senkrechte linien werden gezeichnet
+         for(i =0; i<=1920; i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
-             gc.lineTo(i, 999999);
+             gc.lineTo(i, 1080);
          }
-         for(j=0; j<=999999; j+=25){ //waagrechte linien werden gezichnet
+         for(j=0; j<=1080; j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
-             gc.lineTo(999999,j);
+             gc.lineTo(1920,j);
          }
          gc.stroke();
      }
