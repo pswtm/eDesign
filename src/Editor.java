@@ -1,18 +1,35 @@
+import Bauelemente.Spannungsquelle;
+import Bauelemente.Widerstand;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javafx.event.EventHandler;
+import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-
+import Bauelemente.Spannungsquelle;
+import Bauelemente.Spule;
+import Bauelemente.Widerstand;
+import Bauelemente.Kondensator;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.Event;
 
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
@@ -20,17 +37,22 @@ import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.util.Iterator;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.input.MouseEvent;
 
 public class Editor extends Application {
 
     //unser Fenster
     Stage window;
-    String xmlstring;
+    String xmlstring="XML";
+    File file;
+    XMLCreater xmlcreater;
+    final static int hoehe = 500, weite = 500;
     public static void main(String[] args) {
         launch(args);
     }
@@ -40,8 +62,18 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
+<<<<<<< HEAD
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
 
+=======
+        //TODO: ProgrammIcon einbauen
+        window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
+
+        BorderPane layout = new BorderPane();
+        Scene scene = new Scene(layout, 1000, 600);
+
+        //System.out.println(eIcon.getWidth());
+>>>>>>> origin/master
 
         /*
         * Menüleiste mit folgenden Punkten und Unterpunkten
@@ -65,61 +97,19 @@ public class Editor extends Application {
 
         //Unterpunkt: Öffnen
         MenuItem openMenuItem = new MenuItem("Öffnen");
-        openMenuItem.setOnAction(e -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Öffnen");
-            FileChooser.ExtensionFilter extFilter =
-                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
-            fileChooser.getExtensionFilters().add(extFilter);
-            File file = fileChooser.showOpenDialog(window);
-            if (file != null) {
-                //TODO: herausfinden wie man XML-Datei einliest
-            }
-        });
+        openMenuItem.setOnAction(e -> {open();});
         fileMenu.getItems().add(openMenuItem);
         fileMenu.getItems().add(new SeparatorMenuItem());
 
-        fileMenu.getItems().add(new MenuItem("Speichern"));
 
+        MenuItem autosave=new MenuItem("Speichern");
+        autosave.setOnAction(e->{
+            autosave();
+        });
+        fileMenu.getItems().add(autosave);
         MenuItem save=new MenuItem("Speichern unter");
         save.setOnAction(e->{
-
-            xmlstring+= "			XML Datei\n"
-                    + "        <leer>\n"
-                    + "                <name>XML File</name>\n"
-                    + "		<Teile>\n\n"
-                    + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
-                    + "		<x>"+"xkon"+"</x>\n"
-                    + "		<y>"+"ykon"+"</y>\n"
-                    + "		<Spule>" + "Spule" + "</Spule>\n"
-                    + "		<x>"+"xspu"+"</x>\n"
-                    + "		<y>"+"yspu"+"</y>\n"
-                    + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
-                    + "		<x>"+"xwid"+"</x>\n"
-                    + "		<y>"+"ywid"+"</y>\n"
-                    + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
-                    + "		<x>"+"xspa"+"</x>\n"
-                    + "		<y>"+"yspa"+"</y>\n"
-                    +"\n"
-                    + "		</Teile>\n"
-                    + "        </leer>\n";
-
-            FileChooser fileChoose= new FileChooser();
-            fileChoose.setTitle("Speichern unter...");
-            FileChooser.ExtensionFilter extFilter =
-                    new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
-            fileChoose.getExtensionFilters().add(extFilter);
-            File file = fileChoose.showSaveDialog(window);
-            try {
-                FileWriter writer = new FileWriter(file);
-               writer.write(xmlstring);
-               writer.close();
-
-            }catch (Exception f){//Catch exception if any
-                System.err.println("Error: " + f.getMessage());
-            }
-
-
+            saveas();
         });
         fileMenu.getItems().add(save);
         fileMenu.getItems().add(new SeparatorMenuItem());
@@ -150,8 +140,6 @@ public class Editor extends Application {
         //Menüleiste zusammenüfhren
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
-
-
         /*
         * Baukasten als eine VBox
         * folgende Icons sollen rein:
@@ -160,28 +148,212 @@ public class Editor extends Application {
         * - Kondensator
         * - Widerstand
         * */
+
+
+
         VBox kit = new VBox();
-        kit.setPrefWidth(100);
+        kit.setPrefSize(100,600);
+        //TODO Hintergrundfarbe funktioniert nicht
+        kit.getStyleClass().add("Css.css");
+        //kit.setAlignment(Pos.BOTTOM_LEFT);
+
+        final ImageView imageviewWiderstand = new ImageView();
+        Image widerstand=new Image("file:Images/widerstand.png");
+        imageviewWiderstand.setImage(widerstand);
+        kit.getChildren().addAll(imageviewWiderstand);
+
+        final ImageView imageviewKondensator = new ImageView();
+        Image kondensator=new Image("file:Images/kondensator.png");
+        imageviewKondensator.setImage(kondensator);
+        kit.getChildren().addAll(imageviewKondensator);
+        Image kondensatorSchrift=new Image("file:Images/kondensatorSchrift.png");
+
+
+        imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
+          @Override
+           public void handle(MouseEvent event) {
+              imageviewKondensator.setImage(kondensatorSchrift);
+             }});
+        imageviewKondensator.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewKondensator.setImage(kondensator);
+            }});
+
+        final ImageView imageviewSpule = new ImageView();
+        Image spule=new Image("file:Images/spule.png");
+        imageviewSpule.setImage(spule);
+        kit.getChildren().addAll(imageviewSpule);
+
+        final ImageView imageviewStromquelle = new ImageView();
+        Image stromquelle=new Image("file:Images/stromquelle.png");
+        imageviewStromquelle.setImage(stromquelle);
+        kit.getChildren().addAll(imageviewStromquelle);
+
+
         //TODO: Raster
-
-
+        Line line =new Line();
+        line.setStartX(185);
+        line.setStartY(185);
+        line.setEndX(438);
+        line.setEndY(438);
+        line.setStroke(Color.WHITE);
+        layout.getChildren().add(line);
         /*
         * Ab hier ensteht das Layout des Editors
         * Top: Menüleiste als ein MenuBar
         * Left: Baukasten als eine VBox
         * Central: EditorFläche
         * */
-        BorderPane layout = new BorderPane();
+
         layout.setTop(menuBar);
-
-
-        Scene scene = new Scene(layout, 1000, 600);
+        layout.setLeft(kit);
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
+    }
+    //Speichern unter
+    public void saveas()
+    {
+        //Test Ints nachher löschen und richtige funktionen eintragen
+        int xkon=1;
+        int ykon=2;
+        int xspu=3;
+        int yspu=4;
+        int xwid=5;
+        int ywid=6;
+        int xspa=7;
+        int yspa=8;
+        int konor=1;
+        int spaor=2;
+        int widor=3;
+        int spuor=4;
+        String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
+        xmlstring+=xmlheader;
+        xmlstring+= "			XML File\n"
+                + "        <Header>\n"
+                + "                <name>XML File</name>\n"
+                + "		<Teile>\n\n"
+                + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+                + "		<xkon>"+xkon+"</xkon>\n"
+                + "		<ykon>"+ykon+"</ykon>\n"
+                + "		<konor>"+konor+"</konor>\n\n"
+                + "		<Spule>" + "Spule" + "</Spule>\n"
+                + "		<xspu>"+xspu+"</xspu>\n"
+                + "		<yspu>"+yspu+"</yspu>\n"
+                + "		<spaor>"+spaor+"</spaor>\n\n"
+                + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
+                + "		<xwid>"+xwid+"</xwid>\n"
+                + "		<ywid>"+ywid+"</ywid>\n"
+                + "		<widor>"+widor+"</widor>\n\n"
+                + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
+                + "		<xspa>"+xspa+"</xspa>\n"
+                + "		<yspa>"+yspa+"</yspa>\n"
+                + "		<spuor>"+spuor+"</spour>\n\n"
+                +"\n"
+                + "		</Teile>\n"
+                + "        </Header>\n";
+        //xmlcreater.create(xmlstring); //Warum funktioniert das nicht?
+        FileChooser fileChoose= new FileChooser();
+        fileChoose.setTitle("Speichern unter...");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+        fileChoose.getExtensionFilters().add(extFilter);
+        file = fileChoose.showSaveDialog(window);
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(xmlstring);
+            writer.close();
 
+        }catch (Exception f){//Catch exception if any
+            System.err.println("Error: " + f.getMessage());
+        }
 
+    }
+    //Öffnen
+    public void open()
+    {
+        int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
+        int konOr,spaOr,widOr,spuOr;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Öffnen");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
+        fileChooser.getExtensionFilters().add(extFilter);
+        file = fileChooser.showOpenDialog(window);
+        if (file != null) {
+            //Zeig den File Inhalt in Console an
+            try (Scanner scanner = new Scanner(new File(file.toString()))) {
+                //entscheidet ob Kondensator usw
+                //TODO substrings noch bearbeiten, wegen Länge
+                while(scanner.hasNext())
+                {
+                    String line=scanner.nextLine();
+                    if(line.indexOf("Kondensator")!=-1)
+                    {
+                        line=scanner.nextLine();
+                        xkon=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        ykon=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        konOr=Integer.parseInt(line.substring(9,10));
+                        new Kondensator(xkon,ykon,konOr);
+                    }
+                    else if(line.indexOf("Spule")!=-1)
+                    {
+                        line=scanner.nextLine();
+                        xspu=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        yspu=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        spaOr=Integer.parseInt(line.substring(9,10));
+                        new Spule(xspu,yspu,spaOr);
+                    }
+                    else if(line.indexOf("Widerstand")!=-1)
+                    {
+                        line=scanner.nextLine();
+                        xwid=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        ywid=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        widOr= Integer.parseInt(line.substring(9,10));
+                        new Widerstand(xwid,ywid,widOr);
+                    }
+
+                    else if(line.indexOf("Spannungsquelle")!=-1)
+                    {
+                        line=scanner.nextLine();
+                        xspa=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        yspa=Integer.parseInt(line.substring(8,9));
+                        line=scanner.nextLine();
+                        spuOr =Integer.parseInt(line.substring(9,10));
+                        new Spannungsquelle(xspa,yspa,spuOr);
+                    }
+                }
+            } catch (Exception f){//Catch exception if any
+                System.err.println("Error: " + f.getMessage());
+            }
+
+        }
+    }
+    //Speichern
+    public void autosave()
+    {
+        if(file==null) {
+            System.out.println("Error kein Dateipfad vorhanden");
+        }
+        else
+        {
+            try {
+                FileWriter writer = new FileWriter(file);
+                writer.write(xmlstring);
+                writer.close();
+            }catch (Exception f) {//Catch exception if any
+                System.err.println("Error: " + f.getMessage());
+            }
+        }
     }
 
 }

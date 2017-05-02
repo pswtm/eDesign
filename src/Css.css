@@ -27,12 +27,19 @@
     -fx-text-fill:white;
 }
 
+.context-menu{
+   -fx-padding:0;
+}
+
 .menu-item:hover
 {
     -fx-text-fill:green;
     -fx-background-color:#0096C9;
 }
-
-.context-menu {
-    -fx-padding: 0;
+.vbox
+{
+    -fx-background-color: black;
+    -fx-spacing: 8;
+    -fx-fill: black;
 }
+
