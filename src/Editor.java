@@ -155,11 +155,11 @@ public class Editor extends Application {
                        + "-fx-border-style: solid;"
                        + "-fx-border-color: darkgrey;"
                        + "-fx-border-width: 0 3 0 0;"
-                       + "-fx-padding: 5px;");
+                       + "-fx-padding: 5.5px;");
 
         //Icon für die Widerstand
         final ImageView imageviewWiderstand = new ImageView();
-        Image widerstand=new Image("file:Images/widerstand.png");
+        Image widerstand=new Image("file:Images/widerstand.png",100,100,false,false);
         imageviewWiderstand.setImage(widerstand);
         kit.getChildren().addAll(imageviewWiderstand);
         Image widerstandSchrift= new Image("file:Images/widerstandSchrift.png",100,100,false,false);
