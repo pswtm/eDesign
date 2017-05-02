@@ -197,7 +197,7 @@ public class Editor extends Application {
 
         //Icon für die Spule
         final ImageView imageviewSpule = new ImageView();
-        Image spule=new Image("file:Images/spule.png");
+        Image spule=new Image("file:Images/spule.png",100,100,false,false);
         imageviewSpule.setImage(spule);
         kit.getChildren().addAll(imageviewSpule);
         Image spuleSchrift= new Image("file:Images/spuleSchrift.png",100,100,false,false);
@@ -216,7 +216,7 @@ public class Editor extends Application {
 
         //Icon für die spannungsquelle
         final ImageView imageviewSpannungsquelle = new ImageView();
-        Image spannungsquelle=new Image("file:Images/spannungsquelle.png");
+        Image spannungsquelle=new Image("file:Images/spannungsquelle.png",100,100,false,false);
         imageviewSpannungsquelle.setImage(spannungsquelle);
         kit.getChildren().addAll(imageviewSpannungsquelle);
         Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
