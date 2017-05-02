@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -69,6 +71,8 @@ public class Editor extends Application {
 
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 1000, 600);
+
+
 
         //System.out.println(eIcon.getWidth());
 
@@ -147,9 +151,7 @@ public class Editor extends Application {
         * */
 
         VBox kit = new VBox();
-        kit.setPrefSize(100,600);
-        //TODO Hintergrundfarbe funktioniert nicht
-        kit.getStyleClass().add("Css.css");
+        kit.setPrefSize(100,100);
         //kit.setAlignment(Pos.BOTTOM_LEFT);
        kit.setStyle("-fx-background-color: black;"
                 + "-fx-border-style: solid;"
@@ -238,15 +240,16 @@ public class Editor extends Application {
             }});
 
         //TODO: Editorfläche
+        Canvas canvas = new Canvas(scene.getHeight(),scene.getWidth());
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        drawLines(gc);
 
-        GridPane gridpane = new GridPane();
-        gridpane.setPadding(new Insets(5));
-        gridpane.setHgap(5);
-        gridpane.setVgap(5);
-        ColumnConstraints column1 = new ColumnConstraints(100);
-        ColumnConstraints column2 = new ColumnConstraints(50, 150, 300);
-        column2.setHgrow(Priority.ALWAYS);
-        gridpane.getColumnConstraints().addAll(column1, column2);
+        borderPane.getChildren().add(canvas);
+
+
+
+
+
 
         //TODO: Raster
         Line line =new Line();
@@ -267,13 +270,29 @@ public class Editor extends Application {
         * */
         borderPane.setTop(menuBar);
         borderPane.setLeft(kit);
-        //TODO: Editofläche erstellen
-        //borderPane.setCenter(editSpace);
+
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
 
     }
+    //Linien für das Gitter Werden gezeichnet;
+     private void drawLines(GraphicsContext gc){
+         int i,j;
+         gc.beginPath();
+         gc.moveTo(0,0);
+         gc.setStroke(Color.WHITE);
+         //TODO:Es muss noch über die ganze seite gehen 99999 nur Platzhalter
+         for(i =0; i<=999999; i+=25){ //Senkrechte linien werden gezeichnet
+             gc.moveTo(i,0);
+             gc.lineTo(i, 999999);
+         }
+         for(j=0; j<=999999; j+=25){ //waagrechte linien werden gezichnet
+             gc.moveTo(0,j);
+             gc.lineTo(999999,j);
+         }
+         gc.stroke();
+     }
     //Speichern unter
     public void saveas()
     {
