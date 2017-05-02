@@ -151,6 +151,11 @@ public class Editor extends Application {
         //TODO Hintergrundfarbe funktioniert nicht
         kit.getStyleClass().add("Css.css");
         //kit.setAlignment(Pos.BOTTOM_LEFT);
+        kit.setStyle("-fx-background-color: black;"
+                       + "-fx-border-style: solid;"
+                       + "-fx-border-color: darkgrey;"
+                       + "-fx-border-width: 0 3 0 0;"
+                       + "-fx-padding: 5px;");
 
         //Icon für die Widerstand
         final ImageView imageviewWiderstand = new ImageView();
