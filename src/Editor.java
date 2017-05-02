@@ -259,7 +259,7 @@ public class Editor extends Application {
 
 
 
-        /*
+        /*                      K
         * Ab hier ensteht das Layout des Editors
         * Top: Menüleiste als ein MenuBar
         * Left: Baukasten als eine VBox
