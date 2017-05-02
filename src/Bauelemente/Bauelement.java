@@ -1,10 +1,7 @@
 package Bauelemente;
 
-<<<<<<< HEAD
-import javafx.scene.image.Image;
-=======
+
 import javafx.geometry.Orientation;
->>>>>>> origin/master
 
 /**
  * Created by Merve on 24.04.2017.
@@ -28,18 +25,13 @@ public abstract class Bauelement {
     int snap2X=0,snap2Y=0;
 
     protected int posX = 0, posY = 0, Orientation=0;
+
     //Icon
-<<<<<<< HEAD
-    Image bauelementIcon = new Image("file:Images/eIcon.jpg");
-
-=======
-
     public Bauelement(int posX, int posY, int Orientation) {
         this.posX = posX;
         this.posY = posY;
         this.Orientation = Orientation;
     }
->>>>>>> origin/master
 
 
 

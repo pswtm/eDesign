@@ -62,10 +62,6 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-<<<<<<< HEAD
-        window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
-
-=======
         //TODO: ProgrammIcon einbauen
         window.getIcons().add(new Image ("file:Images/eIcon.jpg"));
 
@@ -73,12 +69,12 @@ public class Editor extends Application {
         Scene scene = new Scene(layout, 1000, 600);
 
         //System.out.println(eIcon.getWidth());
->>>>>>> origin/master
 
         /*
         * Menüleiste mit folgenden Punkten und Unterpunkten
         * Datei: Speichern, Speichern unter...
         * Bearbeiten:
+        *
         *
         * !!! Unterstrichener Anfangsbuchstabe: IM CSS ändern
         * http://stackoverflow.com/questions/20541038/how-to-have-the-menu-mnemonic-underline-appearing-always
@@ -128,11 +124,10 @@ public class Editor extends Application {
         editMenu.getItems().add(new MenuItem("Screenshot"));
 
         //Menüpunkt "Ansicht" erstellen
-        Menu viewMenu = new Menu("_Editoreinstellungen");
+        Menu viewMenu = new Menu("_Ansicht");
         //Submenü/Unterpunkte zu editMenu
         viewMenu.getItems().add(new MenuItem("Theme ändern"));
-        viewMenu.getItems().add(new MenuItem("Schriftgröße ändern..."));
-        viewMenu.getItems().add(new MenuItem("Rastergröße ändern..."));
+        viewMenu.getItems().add(new MenuItem("Schriftgröße ändern"));
 
         //Menüpunkt "Ansicht" erstellen
         Menu helpMenu = new Menu("_Hilfe");
@@ -155,46 +150,83 @@ public class Editor extends Application {
         kit.setPrefSize(100,600);
         //TODO Hintergrundfarbe funktioniert nicht
         kit.getStyleClass().add("Css.css");
-        //Hintergrund und Border für die vBox
-        kit.setStyle("-fx-background-color: black;"
-                + "-fx-border-style: solid;"
-                + "-fx-border-width: 0 3 0 0;"
-                +"-fx-border-color: darkgrey"
-                );
         //kit.setAlignment(Pos.BOTTOM_LEFT);
 
+        //Icon für die Widerstand
         final ImageView imageviewWiderstand = new ImageView();
         Image widerstand=new Image("file:Images/widerstand.png");
         imageviewWiderstand.setImage(widerstand);
         kit.getChildren().addAll(imageviewWiderstand);
+        Image widerstandSchrift= new Image("file:Images/widerstandSchrift.png",100,100,false,false);
 
+        //Mouse Over für das Einbleinden der IconBezeichnung
+        imageviewWiderstand.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewWiderstand.setImage(widerstandSchrift);
+            }});
+        imageviewWiderstand.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewWiderstand.setImage(widerstand);
+            }});
+
+        //Icon für die Kondensator
         final ImageView imageviewKondensator = new ImageView();
-        Image kondensator=new Image("file:Images/kondensator.png");
+        Image kondensator=new Image("file:Images/kondensator.png",100,100,false,false);
         imageviewKondensator.setImage(kondensator);
         kit.getChildren().addAll(imageviewKondensator);
-        Image kondensatorSchrift=new Image("file:Images/kondensatorSchrift.png");
+        Image kondensatorSchrift= new Image("file:Images/kondensatorSchrift.png",100,100,false,false);
 
-
+        //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
-          @Override
-           public void handle(MouseEvent event) {
-              imageviewKondensator.setImage(kondensatorSchrift);
-             }});
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewKondensator.setImage(kondensatorSchrift);
+            }});
         imageviewKondensator.setOnMouseExited(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 imageviewKondensator.setImage(kondensator);
             }});
 
+        //Icon für die Spule
         final ImageView imageviewSpule = new ImageView();
         Image spule=new Image("file:Images/spule.png");
         imageviewSpule.setImage(spule);
         kit.getChildren().addAll(imageviewSpule);
+        Image spuleSchrift= new Image("file:Images/spuleSchrift.png",100,100,false,false);
 
-        final ImageView imageviewStromquelle = new ImageView();
-        Image stromquelle=new Image("file:Images/stromquelle.png");
-        imageviewStromquelle.setImage(stromquelle);
-        kit.getChildren().addAll(imageviewStromquelle);
+        //Mouse Over für das Einbleinden der IconBezeichnung
+        imageviewSpule.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewSpule.setImage(spuleSchrift);
+            }});
+        imageviewSpule.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewSpule.setImage(spule);
+            }});
+
+        //Icon für die spannungsquelle
+        final ImageView imageviewSpannungsquelle = new ImageView();
+        Image spannungsquelle=new Image("file:Images/spannungsquelle.png");
+        imageviewSpannungsquelle.setImage(spannungsquelle);
+        kit.getChildren().addAll(imageviewSpannungsquelle);
+        Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
+
+        //Mouse Over für das Einbleinden der IconBezeichnung
+        imageviewSpannungsquelle.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewSpannungsquelle.setImage(spannungsquelleSchrift);
+            }});
+        imageviewSpannungsquelle.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewSpannungsquelle.setImage(spannungsquelle);
+            }});
 
 
         //TODO: Raster
