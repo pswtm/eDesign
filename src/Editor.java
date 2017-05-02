@@ -47,6 +47,8 @@ import javafx.scene.input.MouseEvent;
 
 public class Editor extends Application {
 
+    //Büsra Test speichern
+
     //unser Fenster
     Stage window;
     String xmlstring="XML";
