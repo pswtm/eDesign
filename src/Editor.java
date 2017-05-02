@@ -150,6 +150,12 @@ public class Editor extends Application {
         kit.setPrefSize(100,600);
         //TODO Hintergrundfarbe funktioniert nicht
         kit.getStyleClass().add("Css.css");
+        //Hintergrund und Border für die vBox
+        kit.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-width: 0 3 0 0;"
+                +"-fx-border-color: darkgrey"
+                );
         //kit.setAlignment(Pos.BOTTOM_LEFT);
 
         final ImageView imageviewWiderstand = new ImageView();
