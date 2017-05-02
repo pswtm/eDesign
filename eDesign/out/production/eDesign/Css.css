@@ -1,0 +1,43 @@
+/*@CHARSET "UTF-8";     */
+
+.root
+{
+    -fx-background-color: #000;
+ /* linear-gradient(from 0.5px 0px to 12px 0px, repeat, darkgrey 5%, transparent 5%),
+    linear-gradient(from 0px 0.5px to 0px 12px, repeat, darkgrey 5%, transparent 5%); */
+}
+.menu-bar
+{
+    -fx-background-color:#000000;
+    -fx-border-style: solid;
+    -fx-border-color: darkgrey;
+    -fx-border-width: 0 0 3 0;
+
+}
+.menu-bar .label
+{
+    -fx-text-fill:white;
+}
+
+.menu-bar .separator{
+    -fx-background-color:#000000;
+}
+
+.menu-item
+{
+    -fx-top:0px;
+    -fx-background-color: black;
+    -fx-text-fill:white;
+}
+
+.context-menu{
+   -fx-padding:0;
+}
+
+.menu-item:hover
+{
+    -fx-text-fill:green;
+    -fx-background-color:#0096C9;
+}
+
+
