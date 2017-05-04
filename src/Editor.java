@@ -297,18 +297,18 @@ public class Editor extends Application {
     public void saveas()
     {
         //Test Ints nachher löschen und richtige funktionen eintragen
-        int xkon=1;
-        int ykon=2;
-        int xspu=3;
-        int yspu=4;
-        int xwid=5;
-        int ywid=6;
-        int xspa=7;
-        int yspa=8;
-        int konor=1;
-        int spaor=2;
-        int widor=3;
-        int spuor=4;
+        int xkon=111;
+        int ykon=222;
+        int xspu=333;
+        int yspu=444;
+        int xwid=555;
+        int ywid=666;
+        int xspa=777;
+        int yspa=888;
+        int konor=111;
+        int spaor=222;
+        int widor=333;
+        int spuor=444;
         String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
         xmlstring+=xmlheader;
@@ -323,7 +323,7 @@ public class Editor extends Application {
                 + "		<Spule>" + "Spule" + "</Spule>\n"
                 + "		<xspu>"+xspu+"</xspu>\n"
                 + "		<yspu>"+yspu+"</yspu>\n"
-                + "		<spaor>"+spaor+"</spaor>\n\n"
+                + "		<spuor>"+spaor+"</spuor>\n\n"
                 + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
                 + "		<xwid>"+xwid+"</xwid>\n"
                 + "		<ywid>"+ywid+"</ywid>\n"
@@ -331,7 +331,11 @@ public class Editor extends Application {
                 + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                 + "		<xspa>"+xspa+"</xspa>\n"
                 + "		<yspa>"+yspa+"</yspa>\n"
-                + "		<spuor>"+spuor+"</spour>\n\n"
+                + "		<spaor>"+spuor+"</spaor>\n\n"
+                + "		<Spule>" + "Spule" + "</Spule>\n"
+                + "		<xspu>"+xspu+"</xspu>\n"
+                + "		<yspu>"+yspu+"</yspu>\n"
+                + "		<spuor>"+spaor+"</spuor>\n\n"
                 +"\n"
                 + "		</Teile>\n"
                 + "        </Header>\n";
@@ -374,43 +378,43 @@ public class Editor extends Application {
                     if(line.indexOf("Kondensator")!=-1)
                     {
                         line=scanner.nextLine();
-                        xkon=Integer.parseInt(line.substring(8,9));
+                        xkon=Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
                         line=scanner.nextLine();
-                        ykon=Integer.parseInt(line.substring(8,9));
+                        ykon=Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
                         line=scanner.nextLine();
-                        konOr=Integer.parseInt(line.substring(9,10));
+                        konOr=Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
                         new Kondensator(xkon,ykon,konOr);
                     }
                     else if(line.indexOf("Spule")!=-1)
                     {
                         line=scanner.nextLine();
-                        xspu=Integer.parseInt(line.substring(8,9));
+                        xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
                         line=scanner.nextLine();
-                        yspu=Integer.parseInt(line.substring(8,9));
+                        yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
                         line=scanner.nextLine();
-                        spaOr=Integer.parseInt(line.substring(9,10));
-                        new Spule(xspu,yspu,spaOr);
+                        spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
+                        new Spule(xspu,yspu,spuOr);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
                         line=scanner.nextLine();
-                        xwid=Integer.parseInt(line.substring(8,9));
+                        xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
                         line=scanner.nextLine();
-                        ywid=Integer.parseInt(line.substring(8,9));
+                        ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
                         line=scanner.nextLine();
-                        widOr= Integer.parseInt(line.substring(9,10));
+                        widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
                         new Widerstand(xwid,ywid,widOr);
                     }
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
                     {
                         line=scanner.nextLine();
-                        xspa=Integer.parseInt(line.substring(8,9));
+                        xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
                         line=scanner.nextLine();
-                        yspa=Integer.parseInt(line.substring(8,9));
+                        yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
                         line=scanner.nextLine();
-                        spuOr =Integer.parseInt(line.substring(9,10));
-                        new Spannungsquelle(xspa,yspa,spuOr);
+                        spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
+                        new Spannungsquelle(xspa,yspa,spaOr);
                     }
                 }
             } catch (Exception f){//Catch exception if any

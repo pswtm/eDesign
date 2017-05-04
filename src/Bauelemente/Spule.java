@@ -9,6 +9,6 @@ public class Spule extends Bauelement {
     {
         super(x,y,Orientation);
 
-        System.out.println("Class Spule: "+posX+posY+Orientation);
+        System.out.println("Class Spule: "+posX+","+posY+","+Orientation);
     }
 }

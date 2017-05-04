@@ -9,7 +9,7 @@ public class Spannungsquelle extends Bauelement {
     {
         super(x,y,Orientation);
 
-        System.out.println("Class Spann: "+posX+posY+Orientation);
+        System.out.println("Class Spann: "+posX+","+posY+","+Orientation);
 
     }
 }

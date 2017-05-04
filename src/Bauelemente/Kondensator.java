@@ -9,7 +9,7 @@ public class Kondensator extends Bauelement {
     {
         super(x,y,Orientation);
 
-        System.out.println("Class Kon: "+posX+posY+Orientation);
+        System.out.println("Class Kon: "+posX+","+posY+","+Orientation);
     }
 
 }
