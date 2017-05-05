@@ -264,11 +264,13 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getButton()== MouseButton.SECONDARY) {
-                    System.out.println("rechtsklick");
-                    if(line.getStroke()==Color.WHITE)
-                        line.setStroke(Color.BLUE);
-                    else if(line.getStroke()==Color.BLUE)
-                        line.setStroke(Color.WHITE);
+                    System.out.println("Rechtsklick Maus");
+                    line.setStroke(Color.color(Math.random(),Math.random(),Math.random()));
+                }
+                else if(event.getButton()==MouseButton.PRIMARY)
+                {
+                    System.out.println("Linksklick Maus");
+                    line.setStroke(Color.WHITE);
                 }
             }});
         /*
