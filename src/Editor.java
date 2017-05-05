@@ -11,6 +11,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.Light;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -23,6 +24,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javafx.event.EventHandler;
+
+import java.awt.*;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -57,6 +60,7 @@ public class Editor extends Application {
     String xmlstring="XML";
     File file;
     XMLCreater xmlcreater;
+    Point point;
     final static int hoehe = 500, weite = 500;
     public static void main(String[] args) {
         launch(args);
@@ -240,6 +244,43 @@ public class Editor extends Application {
                 imageviewSpannungsquelle.setImage(spannungsquelle);
             }});
 
+        imageviewSpannungsquelle.setOnMousePressed(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                System.out.println("pressed");
+            }
+        });
+        imageviewSpannungsquelle.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                point =MouseInfo.getPointerInfo().getLocation();
+                System.out.println("losgelassen an: X: "+ point.getX()+" Y: "+point.getY());
+                new Spannungsquelle((int)point.getX(),(int)point.getY(),0);
+            }
+        });
+        /*
+        //Das ist Drag Drop um eine Datei in das Programm zu ziehen
+        imageviewSpannungsquelle.setOnDragOver(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+                System.out.println("setOnDragOver");
+            }
+        });
+        imageviewSpannungsquelle.setOnDragDropped(new EventHandler<DragEvent>()  {
+            @Override
+            public void handle(DragEvent event) {
+                System.out.println("setOnDragDropped");
+            }
+        });
+        imageviewSpannungsquelle.setOnDragExited(new EventHandler<DragEvent>()  {
+            @Override
+            public void handle(final DragEvent event) {
+                System.out.println("setOnDragExited");
+            }
+        });
+        */
         //TODO: Editorfläche
         Canvas canvas = new Canvas(1920,1080);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -248,10 +289,7 @@ public class Editor extends Application {
         borderPane.getChildren().add(canvas);
 
 
-
-
-
-
+        point =MouseInfo.getPointerInfo().getLocation();
         //TODO: Raster
         Line line =new Line();
         line.setStartX(185);
@@ -264,7 +302,8 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getButton()== MouseButton.SECONDARY) {
-                    System.out.println("Rechtsklick Maus");
+                    point =MouseInfo.getPointerInfo().getLocation();
+                    System.out.println("Rechtsklick Maus X: "+ point.getX()+" Y: "+point.getY());
                     line.setStroke(Color.color(Math.random(),Math.random(),Math.random()));
                 }
                 else if(event.getButton()==MouseButton.PRIMARY)
@@ -273,19 +312,6 @@ public class Editor extends Application {
                     line.setStroke(Color.WHITE);
                 }
             }});
-        /*
-        imageviewWiderstand.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                imageviewWiderstand.setImage(widerstandSchrift);
-            }});
-        imageviewWiderstand.setOnMouseExited(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                imageviewWiderstand.setImage(widerstand);
-            }});
-*/
-
 
         /*                      K
         * Ab hier ensteht das Layout des Editors
@@ -304,17 +330,20 @@ public class Editor extends Application {
     //Linien für das Gitter Werden gezeichnet;
      private void drawLines(GraphicsContext gc){
          int i,j;
+         Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
+         //System.out.println("Bildschirmgröße: "+dim.getWidth()+" "+dim.getHeight());
          gc.beginPath();
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
          //TODO:Es muss noch über die ganze seite gehen 99999 nur Platzhalter
          for(i =0; i<=1920; i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
-             gc.lineTo(i, 1080);
+             gc.lineTo(i, dim.getHeight());
+
          }
          for(j=0; j<=1080; j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
-             gc.lineTo(1920,j);
+             gc.lineTo(dim.getWidth(),j);
          }
          gc.stroke();
      }
