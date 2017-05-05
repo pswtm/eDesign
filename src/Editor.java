@@ -163,7 +163,12 @@ public class Editor extends Application {
                 + "-fx-border-color: darkgrey;"
                 + "-fx-border-width: 0 3 0 0;"
                 + "-fx-padding: 5.5px;");
+        //TODO: Editorfläche
+        Canvas canvas = new Canvas(1920,1080);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        drawLines(gc);
 
+        borderPane.getChildren().add(canvas);
 
 
         //Icon für die Widerstand
@@ -244,13 +249,16 @@ public class Editor extends Application {
                 imageviewSpannungsquelle.setImage(spannungsquelle);
             }});
 
+        // Drag and Drop Versuch
         imageviewSpannungsquelle.setOnMousePressed(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
                 System.out.println("pressed");
+                //hier kommt das vorübergehende bild rein
             }
         });
+
         imageviewSpannungsquelle.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
@@ -258,6 +266,7 @@ public class Editor extends Application {
                 point =MouseInfo.getPointerInfo().getLocation();
                 System.out.println("losgelassen an: X: "+ point.getX()+" Y: "+point.getY());
                 new Spannungsquelle((int)point.getX(),(int)point.getY(),0);
+                gc.drawImage(spannungsquelle, point.getX(),point.getY());
             }
         });
         /*
@@ -281,16 +290,11 @@ public class Editor extends Application {
             }
         });
         */
-        //TODO: Editorfläche
-        Canvas canvas = new Canvas(1920,1080);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        drawLines(gc);
 
-        borderPane.getChildren().add(canvas);
 
 
         point =MouseInfo.getPointerInfo().getLocation();
-        //TODO: Raster
+        //Unwichtige Linie zum testen
         Line line =new Line();
         line.setStartX(185);
         line.setStartY(185);
@@ -313,7 +317,7 @@ public class Editor extends Application {
                 }
             }});
 
-        /*                      K
+        /*
         * Ab hier ensteht das Layout des Editors
         * Top: Menüleiste als ein MenuBar
         * Left: Baukasten als eine VBox
