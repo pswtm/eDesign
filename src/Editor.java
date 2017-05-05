@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
@@ -259,7 +260,29 @@ public class Editor extends Application {
         line.setEndY(438);
         line.setStroke(Color.WHITE);
         borderPane.getChildren().add(line);
-
+        line.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                if(event.getButton()== MouseButton.SECONDARY) {
+                    System.out.println("rechtsklick");
+                    if(line.getStroke()==Color.WHITE)
+                        line.setStroke(Color.BLUE);
+                    else if(line.getStroke()==Color.BLUE)
+                        line.setStroke(Color.WHITE);
+                }
+            }});
+        /*
+        imageviewWiderstand.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewWiderstand.setImage(widerstandSchrift);
+            }});
+        imageviewWiderstand.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                imageviewWiderstand.setImage(widerstand);
+            }});
+*/
 
 
         /*                      K
