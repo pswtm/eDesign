@@ -250,14 +250,16 @@ public class Editor extends Application {
 
 
         Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",100,100,false,false);
-        System.out.println(SpannungsquelleCanvas.getHeight());
         // Drag and Drop Versuch
-        imageviewSpannungsquelle.setOnMousePressed(new EventHandler<MouseEvent>(){
+
+        imageviewSpannungsquelle.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                System.out.println("pressed");
-                //hier kommt das vorübergehende bild rein
+                System.out.println("dragged");
+                gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
+                //Todo hier muss das Bild bewegt werden nicht dauernd gemalt
+
             }
         });
 
