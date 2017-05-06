@@ -60,7 +60,6 @@ public class Editor extends Application {
     String xmlstring="XML";
     File file;
     XMLCreater xmlcreater;
-    Point point;
     final static int hoehe = 500, weite = 500;
     public static void main(String[] args) {
         launch(args);
@@ -249,6 +248,9 @@ public class Editor extends Application {
                 imageviewSpannungsquelle.setImage(spannungsquelle);
             }});
 
+
+        Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",100,100,false,false);
+        System.out.println(SpannungsquelleCanvas.getHeight());
         // Drag and Drop Versuch
         imageviewSpannungsquelle.setOnMousePressed(new EventHandler<MouseEvent>(){
             @Override
@@ -263,10 +265,9 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
-                point =MouseInfo.getPointerInfo().getLocation();
-                System.out.println("losgelassen an: X: "+ point.getX()+" Y: "+point.getY());
-                new Spannungsquelle((int)point.getX(),(int)point.getY(),0);
-                gc.drawImage(spannungsquelle, point.getX(),point.getY());
+                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                new Spannungsquelle((int)event.getSceneX(),(int)event.getSceneY(),0);
+                gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
             }
         });
         /*
@@ -293,7 +294,7 @@ public class Editor extends Application {
 
 
 
-        point =MouseInfo.getPointerInfo().getLocation();
+
         //Unwichtige Linie zum testen
         Line line =new Line();
         line.setStartX(185);
@@ -306,8 +307,8 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getButton()== MouseButton.SECONDARY) {
-                    point =MouseInfo.getPointerInfo().getLocation();
-                    System.out.println("Rechtsklick Maus X: "+ point.getX()+" Y: "+point.getY());
+
+                    System.out.println("Rechtsklick Maus");
                     line.setStroke(Color.color(Math.random(),Math.random(),Math.random()));
                 }
                 else if(event.getButton()==MouseButton.PRIMARY)
