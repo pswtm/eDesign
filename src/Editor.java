@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.event.EventHandler;
 
 import java.awt.*;
+import java.util.Optional;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -61,6 +62,8 @@ public class Editor extends Application {
     File file;
     XMLCreater xmlcreater;
     final static int hoehe = 500, weite = 500;
+    Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -75,9 +78,10 @@ public class Editor extends Application {
 
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 1000, 600);
-
-
-
+        VBox kit = new VBox();
+        Canvas canvas = new Canvas(1920,1080);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        GraphicsContext gc2 = canvas.getGraphicsContext2D();
         //System.out.println(eIcon.getWidth());
 
         /*
@@ -97,7 +101,18 @@ public class Editor extends Application {
         //Unterpunkt: Neu
         MenuItem newMenuItem = new MenuItem("Neu");
         newMenuItem.setOnAction(e -> {
-            //TODO: neuen Schaltplan anlegen
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Neues Projekt anlegen");
+            alert.setHeaderText("");
+            alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
+            Optional<ButtonType> result=alert.showAndWait();
+            if(result.get()==ButtonType.OK) {
+                //gc2.setFill(Color.BLUE);
+                //gc2.fillRect(0,0,200,200);
+                gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
+                drawLines(gc);
+            }
+            else return;
         });
         fileMenu.getItems().add(newMenuItem);
 
@@ -154,7 +169,6 @@ public class Editor extends Application {
         * - Widerstand
         * */
 
-        VBox kit = new VBox();
         kit.setPrefSize(100,100);
         //kit.setAlignment(Pos.BOTTOM_LEFT);
        kit.setStyle("-fx-background-color: black;"
@@ -163,8 +177,7 @@ public class Editor extends Application {
                 + "-fx-border-width: 0 3 0 0;"
                 + "-fx-padding: 5.5px;");
         //TODO: Editorfläche
-        Canvas canvas = new Canvas(1920,1080);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+
         drawLines(gc);
 
         borderPane.getChildren().add(canvas);
@@ -257,6 +270,8 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 System.out.println("dragged");
+                gc.clearRect(event.getSceneX()-60,event.getSceneY()-60,120,120);
+                drawLines(gc);
                 gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
                 //Todo hier muss das Bild bewegt werden nicht dauernd gemalt
 
@@ -337,7 +352,6 @@ public class Editor extends Application {
     //Linien für das Gitter Werden gezeichnet;
      private void drawLines(GraphicsContext gc){
          int i,j;
-         Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
          //System.out.println("Bildschirmgröße: "+dim.getWidth()+" "+dim.getHeight());
          gc.beginPath();
          gc.moveTo(0,0);
