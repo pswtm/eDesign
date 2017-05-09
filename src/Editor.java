@@ -168,11 +168,13 @@ public class Editor extends Application {
 
         kit.setPrefSize(100,100);
         //kit.setAlignment(Pos.BOTTOM_LEFT);
-       kit.setStyle("-fx-background-color: black;"
+
+        kit.setStyle("-fx-background-color: black;"
                 + "-fx-border-style: solid;"
                 + "-fx-border-color: darkgrey;"
                 + "-fx-border-width: 0 3 0 0;"
-                + "-fx-padding: 5.5px;");
+                + "-fx-padding: 10.5px;");
+
         //TODO: Editorfläche
 
         drawGitter(gc);
@@ -259,14 +261,14 @@ public class Editor extends Application {
             }});
 
 
-        Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",100,100,false,false);
+        Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
         // Drag and Drop Versuch
 
         imageviewSpannungsquelle.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                System.out.println("dragged");
+                //System.out.println("dragged");
                 //gc.clearRect(event.getSceneX()-60,event.getSceneY()-60,120,120);
                 //drawLines(gc);
                 //gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
@@ -279,9 +281,14 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
+                int x=0,y=0;
                 System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                new Spannungsquelle((int)event.getSceneX(),(int)event.getSceneY(),0);
-                gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
+
+                x=rundenBauteile((int)event.getSceneX());
+                y=rundenBauteile((int)event.getSceneY());
+                new Spannungsquelle(x,y,0);
+
+                gc.drawImage(SpannungsquelleCanvas, x-25,y-25);
             }
         });
     /*
@@ -313,7 +320,6 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
        drawLines(event, gc);
 
     }});
-
 
         //Unwichtige Linie zum testen
         Line line =new Line();
@@ -359,7 +365,7 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
          gc.beginPath();
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
-         for(i =15; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
+         for(i =0; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
              gc.lineTo(i, dim.getHeight());
 
@@ -517,28 +523,31 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
             }
         }
     }
-public void drawLines(MouseEvent event, GraphicsContext gc)
-{
+    public void drawLines(MouseEvent event, GraphicsContext gc)
+    {
     clickCount++;
     clickCount=clickCount%2;
     if(event.getButton()== MouseButton.PRIMARY) {
 
         if(clickCount==1)
         {
-            xStartLeitung=(int)event.getSceneX();
-            yStartLeitung=(int)event.getSceneY();
+            xStartLeitung=rundenLeitungen((int)event.getSceneX());
+            yStartLeitung=rundenLeitungen((int)event.getSceneY());
         }
         else if (clickCount==0)
         {
-            xEndLeitung=(int)event.getSceneX();
-            yEndLeitung=(int)event.getSceneY();
+            xEndLeitung=rundenLeitungen((int)event.getSceneX());
+            yEndLeitung=rundenLeitungen((int)event.getSceneY());
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
+            System.out.println(" xstart: "+xStartLeitung+" ystart: "+yStartLeitung+" xend: "+xEndLeitung+" yend: "+yEndLeitung);
             Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
             //borderPane.getChildren().add(leitung.getline());
+            gc.setLineWidth(5);
             gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
+            gc.setLineWidth(1);
             xStartLeitung=0;
             yStartLeitung=0;
             xEndLeitung=0;
@@ -550,5 +559,29 @@ public void drawLines(MouseEvent event, GraphicsContext gc)
     {
         return;
     }
-}
+    }
+    public int rundenBauteile(int runden) {
+        if (runden % 50 < 25) {
+            return runden - (runden % 50);
+
+        } else if (runden % 50 >= 25) {
+            return runden + (50 - (runden % 50));
+        } else return 0;
+    }
+    public int rundenLeitungen(int runden)
+    {
+
+        if (runden%50 < 25) {
+            System.out.println("abrunden");
+            return runden - (runden%50);
+
+        }
+        else if (runden%50 >= 25) {
+            System.out.println("aufrunden");
+            return runden + (50 - (runden%50));
+        }
+
+        else return 0;
+    }
+
 }
