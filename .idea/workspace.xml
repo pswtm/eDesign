@@ -67,13 +67,14 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="116">
+              <caret line="364" column="0" lean-forward="true" selection-start-line="364" selection-start-column="0" selection-end-line="364" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#saveas#0;class#Editor#0" expanded="false" />
                 <element signature="method#open#0;class#Editor#0" expanded="false" />
                 <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+                <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -785,7 +786,7 @@
       <workItem from="1494231249237" duration="11000" />
       <workItem from="1494231366261" duration="76000" />
       <workItem from="1494243391613" duration="104000" />
-      <workItem from="1494317580299" duration="6532000" />
+      <workItem from="1494317580299" duration="7180000" />
     </task>
     <task id="LOCAL-00001" summary="Ich habe einen Kommentar eingefügt">
       <created>1493039058456</created>
@@ -812,7 +813,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40392000" />
+    <option name="totallyTimeSpent" value="41040000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -957,6 +958,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1018,6 +1020,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1079,6 +1082,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1132,6 +1136,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1206,6 +1211,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1219,6 +1225,7 @@
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1315,13 +1322,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="116">
+          <caret line="364" column="0" lean-forward="true" selection-start-line="364" selection-start-column="0" selection-end-line="364" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
             <element signature="method#autosave#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>

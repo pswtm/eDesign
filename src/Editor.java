@@ -74,7 +74,7 @@ public class Editor extends Application {
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
 
         BorderPane borderPane = new BorderPane();
-        Scene scene = new Scene(borderPane, 1000, 600);
+        Scene scene = new Scene(borderPane, 990, 600);
         VBox kit = new VBox();
         Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -107,7 +107,7 @@ public class Editor extends Application {
                 //gc2.setFill(Color.BLUE);
                 //gc2.fillRect(0,0,200,200);
                 gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
-                drawLines(gc);
+                drawGitter(gc);
             }
             else return;
         });
@@ -175,7 +175,7 @@ public class Editor extends Application {
                 + "-fx-padding: 5.5px;");
         //TODO: Editorfläche
 
-        drawLines(gc);
+        drawGitter(gc);
 
         borderPane.getChildren().add(canvas);
 
@@ -310,39 +310,7 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
     @Override
     public void handle(MouseEvent event)
     {
-        clickCount++;
-        clickCount=clickCount%2;
-        if(event.getButton()== MouseButton.PRIMARY) {
-
-            if(clickCount==1)
-            {
-                xStartLeitung=(int)event.getSceneX();
-                yStartLeitung=(int)event.getSceneY();
-                System.out.println("CLick im Canvas: "+clickCount+" Leitung: X: "+xStartLeitung+" Y: "+yStartLeitung);
-            }
-            else if (clickCount==0)
-            {
-                xEndLeitung=(int)event.getSceneX();
-                yEndLeitung=(int)event.getSceneY();
-                System.out.println("CLick im Canvas: "+clickCount+" Leitung: X: "+xEndLeitung+" Y: "+yEndLeitung);
-            }
-            if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
-            {
-                Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
-                //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
-                //borderPane.getChildren().add(leitung.getline());
-                gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
-                xStartLeitung=0;
-                yStartLeitung=0;
-                xEndLeitung=0;
-                yEndLeitung=0;
-            }
-            else return;
-        }
-        else
-        {
-            return;
-        }
+       drawLines(event, gc);
 
     }});
 
@@ -385,7 +353,7 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
     }
     //Linien für das Gitter Werden gezeichnet;
-     private void drawLines(GraphicsContext gc){
+     private void drawGitter(GraphicsContext gc){
          int i,j;
          //System.out.println("Bildschirmgröße: "+dim.getWidth()+" "+dim.getHeight());
          gc.beginPath();
@@ -396,7 +364,7 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
              gc.lineTo(i, dim.getHeight());
 
          }
-         for(j=7; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
+         for(j=0; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
              gc.lineTo(dim.getWidth(),j);
          }
@@ -549,5 +517,38 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
             }
         }
     }
+public void drawLines(MouseEvent event, GraphicsContext gc)
+{
+    clickCount++;
+    clickCount=clickCount%2;
+    if(event.getButton()== MouseButton.PRIMARY) {
 
+        if(clickCount==1)
+        {
+            xStartLeitung=(int)event.getSceneX();
+            yStartLeitung=(int)event.getSceneY();
+        }
+        else if (clickCount==0)
+        {
+            xEndLeitung=(int)event.getSceneX();
+            yEndLeitung=(int)event.getSceneY();
+        }
+        if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
+        {
+            Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
+            //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
+            //borderPane.getChildren().add(leitung.getline());
+            gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
+            xStartLeitung=0;
+            yStartLeitung=0;
+            xEndLeitung=0;
+            yEndLeitung=0;
+        }
+        else return;
+    }
+    else
+    {
+        return;
+    }
+}
 }
