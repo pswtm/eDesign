@@ -58,8 +58,8 @@ public class Editor extends Application {
     XMLCreater xmlcreater;
     int clickCount=0;
     int xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
-
     Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
+    Color color=Color.rgb(238,238,238);
 
     public static void main(String[] args) {
         launch(args);
@@ -531,13 +531,13 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
         if(clickCount==1)
         {
-            xStartLeitung=rundenLeitungen((int)event.getSceneX());
-            yStartLeitung=rundenLeitungen((int)event.getSceneY());
+            xStartLeitung=rundenLeitungenX((int)event.getSceneX());
+            yStartLeitung=rundenLeitungenY((int)event.getSceneY());
         }
         else if (clickCount==0)
         {
-            xEndLeitung=rundenLeitungen((int)event.getSceneX());
-            yEndLeitung=rundenLeitungen((int)event.getSceneY());
+            xEndLeitung=rundenLeitungenX((int)event.getSceneX());
+            yEndLeitung=rundenLeitungenY((int)event.getSceneY());
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
@@ -545,8 +545,10 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
             Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
             //borderPane.getChildren().add(leitung.getline());
-            gc.setLineWidth(5);
+            gc.setLineWidth(4);
+            gc.setStroke(color);
             gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
+            gc.setStroke(Color.WHITE);
             gc.setLineWidth(1);
             xStartLeitung=0;
             yStartLeitung=0;
@@ -568,21 +570,33 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
             return runden + (50 - (runden % 50));
         } else return 0;
     }
-    public int rundenLeitungen(int runden)
+    public int rundenLeitungenX(int runden)
     {
+        int a=0,b=0;
+        if (runden % 50 < 25) {
+            a= runden - (runden % 50)+25;
+            //System.out.println("a: "+a);
+            return a;
 
-        System.out.println("runden"+runden);
-        int runden2=runden%100;
-        if (runden2<25){
-            return runden - (runden%100);
-        } else if (runden2 < 50) {
-            return runden + (runden%50);
-        } else if (runden2 < 75) {
-            return runden - (runden%50);
-        } else if (runden2 < 100) {
-            return runden + (runden%100);
-        }
-        else return 0;
+        } else if (runden % 50 >= 25) {
+            b= runden +  (50-runden % 50)-25;
+            //System.out.println("b: "+b);
+            return b;
+        } else return 0;
+    }
+    public int rundenLeitungenY(int runden)
+    {
+        int a=0,b=0;
+        if (runden % 50 < 25) {
+            a= runden - (runden % 50);
+            System.out.println("a: "+a);
+            return a;
+
+        } else if (runden % 50 >= 25) {
+            b= runden +  (50-runden % 50);
+            System.out.println("b: "+b);
+            return b;
+        } else return 0;
     }
 
 }
