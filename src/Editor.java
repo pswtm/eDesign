@@ -51,8 +51,6 @@ import javafx.scene.input.MouseEvent;
 
 public class Editor extends Application {
 
-    //Büsra Test speichern
-
     //unser Fenster
     Stage window;
     String xmlstring="XML";
@@ -394,13 +392,12 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
          gc.beginPath();
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
-         //TODO:Es muss noch über die ganze seite gehen 99999 nur Platzhalter
-         for(i =0; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
+         for(i =15; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
              gc.lineTo(i, dim.getHeight());
 
          }
-         for(j=0; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
+         for(j=7; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
              gc.lineTo(dim.getWidth(),j);
          }
