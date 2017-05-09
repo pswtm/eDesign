@@ -56,7 +56,6 @@ public class Editor extends Application {
     String xmlstring="XML";
     File file;
     XMLCreater xmlcreater;
-    final static int hoehe = 500, weite = 500;
     int clickCount=0;
     int xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
 
@@ -77,7 +76,7 @@ public class Editor extends Application {
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 1000, 600);
         VBox kit = new VBox();
-        Canvas canvas = new Canvas(1920,1080);
+        Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
         GraphicsContext gc = canvas.getGraphicsContext2D();
         GraphicsContext gc2 = canvas.getGraphicsContext2D();
         //System.out.println(eIcon.getWidth());
