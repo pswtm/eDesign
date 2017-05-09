@@ -1,5 +1,7 @@
 package Bauelemente;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -23,6 +25,10 @@ public class Leitung extends Bauelement{
         line.setEndX(xend);
         line.setEndY(yend);
         line.setStroke(Color.WHITE);
+    }
+    public void draw(GraphicsContext gc, Image image)
+    {
+        gc.drawImage(image,posX-25,posY-25);
     }
     public int getxstart() {return posX;}
     public int getystart() {return posY;}

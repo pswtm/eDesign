@@ -2,6 +2,8 @@ package Bauelemente;
 
 
 import javafx.geometry.Orientation;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 /**
  * Created by Merve on 24.04.2017.
@@ -33,6 +35,13 @@ public abstract class Bauelement {
         this.Orientation = Orientation;
     }
 
-
+    public void draw(GraphicsContext gc, Image image)
+    {
+    gc.drawImage(image,posX-25,posY-25);
+    }
+    public void deleteimage(GraphicsContext gc)
+    {
+        gc.clearRect(posX-25,posY-25,50,50);
+    }
 
 }

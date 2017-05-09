@@ -262,6 +262,12 @@ public class Editor extends Application {
 
 
         Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
+        Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
+        Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
+        Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
+
+
+
         // Drag and Drop Versuch
 
         imageviewSpannungsquelle.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -286,9 +292,45 @@ public class Editor extends Application {
 
                 x=rundenBauteile((int)event.getSceneX());
                 y=rundenBauteile((int)event.getSceneY());
-                new Spannungsquelle(x,y,0);
+                Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
+                spannungsquelle.draw(gc,SpannungsquelleCanvas);
+            }
+        });
+        imageviewSpule.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                int x=0,y=0;
+                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                x=rundenBauteile((int)event.getSceneX());
+                y=rundenBauteile((int)event.getSceneY());
+                Spule spule=new Spule(x,y,0);
+                spule.draw(gc,SpuleCanvas);
+            }
+        });
+        imageviewKondensator.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                int x=0,y=0;
+                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
 
-                gc.drawImage(SpannungsquelleCanvas, x-25,y-25);
+                x=rundenBauteile((int)event.getSceneX());
+                y=rundenBauteile((int)event.getSceneY());
+                Kondensator kondensator=new Kondensator(x,y,0);
+                kondensator.draw(gc,KondensatorCanvas);
+            }
+        });
+        imageviewWiderstand.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                int x=0,y=0;
+                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                x=rundenBauteile((int)event.getSceneX());
+                y=rundenBauteile((int)event.getSceneY());
+                Widerstand widerstand=new Widerstand(x,y,0);
+                widerstand.draw(gc,WiderstandCanvas);
             }
         });
     /*
