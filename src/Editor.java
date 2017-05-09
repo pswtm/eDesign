@@ -270,9 +270,9 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 System.out.println("dragged");
-                gc.clearRect(event.getSceneX()-60,event.getSceneY()-60,120,120);
-                drawLines(gc);
-                gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
+                //gc.clearRect(event.getSceneX()-60,event.getSceneY()-60,120,120);
+                //drawLines(gc);
+                //gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
                 //Todo hier muss das Bild bewegt werden nicht dauernd gemalt
 
             }
@@ -287,27 +287,27 @@ public class Editor extends Application {
                 gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
             }
         });
-        /*
+    /*
         //Das ist Drag Drop um eine Datei in das Programm zu ziehen
-        imageviewSpannungsquelle.setOnDragOver(new EventHandler<DragEvent>() {
+        scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
                 System.out.println("setOnDragOver");
             }
         });
-        imageviewSpannungsquelle.setOnDragDropped(new EventHandler<DragEvent>()  {
+        scene.setOnDragDropped(new EventHandler<DragEvent>()  {
             @Override
             public void handle(DragEvent event) {
                 System.out.println("setOnDragDropped");
             }
         });
-        imageviewSpannungsquelle.setOnDragExited(new EventHandler<DragEvent>()  {
+        scene.setOnDragExited(new EventHandler<DragEvent>()  {
             @Override
             public void handle(final DragEvent event) {
                 System.out.println("setOnDragExited");
             }
         });
-        */
+**/
 
 
 
