@@ -5,9 +5,6 @@ import javafx.geometry.Orientation;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-/**
- * Created by Merve on 24.04.2017.
- */
 public abstract class Bauelement {
 
     //Position des Bauelements auf dem Raster
@@ -23,25 +20,25 @@ public abstract class Bauelement {
     final int ausrNW = 7;
 
     //SnapPoint-Positionen
-    int snap1X=0,snap1Y=0;
-    int snap2X=0,snap2Y=0;
+    double snap1X=0,snap1Y=0;
+    double snap2X=0,snap2Y=0;
 
-    protected int posX = 0, posY = 0, Orientation=0;
+    protected double posX = 0, posY = 0, Orientation=0;
 
     //Icon
-    public Bauelement(int posX, int posY, int Orientation) {
+    public Bauelement(double posX, double posY, int Orientation) {
         this.posX = posX;
         this.posY = posY;
         this.Orientation = Orientation;
     }
 
-    public void draw(GraphicsContext gc, Image image)
-    {
-    gc.drawImage(image,posX-25,posY-25);
-    }
+    public abstract void draw(GraphicsContext gc, Image image);
+
+
     public void deleteimage(GraphicsContext gc)
     {
         gc.clearRect(posX-25,posY-25,50,50);
     }
+
 
 }

@@ -1,6 +1,4 @@
-/**
- * Created by XQF on 24.04.2017.
- */
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;

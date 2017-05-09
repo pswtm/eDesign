@@ -1,6 +1,7 @@
 import Bauelemente.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -12,9 +13,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.Light;
 import javafx.scene.image.Image;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseButton;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
@@ -47,7 +46,6 @@ import java.io.File;
 import java.util.Iterator;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.input.MouseEvent;
 
 public class Editor extends Application {
 
@@ -57,9 +55,13 @@ public class Editor extends Application {
     File file;
     XMLCreater xmlcreater;
     int clickCount=0;
-    int xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
+    double xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
     Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
     Color color=Color.rgb(238,238,238);
+    private EventHandler<DragEvent> mIconDragOverRoot = null;
+    Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
+    VBox vbox = new VBox();
+    GraphicsContext gc = canvas.getGraphicsContext2D();
 
     public static void main(String[] args) {
         launch(args);
@@ -75,21 +77,7 @@ public class Editor extends Application {
 
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 990, 600);
-        VBox kit = new VBox();
-        Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        GraphicsContext gc2 = canvas.getGraphicsContext2D();
-        //System.out.println(eIcon.getWidth());
 
-        /*
-        * Menüleiste mit folgenden Punkten und Unterpunkten
-        * Datei: Speichern, Speichern unter...
-        * Bearbeiten:
-        *
-        *
-        * !!! Unterstrichener Anfangsbuchstabe: IM CSS ändern
-        * http://stackoverflow.com/questions/20541038/how-to-have-the-menu-mnemonic-underline-appearing-always
-        * */
         //Menüpunkt "Datei" erstellen
         //TODO: Menüstruktur und Funktionen ergänzen
         Menu fileMenu = new Menu("_Datei");
@@ -104,8 +92,6 @@ public class Editor extends Application {
             alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
             Optional<ButtonType> result=alert.showAndWait();
             if(result.get()==ButtonType.OK) {
-                //gc2.setFill(Color.BLUE);
-                //gc2.fillRect(0,0,200,200);
                 gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
                 drawGitter(gc);
             }
@@ -157,36 +143,25 @@ public class Editor extends Application {
         //Menüleiste zusammenüfhren
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
-        /*
-        * Baukasten als eine VBox
-        * folgende Icons sollen rein:
-        * - Spannungsquelle
-        * - Spule
-        * - Kondensator
-        * - Widerstand
-        * */
 
-        kit.setPrefSize(100,100);
+        vbox.setPrefSize(100,100);
         //kit.setAlignment(Pos.BOTTOM_LEFT);
 
-        kit.setStyle("-fx-background-color: black;"
+        vbox.setStyle("-fx-background-color: black;"
                 + "-fx-border-style: solid;"
                 + "-fx-border-color: darkgrey;"
                 + "-fx-border-width: 0 3 0 0;"
                 + "-fx-padding: 10.5px;");
 
-        //TODO: Editorfläche
-
         drawGitter(gc);
 
         borderPane.getChildren().add(canvas);
-
 
         //Icon für die Widerstand
         final ImageView imageviewWiderstand = new ImageView();
         Image widerstand=new Image("file:Images/widerstand.png",100,100,false,false);
         imageviewWiderstand.setImage(widerstand);
-        kit.getChildren().addAll(imageviewWiderstand);
+        vbox.getChildren().addAll(imageviewWiderstand);
         Image widerstandSchrift= new Image("file:Images/widerstandSchrift.png",100,100,false,false);
 
 
@@ -206,7 +181,7 @@ public class Editor extends Application {
         final ImageView imageviewKondensator = new ImageView();
         Image kondensator=new Image("file:Images/kondensator.png",100,100,false,false);
         imageviewKondensator.setImage(kondensator);
-        kit.getChildren().addAll(imageviewKondensator);
+        vbox.getChildren().addAll(imageviewKondensator);
         Image kondensatorSchrift= new Image("file:Images/kondensatorSchrift.png",100,100,false,false);
 
         //Mouse Over für das Einbleinden der IconBezeichnung
@@ -226,7 +201,7 @@ public class Editor extends Application {
         final ImageView imageviewSpule = new ImageView();
         Image spule=new Image("file:Images/spule.png",100,100,false,false);
         imageviewSpule.setImage(spule);
-        kit.getChildren().addAll(imageviewSpule);
+        vbox.getChildren().addAll(imageviewSpule);
         Image spuleSchrift= new Image("file:Images/spuleSchrift.png",100,100,false,false);
 
         //Mouse Over für das Einbleinden der IconBezeichnung
@@ -245,7 +220,7 @@ public class Editor extends Application {
         final ImageView imageviewSpannungsquelle = new ImageView();
         Image spannungsquelle=new Image("file:Images/spannungsquelle.png",100,100,false,false);
         imageviewSpannungsquelle.setImage(spannungsquelle);
-        kit.getChildren().addAll(imageviewSpannungsquelle);
+        vbox.getChildren().addAll(imageviewSpannungsquelle);
         Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
 
         //Mouse Over für das Einbleinden der IconBezeichnung
@@ -287,23 +262,24 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
-                int x=0,y=0;
+                double x=0,y=0;
                 System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
 
-                x=rundenBauteile((int)event.getSceneX());
-                y=rundenBauteile((int)event.getSceneY());
+                x=rundenBauteile(event.getSceneX());
+                y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
                 spannungsquelle.draw(gc,SpannungsquelleCanvas);
+
             }
         });
         imageviewSpule.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                int x=0,y=0;
+                double x=0,y=0;
                 System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenBauteile((int)event.getSceneX());
-                y=rundenBauteile((int)event.getSceneY());
+                x=rundenBauteile(event.getSceneX());
+                y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
                 spule.draw(gc,SpuleCanvas);
             }
@@ -312,11 +288,11 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
-                int x=0,y=0;
+                double x=0,y=0;
                 System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
 
-                x=rundenBauteile((int)event.getSceneX());
-                y=rundenBauteile((int)event.getSceneY());
+                x=rundenBauteile(event.getSceneX());
+                y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
                 kondensator.draw(gc,KondensatorCanvas);
             }
@@ -325,12 +301,13 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
-                int x=0,y=0;
+                double x=0,y=0;
                 System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenBauteile((int)event.getSceneX());
-                y=rundenBauteile((int)event.getSceneY());
+                x=rundenBauteile(event.getSceneX());
+                y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);
                 widerstand.draw(gc,WiderstandCanvas);
+
             }
         });
     /*
@@ -353,16 +330,47 @@ public class Editor extends Application {
                 System.out.println("setOnDragExited");
             }
         });
-**/
-//Neue Leitung zeichnen mit 2 Mausklicks auf Canvas
-canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
-    @Override
-    public void handle(MouseEvent event)
-    {
-       drawLines(event, gc);
+    */
+        //Neue Leitung zeichnen mit 2 Mausklicks auf Canvas
+        canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        @Override
+        public void handle(MouseEvent event)
+        {
+        drawLines(event, gc);
 
-    }});
+        }});
+        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
+        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
+        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
+        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
 
+        ImageView imageviewSpannungsquelleCanvas = new ImageView();
+        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
+        imageviewSpannungsquelleCanvas.setX(475);
+        imageviewSpannungsquelleCanvas.setY(275);
+        borderPane.getChildren().add(imageviewSpannungsquelleCanvas);
+        imageviewSpannungsquelleCanvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.SECONDARY) {
+                    if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle0){
+                       // System.out.println("Rechtsklick Maus image2");
+                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle1);
+                    }
+                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle1)
+                    {
+                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle2);
+                    }
+                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle2)
+                    {
+                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle3);
+                    }
+                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle3)
+                    {
+                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
+                    }
+                }
+            }});
         //Unwichtige Linie zum testen
         Line line =new Line();
         line.setStartX(185);
@@ -370,8 +378,9 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
         line.setEndX(438);
         line.setEndY(438);
         line.setStroke(Color.WHITE);
+        line.setStrokeWidth(10);
         borderPane.getChildren().add(line);
-        line.setOnMouseEntered(new EventHandler<MouseEvent>(){
+        line.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 if(event.getButton()== MouseButton.SECONDARY) {
@@ -386,19 +395,12 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
                 }
             }});
 
-        /*
-        * Ab hier ensteht das Layout des Editors
-        * Top: Menüleiste als ein MenuBar
-        * Left: Baukasten als eine VBox
-        * Central: EditorFläche
-        * */
         borderPane.setTop(menuBar);
-        borderPane.setLeft(kit);
+        borderPane.setLeft(vbox);
 
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
-
     }
     //Linien für das Gitter Werden gezeichnet;
      private void drawGitter(GraphicsContext gc){
@@ -573,17 +575,16 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
         if(clickCount==1)
         {
-            xStartLeitung=rundenLeitungenX((int)event.getSceneX());
-            yStartLeitung=rundenLeitungenY((int)event.getSceneY());
+            xStartLeitung=rundenLeitungen(event.getSceneX());
+            yStartLeitung=rundenLeitungen(event.getSceneY());
         }
         else if (clickCount==0)
         {
-            xEndLeitung=rundenLeitungenX((int)event.getSceneX());
-            yEndLeitung=rundenLeitungenY((int)event.getSceneY());
+            xEndLeitung=rundenLeitungen(event.getSceneX());
+            yEndLeitung=rundenLeitungen(event.getSceneY());
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
-            System.out.println(" xstart: "+xStartLeitung+" ystart: "+yStartLeitung+" xend: "+xEndLeitung+" yend: "+yEndLeitung);
             Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
             //borderPane.getChildren().add(leitung.getline());
@@ -599,44 +600,23 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
         }
         else return;
     }
-    else
-    {
-        return;
     }
-    }
-    public int rundenBauteile(int runden) {
+    public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
-
         } else if (runden % 50 >= 25) {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
-    public int rundenLeitungenX(int runden)
+    public double rundenLeitungen(double runden)
     {
-        int a=0,b=0;
-        if (runden % 50 < 25) {
-            a= runden - (runden % 50)+25;
-            //System.out.println("a: "+a);
+        double a=0,b=0;
+        if (runden % 25 < 12.5) {
+            a= runden - (runden % 25);
             return a;
 
-        } else if (runden % 50 >= 25) {
-            b= runden +  (50-runden % 50)-25;
-            //System.out.println("b: "+b);
-            return b;
-        } else return 0;
-    }
-    public int rundenLeitungenY(int runden)
-    {
-        int a=0,b=0;
-        if (runden % 50 < 25) {
-            a= runden - (runden % 50);
-            System.out.println("a: "+a);
-            return a;
-
-        } else if (runden % 50 >= 25) {
-            b= runden +  (50-runden % 50);
-            System.out.println("b: "+b);
+        } else if (runden % 25 >= 12.5) {
+            b= runden +  (25-runden % 25);
             return b;
         } else return 0;
     }

@@ -1,14 +1,16 @@
 package Bauelemente;
 
+import com.sun.javafx.geom.Rectangle;
+import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 
-/**
- * Created by Merve on 24.04.2017.
- */
+
 public class Spannungsquelle extends Bauelement {
 
-    public Spannungsquelle(int x, int y, int Orientation)
+Image image;
+    public Spannungsquelle(double x, double y, int Orientation)
     {
         super(x,y,Orientation);
 
@@ -17,6 +19,10 @@ public class Spannungsquelle extends Bauelement {
     }
     public void draw(GraphicsContext gc, Image image)
     {
+        this.image=image;
         gc.drawImage(image,posX-25,posY-25);
+
     }
+
+
 }

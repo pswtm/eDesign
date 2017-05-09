@@ -3,12 +3,9 @@ package Bauelemente;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-/**
- * Created by Merve on 24.04.2017.
- */
 public class Kondensator extends Bauelement {
 
-    public Kondensator(int x, int y, int Orientation)
+    public Kondensator(double x, double y, int Orientation)
     {
         super(x,y,Orientation);
 
@@ -18,4 +15,5 @@ public class Kondensator extends Bauelement {
     {
         gc.drawImage(image,posX-25,posY-25);
     }
+
 }

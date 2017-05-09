@@ -5,16 +5,13 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-/**
- * Created by fabiankuschke on 09.05.17.
- */
 public class Leitung extends Bauelement{
-    int xend;
-    int yend;
+    double xend;
+    double yend;
     Line line =new Line();
 
 
-    public Leitung(int xstart, int ystart, int Orientation, int xend, int yend)
+    public Leitung(double xstart, double ystart, int Orientation, double xend, double yend)
     {
         super(xstart,ystart,Orientation);
         this.xend=xend;
@@ -30,9 +27,10 @@ public class Leitung extends Bauelement{
     {
         gc.drawImage(image,posX-25,posY-25);
     }
-    public int getxstart() {return posX;}
-    public int getystart() {return posY;}
-    public int getxend()   {return xend;}
-    public int getyend()   {return yend;}
+    public double getxstart() {return posX;}
+    public double getystart() {return posY;}
+    public double getxend()   {return xend;}
+    public double getyend()   {return yend;}
     public Line getline()  {return line;}
+
 }

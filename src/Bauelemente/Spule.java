@@ -3,12 +3,10 @@ package Bauelemente;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-/**
- * Created by Merve on 24.04.2017.
- */
+
 public class Spule extends Bauelement {
 
-    public Spule(int x, int y, int Orientation)
+    public Spule(double x, double y, int Orientation)
     {
         super(x,y,Orientation);
 
@@ -18,4 +16,5 @@ public class Spule extends Bauelement {
     {
         gc.drawImage(image,posX-25,posY-25);
     }
+
 }
