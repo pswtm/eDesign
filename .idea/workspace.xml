@@ -66,8 +66,8 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="83" column="27" lean-forward="false" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+            <state relative-caret-position="176">
+              <caret line="272" column="73" lean-forward="false" selection-start-line="272" selection-start-column="73" selection-end-line="272" selection-end-column="73" />
               <folding>
                 <element signature="method#saveas#0;class#Editor#0" expanded="false" />
                 <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -219,9 +219,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -809,6 +809,7 @@
       <workItem from="1494231138016" duration="50000" />
       <workItem from="1494231249237" duration="11000" />
       <workItem from="1494231366261" duration="76000" />
+      <workItem from="1494243391613" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="Ich habe einen Kommentar eingefügt">
       <created>1493039058456</created>
@@ -835,7 +836,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33756000" />
+    <option name="totallyTimeSpent" value="33860000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -858,7 +859,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="798" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="798" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1334,8 +1335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="83" column="27" lean-forward="false" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+        <state relative-caret-position="176">
+          <caret line="272" column="73" lean-forward="false" selection-start-line="272" selection-start-column="73" selection-end-line="272" selection-end-column="73" />
           <folding>
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
