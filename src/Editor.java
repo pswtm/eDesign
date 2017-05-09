@@ -571,16 +571,17 @@ canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
     public int rundenLeitungen(int runden)
     {
 
-        if (runden%50 < 25) {
-            System.out.println("abrunden");
+        System.out.println("runden"+runden);
+        int runden2=runden%100;
+        if (runden2<25){
+            return runden - (runden%100);
+        } else if (runden2 < 50) {
+            return runden + (runden%50);
+        } else if (runden2 < 75) {
             return runden - (runden%50);
-
+        } else if (runden2 < 100) {
+            return runden + (runden%100);
         }
-        else if (runden%50 >= 25) {
-            System.out.println("aufrunden");
-            return runden + (50 - (runden%50));
-        }
-
         else return 0;
     }
 
