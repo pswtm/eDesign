@@ -1,5 +1,4 @@
-import Bauelemente.Spannungsquelle;
-import Bauelemente.Widerstand;
+import Bauelemente.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -31,9 +30,7 @@ import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import Bauelemente.Spannungsquelle;
-import Bauelemente.Spule;
 import Bauelemente.Widerstand;
-import Bauelemente.Kondensator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.Event;
@@ -62,6 +59,9 @@ public class Editor extends Application {
     File file;
     XMLCreater xmlcreater;
     final static int hoehe = 500, weite = 500;
+    int clickCount=0;
+    int xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
+
     Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
 
     public static void main(String[] args) {
@@ -308,8 +308,46 @@ public class Editor extends Application {
             }
         });
 **/
+//Neue Leitung zeichnen mit 2 Mausklicks auf Canvas
+canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
+    @Override
+    public void handle(MouseEvent event)
+    {
+        clickCount++;
+        clickCount=clickCount%2;
+        if(event.getButton()== MouseButton.PRIMARY) {
 
+            if(clickCount==1)
+            {
+                xStartLeitung=(int)event.getSceneX();
+                yStartLeitung=(int)event.getSceneY();
+                System.out.println("CLick im Canvas: "+clickCount+" Leitung: X: "+xStartLeitung+" Y: "+yStartLeitung);
+            }
+            else if (clickCount==0)
+            {
+                xEndLeitung=(int)event.getSceneX();
+                yEndLeitung=(int)event.getSceneY();
+                System.out.println("CLick im Canvas: "+clickCount+" Leitung: X: "+xEndLeitung+" Y: "+yEndLeitung);
+            }
+            if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
+            {
+                Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
+                //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
+                //borderPane.getChildren().add(leitung.getline());
+                gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
+                xStartLeitung=0;
+                yStartLeitung=0;
+                xEndLeitung=0;
+                yEndLeitung=0;
+            }
+            else return;
+        }
+        else
+        {
+            return;
+        }
 
+    }});
 
 
         //Unwichtige Linie zum testen
@@ -357,12 +395,12 @@ public class Editor extends Application {
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
          //TODO:Es muss noch über die ganze seite gehen 99999 nur Platzhalter
-         for(i =0; i<=1920; i+=25){ //Senkrechte linien werden gezeichnet
+         for(i =0; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
              gc.lineTo(i, dim.getHeight());
 
          }
-         for(j=0; j<=1080; j+=25){ //waagrechte linien werden gezichnet
+         for(j=0; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
              gc.lineTo(dim.getWidth(),j);
          }
