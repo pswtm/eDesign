@@ -51,6 +51,13 @@ public class Spule extends Bauelement {
                 imageviewSpule1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpule1.setY(rundenBauteile(event.getSceneY())-25);
             }});
+        imageviewSpule1.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                imageviewSpule1.setX(event.getSceneX()-25);
+                imageviewSpule1.setY(event.getSceneY()-25);
+            }});
 
     }
     public void draw(GraphicsContext gc, double Orientation)

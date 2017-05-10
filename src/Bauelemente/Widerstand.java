@@ -50,6 +50,13 @@ public class Widerstand extends Bauelement {
                 imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
             }});
+        imageviewWiderstand1.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                imageviewWiderstand1.setX(event.getSceneX()-25);
+                imageviewWiderstand1.setY(event.getSceneY()-25);
+            }});
 
     }
     public void draw(GraphicsContext gc, double Orientation)

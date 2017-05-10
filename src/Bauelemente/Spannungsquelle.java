@@ -58,6 +58,13 @@ public class Spannungsquelle extends Bauelement {
                 //Todo
                 //toxml()
             }});
+        imageviewSpannungsquelle1.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                imageviewSpannungsquelle1.setX(event.getSceneX()-25);
+                imageviewSpannungsquelle1.setY(event.getSceneY()-25);
+            }});
 
     }
     public void draw(GraphicsContext gc, double Orientation)

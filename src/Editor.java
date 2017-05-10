@@ -223,9 +223,11 @@ public class Editor extends Application {
             }});
 
         //Icon für die spannungsquelle
-        final ImageView imageviewSpannungsquelle = new ImageView();
+         ImageView imageviewSpannungsquelle = new ImageView();
+         ImageView imageviewSpannungsquelle1 = new ImageView();
         Image spannungsquelle=new Image("file:Images/spannungsquelle.png",100,100,false,false);
         imageviewSpannungsquelle.setImage(spannungsquelle);
+        imageviewSpannungsquelle1.setImage(Spannungsquelle2);
         vbox.getChildren().addAll(imageviewSpannungsquelle);
         Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
 
@@ -247,12 +249,10 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
-                //System.out.println("dragged");
-                //gc.clearRect(event.getSceneX()-60,event.getSceneY()-60,120,120);
-                //drawLines(gc);
-                //gc.drawImage(SpannungsquelleCanvas, event.getSceneX()-50,event.getSceneY()-50);
-                //Todo hier muss das Bild bewegt werden nicht dauernd gemalt
-
+                imageviewSpannungsquelle1.setX(event.getSceneX()-25);
+                imageviewSpannungsquelle1.setY(event.getSceneY()-25);
+                borderPane.getChildren().remove(imageviewSpannungsquelle1);
+                borderPane.getChildren().add(imageviewSpannungsquelle1);
             }
         });
 
@@ -260,8 +260,8 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {
+                borderPane.getChildren().remove(imageviewSpannungsquelle1);
                 double x=0,y=0;
-               // System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);

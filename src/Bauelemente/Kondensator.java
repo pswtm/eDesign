@@ -50,6 +50,13 @@ public class Kondensator extends Bauelement {
                 imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
             }});
+        imageviewKondensator1.setOnMouseDragged(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                imageviewKondensator1.setX(event.getSceneX()-25);
+                imageviewKondensator1.setY(event.getSceneY()-25);
+            }});
 
     }
     public String toxml(String xml){
