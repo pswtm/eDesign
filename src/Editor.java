@@ -274,7 +274,8 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
-                spannungsquelle.draw(gc,0);
+                //spannungsquelle.draw(gc,0);
+                spannungsquelle.draw1(gc,0,borderPane);
                 xmlstring=spannungsquelle.toxml(xmlstring);
 
             }
