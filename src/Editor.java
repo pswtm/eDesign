@@ -270,7 +270,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
                 spannungsquelle.draw(gc,SpannungsquelleCanvas);
-                xmlstring+=spannungsquelle.toxml(xmlstring);
+                xmlstring=spannungsquelle.toxml(xmlstring);
 
             }
         });
@@ -284,7 +284,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
                 spule.draw(gc,SpuleCanvas);
-                xmlstring+=spule.toxml(xmlstring);
+                xmlstring=spule.toxml(xmlstring);
             }
         });
         imageviewKondensator.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -298,7 +298,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
                 kondensator.draw(gc,KondensatorCanvas);
-                xmlstring+=kondensator.toxml(xmlstring);
+                xmlstring=kondensator.toxml(xmlstring);
             }
         });
         imageviewWiderstand.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -311,7 +311,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);
                 widerstand.draw(gc,WiderstandCanvas);
-                xmlstring+=widerstand.toxml(xmlstring);
+                xmlstring=widerstand.toxml(xmlstring);
 
             }
         });
@@ -428,20 +428,6 @@ public class Editor extends Application {
     //Speichern unter
     public void saveas()
     {
-        //Test Ints nachher löschen und richtige funktionen eintragen
-        int xkon=250;
-        int ykon=250;
-        int xspu=350;
-        int yspu=350;
-        int xwid=450;
-        int ywid=450;
-        int xspa=550;
-        int yspa=550;
-        int konor=0;
-        int spaor=0;
-        int widor=0;
-        int spuor=0;
-
         String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         String start= "			XML File\n"
                 + "        <Header>\n"
@@ -451,36 +437,7 @@ public class Editor extends Application {
                 + "		</Teile>\n"
                 + "        </Header>\n";
          all=start+xmlstring+end;
-        /*
-        xmlstring+=xmlheader;
-        xmlstring+= "			XML File\n"
-                + "        <Header>\n"
-                + "                <name>XML File</name>\n"
-                + "		<Teile>\n\n"
-                + "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
-                + "		<xkon>"+xkon+"</xkon>\n"
-                + "		<ykon>"+ykon+"</ykon>\n"
-                + "		<konor>"+konor+"</konor>\n\n"
-                + "		<Spule>" + "Spule" + "</Spule>\n"
-                + "		<xspu>"+xspu+"</xspu>\n"
-                + "		<yspu>"+yspu+"</yspu>\n"
-                + "		<spuor>"+spaor+"</spuor>\n\n"
-                + "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
-                + "		<xwid>"+xwid+"</xwid>\n"
-                + "		<ywid>"+ywid+"</ywid>\n"
-                + "		<widor>"+widor+"</widor>\n\n"
-                + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
-                + "		<xspa>"+xspa+"</xspa>\n"
-                + "		<yspa>"+yspa+"</yspa>\n"
-                + "		<spaor>"+spaor+"</spaor>\n\n"
-                + "		<Spule>" + "Spule" + "</Spule>\n"
-                + "		<xspu>"+xspu+"</xspu>\n"
-                + "		<yspu>"+yspu+"</yspu>\n"
-                + "		<spuor>"+spaor+"</spuor>\n\n"
-                +"\n"
-                + "		</Teile>\n"
-                + "        </Header>\n";
-        */
+
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
         FileChooser.ExtensionFilter extFilter =
@@ -636,7 +593,7 @@ public class Editor extends Application {
             yStartLeitung=0;
             xEndLeitung=0;
             yEndLeitung=0;
-            xmlstring+=leitung.toxml(xmlstring);
+            xmlstring=leitung.toxml(xmlstring);
         }
         else return;
     }
