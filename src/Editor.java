@@ -264,8 +264,7 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 double x=0,y=0;
-                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-
+               // System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
@@ -279,7 +278,7 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 double x=0,y=0;
-                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
@@ -292,8 +291,7 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 double x=0,y=0;
-                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-
+                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
@@ -306,7 +304,7 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 double x=0,y=0;
-                System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);

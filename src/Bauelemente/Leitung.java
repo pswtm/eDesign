@@ -16,7 +16,7 @@ public class Leitung extends Bauelement{
         super(xstart,ystart,Orientation);
         this.xend=xend;
         this.yend=yend;
-        System.out.println("Class Leitung: "+xstart+","+ystart+","+xend+","+yend);
+        //System.out.println("Class Leitung: "+xstart+","+ystart+","+xend+","+yend);
         line.setStartX(xstart);
         line.setStartY(ystart);
         line.setEndX(xend);
@@ -24,7 +24,6 @@ public class Leitung extends Bauelement{
         line.setStroke(Color.WHITE);
     }
     public String toxml(String xml){
-        System.out.println("toxml");
         xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
                 + "		<xles>"+(int)posX+"</xles>\n"
                 + "		<yles>"+(int)posY+"</yles>\n"
