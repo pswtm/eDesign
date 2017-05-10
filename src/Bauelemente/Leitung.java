@@ -31,9 +31,9 @@ public class Leitung extends Bauelement{
                 + "		<ylee>"+(int)yend+"</ylee>\n\n";
         return xml;
     }
-    public void draw(GraphicsContext gc, Image image)
+    public void draw(GraphicsContext gc, double Orientation)
     {
-        gc.drawImage(image,posX-25,posY-25);
+
     }
     public double getxstart() {return posX;}
     public double getystart() {return posY;}

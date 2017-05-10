@@ -32,7 +32,7 @@ public abstract class Bauelement {
         this.Orientation = Orientation;
     }
 
-    public abstract void draw(GraphicsContext gc, Image image);
+    public abstract void draw(GraphicsContext gc, double Orientation);
 
     public abstract String toxml(String xml);
 

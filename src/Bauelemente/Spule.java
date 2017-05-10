@@ -5,6 +5,11 @@ import javafx.scene.image.Image;
 
 
 public class Spule extends Bauelement {
+    Image Spule0=new Image("file:Images/BauelementIcon/spuleN_S.png",50,50,false,false);
+    Image Spule1=new Image("file:Images/BauelementIcon/spuleNO_SW.png",50,50,false,false);
+    Image Spule2=new Image("file:Images/BauelementIcon/spuleO_W.png",50,50,false,false);
+    Image Spule3=new Image("file:Images/BauelementIcon/spuleNW_SO.png",50,50,false,false);
+
 
     public Spule(double x, double y, double Orientation)
     {
@@ -12,24 +17,21 @@ public class Spule extends Bauelement {
 
         //System.out.println("Class Spule: "+posX+","+posY+","+Orientation);
     }
-    public void draw(GraphicsContext gc, Image image)
+    public void draw(GraphicsContext gc, double Orientation)
     {
         if(Orientation==0) {
-            gc.drawImage(image, posX - 25, posY - 25);
+            gc.drawImage(Spule0, posX - 25, posY - 25);
         }
         else if(Orientation==1) {
-            gc.drawImage(image, posX - 25, posY - 25);
+            gc.drawImage(Spule1, posX - 25, posY - 25);
         }
         else if(Orientation==1) {
-            gc.drawImage(image, posX - 25, posY - 25);
+            gc.drawImage(Spule2, posX - 25, posY - 25);
         }
         else if(Orientation==3) {
-            gc.drawImage(image, posX - 25, posY - 25);
+            gc.drawImage(Spule3, posX - 25, posY - 25);
         }
-        else if(Orientation==4) {
-            gc.drawImage(image, posX - 25, posY - 25);
-        }
-        else gc.drawImage(image,posX-25,posY-25);
+        else gc.drawImage(Spule0,posX-25,posY-25);
     }
     public String toxml(String xml){
         xml+=     "		<Spule>" + "Spule" + "</Spule>\n"

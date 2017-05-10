@@ -193,6 +193,12 @@ public class Editor extends Application {
         vbox.getChildren().addAll(imageviewKondensator);
         Image kondensatorSchrift= new Image("file:Images/kondensatorSchrift.png",100,100,false,false);
 
+
+        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
+        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
+        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
+        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
+
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
@@ -268,7 +274,7 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
-                spannungsquelle.draw(gc,SpannungsquelleCanvas);
+                spannungsquelle.draw(gc,0);
                 xmlstring=spannungsquelle.toxml(xmlstring);
 
             }
@@ -282,7 +288,7 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
-                spule.draw(gc,SpuleCanvas);
+                spule.draw(gc,0);
                 xmlstring=spule.toxml(xmlstring);
             }
         });
@@ -295,7 +301,7 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
-                kondensator.draw(gc,KondensatorCanvas);
+                kondensator.draw(gc,0);
                 xmlstring=kondensator.toxml(xmlstring);
             }
         });
@@ -308,11 +314,12 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);
-                widerstand.draw(gc,WiderstandCanvas);
+                widerstand.draw(gc,0);
                 xmlstring=widerstand.toxml(xmlstring);
 
             }
         });
+
     /*
         //Das ist Drag Drop um eine Datei in das Programm zu ziehen
         scene.setOnDragOver(new EventHandler<DragEvent>() {
@@ -342,10 +349,6 @@ public class Editor extends Application {
         drawLines(event, gc);
 
         }});
-        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
-        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
-        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
-        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
 
         ImageView imageviewSpannungsquelleCanvas = new ImageView();
         imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
@@ -431,8 +434,7 @@ public class Editor extends Application {
                 + "        <Header>\n"
                 + "                <name>XML File</name>\n"
                 + "		<Teile>\n\n";
-        String end="           \n"
-                + "		</Teile>\n"
+        String end="		</Teile>\n"
                 + "        </Header>\n";
          all=start+xmlstring+end;
 
@@ -457,13 +459,16 @@ public class Editor extends Application {
     {
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
         double konOr,spaOr,widOr,spuOr;
-        xmlstring="";
+       ;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
                 new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
         fileChooser.getExtensionFilters().add(extFilter);
         file = fileChooser.showOpenDialog(window);
+        xmlstring="";
+        gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
+        drawGitter(gc);
         if (file != null) {
             //Zeig den File Inhalt in Console an
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
@@ -480,7 +485,8 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
                         Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
-                        kondensator1.draw(gc,KondensatorCanvas);
+                        kondensator1.draw(gc,0);
+                        xmlstring=kondensator1.toxml(xmlstring);
                     }
                     else if(line.indexOf("Spule")!=-1)
                     {
@@ -491,7 +497,8 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
                        Spule spule1= new Spule(xspu,yspu,spuOr);
-                       spule1.draw(gc,SpuleCanvas);
+                        xmlstring=spule1.toxml(xmlstring);
+                       spule1.draw(gc,0);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
@@ -502,8 +509,8 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
                         Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
-
-                        widerstand1.draw(gc,WiderstandCanvas);
+                        xmlstring=widerstand1.toxml(xmlstring);
+                        widerstand1.draw(gc,0);
                     }
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
@@ -515,7 +522,8 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
                         Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
-                        spannungsquelle1.draw(gc, SpannungsquelleCanvas);
+                        xmlstring=spannungsquelle1.toxml(xmlstring);
+                        spannungsquelle1.draw(gc, 0);
                     }
                     else if(line.indexOf("Leitung")!=-1)
                     {
@@ -531,6 +539,7 @@ public class Editor extends Application {
                         ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
                         System.out.println("xles: "+xles+"yles: "+yles+"xlee: "+xlee+"ylee: "+ylee);
                         Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
+                        xmlstring=leitung1.toxml(xmlstring);
                         gc.setLineWidth(4);
                         gc.setStroke(color);
                         gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());

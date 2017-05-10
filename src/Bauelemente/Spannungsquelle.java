@@ -20,9 +20,9 @@ public class Spannungsquelle extends Bauelement {
         //System.out.println("Class Spann: "+posX+","+posY+","+Orientation);
 
     }
-    public void draw(GraphicsContext gc, Image image)
+    public void draw(GraphicsContext gc, double Orientation)
     {
-        gc.drawImage(image,posX-25,posY-25);
+        //gc.drawImage(image,posX-25,posY-25);
         if(Orientation==0) {
             gc.drawImage(Spannungsquelle0, posX - 25, posY - 25);
         }
@@ -35,17 +35,14 @@ public class Spannungsquelle extends Bauelement {
         else if(Orientation==3) {
             gc.drawImage(Spannungsquelle3, posX - 25, posY - 25);
         }
-        else if(Orientation==4) {
-            gc.drawImage(image, posX - 25, posY - 25);
-        }
-        else gc.drawImage(image,posX-25,posY-25);
+        else gc.drawImage(Spannungsquelle0,posX-25,posY-25);
 
     }
     public String toxml(String xml){
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
-                + "		<xspa>"+(int)posX+"</xspa>\n"
-                + "		<yspa>"+(int)posY+"</yspa>\n"
-                + "		<spaor>"+(int)Orientation+"</spaor>\n\n";
+                + "		    <xspa>"+(int)posX+"</xspa>\n"
+                + "		    <yspa>"+(int)posY+"</yspa>\n"
+                + "		    <spaor>"+(int)Orientation+"</spaor>\n\n";
         return xml;
     }
 
