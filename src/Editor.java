@@ -95,6 +95,7 @@ public class Editor extends Application {
         MenuItem newMenuItem = new MenuItem("Neu");
         newMenuItem.setOnAction(e -> {
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+            xmlstring="";
             alert.setTitle("Neues Projekt anlegen");
             alert.setHeaderText("");
             alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
@@ -501,6 +502,7 @@ public class Editor extends Application {
     {
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
         double konOr,spaOr,widOr,spuOr;
+        xmlstring="";
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
