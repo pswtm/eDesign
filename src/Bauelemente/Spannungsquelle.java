@@ -53,8 +53,10 @@ public class Spannungsquelle extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX()-25));
-                imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY()-25));
+                imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX())-25);
+                imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY())-25);
+                //Todo
+                //toxml()
             }});
 
     }
@@ -75,26 +77,11 @@ public class Spannungsquelle extends Bauelement {
         else gc.drawImage(Spannungsquelle0,posX-25,posY-25);
 
     }
-    public void draw1(GraphicsContext gc, double Orientation, BorderPane borderPane)
+    public void draw1(BorderPane borderPane)
     {
-        if(Orientation==0) {
-
             imageviewSpannungsquelle1.setX(posX-25);
             imageviewSpannungsquelle1.setY(posY-25);
             borderPane.getChildren().add(imageviewSpannungsquelle1);
-            //gc.drawImage(Spannungsquelle0, posX - 25, posY - 25);
-        }
-        else if(Orientation==1) {
-            gc.drawImage(Spannungsquelle1, posX - 25, posY - 25);
-        }
-        else if(Orientation==2) {
-            gc.drawImage(Spannungsquelle2, posX - 25, posY - 25);
-        }
-        else if(Orientation==3) {
-            gc.drawImage(Spannungsquelle3, posX - 25, posY - 25);
-        }
-        else gc.drawImage(Spannungsquelle0,posX-25,posY-25);
-
     }
     public String toxml(String xml){
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"

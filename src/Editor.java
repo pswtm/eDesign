@@ -64,13 +64,13 @@ public class Editor extends Application {
     Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
     VBox vbox = new VBox();
     GraphicsContext gc = canvas.getGraphicsContext2D();
-
+    MenuBar menuBar = new MenuBar();
 
     Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
     Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
     Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
     Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
-
+    BorderPane borderPane=new BorderPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -84,7 +84,7 @@ public class Editor extends Application {
         //TODO: ProgrammIcon einbauen
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
 
-        BorderPane borderPane = new BorderPane();
+        // BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 990, 600);
 
         //Menüpunkt "Datei" erstellen
@@ -94,17 +94,8 @@ public class Editor extends Application {
         //Unterpunkt: Neu
         MenuItem newMenuItem = new MenuItem("Neu");
         newMenuItem.setOnAction(e -> {
-            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
-            xmlstring="";
-            alert.setTitle("Neues Projekt anlegen");
-            alert.setHeaderText("");
-            alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
-            Optional<ButtonType> result=alert.showAndWait();
-            if(result.get()==ButtonType.OK) {
-                gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
-                drawGitter(gc);
-            }
-            else return;
+            neu();
+
         });
         fileMenu.getItems().add(newMenuItem);
 
@@ -150,7 +141,7 @@ public class Editor extends Application {
         Menu helpMenu = new Menu("_Hilfe");
 
         //Menüleiste zusammenüfhren
-        MenuBar menuBar = new MenuBar();
+        //MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
 
         vbox.setPrefSize(100,100);
@@ -275,7 +266,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
                 //spannungsquelle.draw(gc,0);
-                spannungsquelle.draw1(gc,0,borderPane);
+                spannungsquelle.draw1(borderPane);
                 xmlstring=spannungsquelle.toxml(xmlstring);
 
             }
@@ -289,7 +280,8 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
-                spule.draw(gc,0);
+                //spule.draw(gc,0);
+                spule.draw1(borderPane);
                 xmlstring=spule.toxml(xmlstring);
             }
         });
@@ -302,7 +294,8 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
-                kondensator.draw(gc,0);
+                //kondensator.draw(gc,0);
+                kondensator.draw1(borderPane);
                 xmlstring=kondensator.toxml(xmlstring);
             }
         });
@@ -315,7 +308,8 @@ public class Editor extends Application {
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);
-                widerstand.draw(gc,0);
+                //widerstand.draw(gc,0);
+                widerstand.draw1(borderPane);
                 xmlstring=widerstand.toxml(xmlstring);
 
             }
@@ -467,9 +461,7 @@ public class Editor extends Application {
                 new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
         fileChooser.getExtensionFilters().add(extFilter);
         file = fileChooser.showOpenDialog(window);
-        xmlstring="";
-        gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
-        drawGitter(gc);
+        deleteall();
         if (file != null) {
             //Zeig den File Inhalt in Console an
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
@@ -486,7 +478,8 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
                         Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
-                        kondensator1.draw(gc,0);
+                        //kondensator1.draw(gc,0);
+                        kondensator1.draw1(borderPane);
                         xmlstring=kondensator1.toxml(xmlstring);
                     }
                     else if(line.indexOf("Spule")!=-1)
@@ -499,7 +492,8 @@ public class Editor extends Application {
                         spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
                        Spule spule1= new Spule(xspu,yspu,spuOr);
                         xmlstring=spule1.toxml(xmlstring);
-                       spule1.draw(gc,0);
+                       //spule1.draw(gc,0);
+                       spule1.draw1(borderPane);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
@@ -511,7 +505,8 @@ public class Editor extends Application {
                         widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
                         Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
                         xmlstring=widerstand1.toxml(xmlstring);
-                        widerstand1.draw(gc,0);
+                        //widerstand1.draw(gc,0);
+                        widerstand1.draw1(borderPane);
                     }
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
@@ -524,7 +519,8 @@ public class Editor extends Application {
                         spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
                         Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
                         xmlstring=spannungsquelle1.toxml(xmlstring);
-                        spannungsquelle1.draw(gc, 0);
+                        //spannungsquelle1.draw(gc, 0);
+                        spannungsquelle1.draw1(borderPane);
                     }
                     else if(line.indexOf("Leitung")!=-1)
                     {
@@ -551,7 +547,6 @@ public class Editor extends Application {
             } catch (Exception f){//Catch exception if any
                 System.err.println("Error: " + f.getMessage());
             }
-
         }
     }
     //Speichern
@@ -625,5 +620,30 @@ public class Editor extends Application {
             return b;
         } else return 0;
     }
+    public void neu()
+    {
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+        xmlstring="";
+        alert.setTitle("Neues Projekt anlegen");
+        alert.setHeaderText("");
+        alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
+        Optional<ButtonType> result=alert.showAndWait();
+        if(result.get()==ButtonType.OK) {
+            deleteall();
+        }
+        else return;
 
+    }
+    public void deleteall()
+    {
+        xmlstring="";
+        //Todo brauchen wir später nicht mehr
+        gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
+        drawGitter(gc);
+        //Todo bis hier
+        borderPane.getChildren().clear();
+        borderPane.getChildren().add(canvas);
+        borderPane.setTop(menuBar);
+        borderPane.setLeft(vbox);
+    }
 }
