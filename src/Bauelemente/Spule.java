@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 
 public class Spule extends Bauelement {
 
-    public Spule(double x, double y, int Orientation)
+    public Spule(double x, double y, double Orientation)
     {
         super(x,y,Orientation);
 
@@ -16,5 +16,11 @@ public class Spule extends Bauelement {
     {
         gc.drawImage(image,posX-25,posY-25);
     }
-
+    public String toxml(String xml){
+        xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
+                + "		<xspu>"+(int)posX+"</xspu>\n"
+                + "		<yspu>"+(int)posY+"</yspu>\n"
+                + "		<spuor>"+(int)Orientation+"</spuor>\n\n";
+        return xml;
+    }
 }

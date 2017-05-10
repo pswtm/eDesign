@@ -11,7 +11,7 @@ public class Leitung extends Bauelement{
     Line line =new Line();
 
 
-    public Leitung(double xstart, double ystart, int Orientation, double xend, double yend)
+    public Leitung(double xstart, double ystart, double Orientation, double xend, double yend)
     {
         super(xstart,ystart,Orientation);
         this.xend=xend;
@@ -22,6 +22,14 @@ public class Leitung extends Bauelement{
         line.setEndX(xend);
         line.setEndY(yend);
         line.setStroke(Color.WHITE);
+    }
+    public String toxml(String xml){
+        xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
+                + "		<xles>"+(int)posX+"</xles>\n"
+                + "		<yles>"+(int)posY+"</yles>\n"
+                + "		<xlee>"+(int)xend+"</xlee>\n"
+                + "		<ylee>"+(int)yend+"</ylee>\n\n";
+        return xml;
     }
     public void draw(GraphicsContext gc, Image image)
     {

@@ -26,7 +26,7 @@ public abstract class Bauelement {
     protected double posX = 0, posY = 0, Orientation=0;
 
     //Icon
-    public Bauelement(double posX, double posY, int Orientation) {
+    public Bauelement(double posX, double posY, double Orientation) {
         this.posX = posX;
         this.posY = posY;
         this.Orientation = Orientation;
@@ -34,6 +34,7 @@ public abstract class Bauelement {
 
     public abstract void draw(GraphicsContext gc, Image image);
 
+    public abstract String toxml(String xml);
 
     public void deleteimage(GraphicsContext gc)
     {

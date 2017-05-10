@@ -39,6 +39,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.print.DocFlavor;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
@@ -51,9 +52,10 @@ public class Editor extends Application {
 
     //unser Fenster
     Stage window;
-    String xmlstring="XML";
+    String xmlstring="";
     File file;
-    XMLCreater xmlcreater;
+    String all="";
+   // XMLCreater xmlcreater;
     int clickCount=0;
     double xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
     Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
@@ -62,6 +64,13 @@ public class Editor extends Application {
     Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
     VBox vbox = new VBox();
     GraphicsContext gc = canvas.getGraphicsContext2D();
+
+
+    Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
+    Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
+    Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
+    Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
+
 
     public static void main(String[] args) {
         launch(args);
@@ -81,7 +90,6 @@ public class Editor extends Application {
         //Menüpunkt "Datei" erstellen
         //TODO: Menüstruktur und Funktionen ergänzen
         Menu fileMenu = new Menu("_Datei");
-
         //Submenü/Unterpunkte zu fileMenu
         //Unterpunkt: Neu
         MenuItem newMenuItem = new MenuItem("Neu");
@@ -235,14 +243,6 @@ public class Editor extends Application {
                 imageviewSpannungsquelle.setImage(spannungsquelle);
             }});
 
-
-        Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
-        Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
-        Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
-        Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
-
-
-
         // Drag and Drop Versuch
 
         imageviewSpannungsquelle.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -269,6 +269,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
                 spannungsquelle.draw(gc,SpannungsquelleCanvas);
+                xmlstring+=spannungsquelle.toxml(xmlstring);
 
             }
         });
@@ -282,6 +283,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Spule spule=new Spule(x,y,0);
                 spule.draw(gc,SpuleCanvas);
+                xmlstring+=spule.toxml(xmlstring);
             }
         });
         imageviewKondensator.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -295,6 +297,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Kondensator kondensator=new Kondensator(x,y,0);
                 kondensator.draw(gc,KondensatorCanvas);
+                xmlstring+=kondensator.toxml(xmlstring);
             }
         });
         imageviewWiderstand.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -307,6 +310,7 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 Widerstand widerstand=new Widerstand(x,y,0);
                 widerstand.draw(gc,WiderstandCanvas);
+                xmlstring+=widerstand.toxml(xmlstring);
 
             }
         });
@@ -424,20 +428,29 @@ public class Editor extends Application {
     public void saveas()
     {
         //Test Ints nachher löschen und richtige funktionen eintragen
-        int xkon=111;
-        int ykon=222;
-        int xspu=333;
-        int yspu=444;
-        int xwid=555;
-        int ywid=666;
-        int xspa=777;
-        int yspa=888;
-        int konor=111;
-        int spaor=222;
-        int widor=333;
-        int spuor=444;
-        String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        int xkon=250;
+        int ykon=250;
+        int xspu=350;
+        int yspu=350;
+        int xwid=450;
+        int ywid=450;
+        int xspa=550;
+        int yspa=550;
+        int konor=0;
+        int spaor=0;
+        int widor=0;
+        int spuor=0;
 
+        String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        String start= "			XML File\n"
+                + "        <Header>\n"
+                + "                <name>XML File</name>\n"
+                + "		<Teile>\n\n";
+        String end="           \n"
+                + "		</Teile>\n"
+                + "        </Header>\n";
+         all=start+xmlstring+end;
+        /*
         xmlstring+=xmlheader;
         xmlstring+= "			XML File\n"
                 + "        <Header>\n"
@@ -458,7 +471,7 @@ public class Editor extends Application {
                 + "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                 + "		<xspa>"+xspa+"</xspa>\n"
                 + "		<yspa>"+yspa+"</yspa>\n"
-                + "		<spaor>"+spuor+"</spaor>\n\n"
+                + "		<spaor>"+spaor+"</spaor>\n\n"
                 + "		<Spule>" + "Spule" + "</Spule>\n"
                 + "		<xspu>"+xspu+"</xspu>\n"
                 + "		<yspu>"+yspu+"</yspu>\n"
@@ -466,7 +479,7 @@ public class Editor extends Application {
                 +"\n"
                 + "		</Teile>\n"
                 + "        </Header>\n";
-        //xmlcreater.create(xmlstring); //Warum funktioniert das nicht?
+        */
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
         FileChooser.ExtensionFilter extFilter =
@@ -475,7 +488,7 @@ public class Editor extends Application {
         file = fileChoose.showSaveDialog(window);
         try {
             FileWriter writer = new FileWriter(file);
-            writer.write(xmlstring);
+            writer.write(all);
             writer.close();
 
         }catch (Exception f){//Catch exception if any
@@ -486,8 +499,8 @@ public class Editor extends Application {
     //Öffnen
     public void open()
     {
-        int xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu;
-        int konOr,spaOr,widOr,spuOr;
+        double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
+        double konOr,spaOr,widOr,spuOr;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
@@ -498,19 +511,19 @@ public class Editor extends Application {
             //Zeig den File Inhalt in Console an
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
                 //entscheidet ob Kondensator usw
-                //TODO substrings noch bearbeiten, wegen Länge
                 while(scanner.hasNext())
                 {
                     String line=scanner.nextLine();
                     if(line.indexOf("Kondensator")!=-1)
                     {
                         line=scanner.nextLine();
-                        xkon=Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
+                        xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
                         line=scanner.nextLine();
-                        ykon=Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
+                        ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
                         line=scanner.nextLine();
-                        konOr=Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
-                        new Kondensator(xkon,ykon,konOr);
+                        konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
+                        Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
+                        kondensator1.draw(gc,KondensatorCanvas);
                     }
                     else if(line.indexOf("Spule")!=-1)
                     {
@@ -520,7 +533,8 @@ public class Editor extends Application {
                         yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
                         line=scanner.nextLine();
                         spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
-                        new Spule(xspu,yspu,spuOr);
+                       Spule spule1= new Spule(xspu,yspu,spuOr);
+                       spule1.draw(gc,SpuleCanvas);
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
@@ -530,7 +544,9 @@ public class Editor extends Application {
                         ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
                         line=scanner.nextLine();
                         widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
-                        new Widerstand(xwid,ywid,widOr);
+                        Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
+
+                        widerstand1.draw(gc,WiderstandCanvas);
                     }
 
                     else if(line.indexOf("Spannungsquelle")!=-1)
@@ -541,7 +557,28 @@ public class Editor extends Application {
                         yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
                         line=scanner.nextLine();
                         spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
-                        new Spannungsquelle(xspa,yspa,spaOr);
+                        Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
+                        spannungsquelle1.draw(gc, SpannungsquelleCanvas);
+                    }
+                    else if(line.indexOf("Leitung")!=-1)
+                    {
+
+                        //Todo
+                        line=scanner.nextLine();
+                        xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
+                        line=scanner.nextLine();
+                        yles =Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
+                        line=scanner.nextLine();
+                        xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
+                        line=scanner.nextLine();
+                        ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
+                        System.out.println("xles: "+xles+"yles: "+yles+"xlee: "+xlee+"ylee: "+ylee);
+                        Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
+                        gc.setLineWidth(4);
+                        gc.setStroke(color);
+                        gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
+                        gc.setStroke(Color.WHITE);
+                        gc.setLineWidth(1);
                     }
                 }
             } catch (Exception f){//Catch exception if any
@@ -560,7 +597,7 @@ public class Editor extends Application {
         {
             try {
                 FileWriter writer = new FileWriter(file);
-                writer.write(xmlstring);
+                writer.write(all);
                 writer.close();
             }catch (Exception f) {//Catch exception if any
                 System.err.println("Error: " + f.getMessage());
@@ -590,13 +627,14 @@ public class Editor extends Application {
             //borderPane.getChildren().add(leitung.getline());
             gc.setLineWidth(4);
             gc.setStroke(color);
-            gc.strokeLine((double)leitung.getxstart(),(double)leitung.getystart(),(double)leitung.getxend(),(double)leitung.getyend());
+            gc.strokeLine(leitung.getxstart(),leitung.getystart(),leitung.getxend(),leitung.getyend());
             gc.setStroke(Color.WHITE);
             gc.setLineWidth(1);
             xStartLeitung=0;
             yStartLeitung=0;
             xEndLeitung=0;
             yEndLeitung=0;
+            xmlstring+=leitung.toxml(xmlstring);
         }
         else return;
     }
