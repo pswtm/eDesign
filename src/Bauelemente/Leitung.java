@@ -24,6 +24,7 @@ public class Leitung extends Bauelement{
         line.setStroke(Color.WHITE);
     }
     public String toxml(String xml){
+        System.out.println("toxml");
         xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
                 + "		<xles>"+(int)posX+"</xles>\n"
                 + "		<yles>"+(int)posY+"</yles>\n"

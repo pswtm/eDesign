@@ -24,6 +24,7 @@ Image image;
 
     }
     public String toxml(String xml){
+        System.out.println("toxml");
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                 + "		<xspa>"+(int)posX+"</xspa>\n"
                 + "		<yspa>"+(int)posY+"</yspa>\n"

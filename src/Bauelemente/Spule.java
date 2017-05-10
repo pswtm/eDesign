@@ -17,6 +17,7 @@ public class Spule extends Bauelement {
         gc.drawImage(image,posX-25,posY-25);
     }
     public String toxml(String xml){
+        System.out.println("toxml");
         xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
                 + "		<xspu>"+(int)posX+"</xspu>\n"
                 + "		<yspu>"+(int)posY+"</yspu>\n"

@@ -15,6 +15,7 @@ public class Widerstand extends Bauelement {
         gc.drawImage(image,posX-25,posY-25);
     }
     public String toxml(String xml){
+        System.out.println("toxml");
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
                 + "		<xwid>"+(int)posX+"</xwid>\n"
                 + "		<ywid>"+(int)posY+"</ywid>\n"

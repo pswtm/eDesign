@@ -12,6 +12,7 @@ public class Kondensator extends Bauelement {
         System.out.println("Class Kon: "+posX+","+posY+","+Orientation);
     }
     public String toxml(String xml){
+        System.out.println("toxml");
         xml+=            "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
                 + "		<xkon>"+(int)posX+"</xkon>\n"
                 + "		<ykon>"+(int)posY+"</ykon>\n"
