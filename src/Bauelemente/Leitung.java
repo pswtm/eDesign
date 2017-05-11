@@ -24,6 +24,7 @@ public class Leitung extends Bauelement{
         line.setEndY(yend);
         line.setStroke(Color.WHITE);
     }
+    //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
                 + "		<xles>"+(int)posX+"</xles>\n"
@@ -34,7 +35,7 @@ public class Leitung extends Bauelement{
     }
     public void draw1(BorderPane borderPane)
     {
-
+//Gibts hier nicht wird in Editor gezeichnet
     }
     public double getxstart() {return posX;}
     public double getystart() {return posY;}

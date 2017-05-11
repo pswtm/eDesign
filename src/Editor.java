@@ -66,10 +66,12 @@ public class Editor extends Application {
     GraphicsContext gc = canvas.getGraphicsContext2D();
     MenuBar menuBar = new MenuBar();
 
+    /*
     Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
     Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
     Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
     Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
+    */
     BorderPane borderPane=new BorderPane();
 
     public static void main(String[] args) {
@@ -94,8 +96,8 @@ public class Editor extends Application {
         //Unterpunkt: Neu
         MenuItem newMenuItem = new MenuItem("Neu");
         newMenuItem.setOnAction(e -> {
+            //Alles löschen
             neu();
-
         });
         fileMenu.getItems().add(newMenuItem);
 
@@ -105,14 +107,15 @@ public class Editor extends Application {
         fileMenu.getItems().add(openMenuItem);
         fileMenu.getItems().add(new SeparatorMenuItem());
 
-
         MenuItem autosave=new MenuItem("Speichern");
         autosave.setOnAction(e->{
+            //Speichert in das zuvor gespeicherte File
             autosave();
         });
         fileMenu.getItems().add(autosave);
         MenuItem save=new MenuItem("Speichern unter");
         save.setOnAction(e->{
+            //Speichern unter
             saveas();
         });
         fileMenu.getItems().add(save);
@@ -143,28 +146,31 @@ public class Editor extends Application {
         //Menüleiste zusammenüfhren
         //MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
-
+        //Vbox Größe
         vbox.setPrefSize(100,100);
         //kit.setAlignment(Pos.BOTTOM_LEFT);
-
+        //VBox Style
         vbox.setStyle("-fx-background-color: black;"
                 + "-fx-border-style: solid;"
                 + "-fx-border-color: darkgrey;"
                 + "-fx-border-width: 0 3 0 0;"
                 + "-fx-padding: 10.5px;");
-
+        //Zeichnet das Gitter
         drawGitter(gc);
-
         borderPane.getChildren().add(canvas);
 
-        //Icon für die Widerstand
+/*      //alte icons sollte man löschen können
+        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
+        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
+        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
+        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
+*/
+        //Icon für den Widerstand auf der Vbox
         final ImageView imageviewWiderstand = new ImageView();
         Image widerstand=new Image("file:Images/widerstand.png",100,100,false,false);
         imageviewWiderstand.setImage(widerstand);
         vbox.getChildren().addAll(imageviewWiderstand);
         Image widerstandSchrift= new Image("file:Images/widerstandSchrift.png",100,100,false,false);
-
-
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewWiderstand.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
@@ -177,19 +183,12 @@ public class Editor extends Application {
                 imageviewWiderstand.setImage(widerstand);
             }});
 
-        //Icon für die Kondensator
+        //Icon für den Kondensator auf der Vbox
         final ImageView imageviewKondensator = new ImageView();
         Image kondensator=new Image("file:Images/kondensator.png",100,100,false,false);
         imageviewKondensator.setImage(kondensator);
         vbox.getChildren().addAll(imageviewKondensator);
         Image kondensatorSchrift= new Image("file:Images/kondensatorSchrift.png",100,100,false,false);
-
-/*
-        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
-        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
-        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
-        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
-*/
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
@@ -202,14 +201,12 @@ public class Editor extends Application {
                 imageviewKondensator.setImage(kondensator);
             }});
 
-
-        //Icon für die Spule
+        //Icon für die Spule auf der Vbox
         final ImageView imageviewSpule = new ImageView();
         Image spule=new Image("file:Images/spule.png",100,100,false,false);
         imageviewSpule.setImage(spule);
         vbox.getChildren().addAll(imageviewSpule);
         Image spuleSchrift= new Image("file:Images/spuleSchrift.png",100,100,false,false);
-
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewSpule.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
@@ -222,14 +219,23 @@ public class Editor extends Application {
                 imageviewSpule.setImage(spule);
             }});
 
-        //Icon für die spannungsquelle
+        //Icon für die spannungsquelle auf der Vbox
         ImageView imageviewSpannungsquelle = new ImageView();
         Image spannungsquelle=new Image("file:Images/spannungsquelle.png",100,100,false,false);
         imageviewSpannungsquelle.setImage(spannungsquelle);
         vbox.getChildren().addAll(imageviewSpannungsquelle);
         Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
+        //Mouse Over für das Einbleinden der IconBezeichnung
+        imageviewSpannungsquelle.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {imageviewSpannungsquelle.setImage(spannungsquelleSchrift);
+            }});
+        imageviewSpannungsquelle.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {imageviewSpannungsquelle.setImage(spannungsquelle);
+            }});
 
-        //Images beim draggen
+        //Images beim drag von der Vbox auf das Borderlane
         ImageView imageviewSpannungsquelle1 = new ImageView();
         Image spannungsquelle00T =new Image("file:Images/Bauelementetransparent/spannungsquelle00T.png",50,50,false,false);
         imageviewSpannungsquelle1.setImage(spannungsquelle00T);
@@ -246,21 +252,7 @@ public class Editor extends Application {
         Image widerstand00T =new Image("file:Images/Bauelementetransparent/widerstand00T.png",50,50,false,false);
         imageviewWiderstand1.setImage(widerstand00T);
 
-
-        //Mouse Over für das Einbleinden der IconBezeichnung
-        imageviewSpannungsquelle.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                imageviewSpannungsquelle.setImage(spannungsquelleSchrift);
-            }});
-        imageviewSpannungsquelle.setOnMouseExited(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                imageviewSpannungsquelle.setImage(spannungsquelle);
-            }});
-
-        // Drag and Drop Versuch
-
+        // Drag and Drop von VBox aufs Borderpane
         imageviewSpannungsquelle.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
@@ -271,7 +263,6 @@ public class Editor extends Application {
                 borderPane.getChildren().add(imageviewSpannungsquelle1);
             }
         });
-
         imageviewSpannungsquelle.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
@@ -365,9 +356,8 @@ public class Editor extends Application {
 
             }
         });
-
     /*
-        //Das ist Drag Drop um eine Datei in das Programm zu ziehen
+        //Todo extra Das ist Drag Drop um eine Datei in das Programm zu ziehen noch nicht fertig
         scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -387,15 +377,14 @@ public class Editor extends Application {
             }
         });
     */
+
         //Neue Leitung zeichnen mit 2 Mausklicks auf Canvas
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
         @Override
         public void handle(MouseEvent event)
-        {
-        drawLines(event, gc);
-
-        }});
+        {drawLines(event, gc);}});
 /*
+//Beispielsachen wie image drehen und die linie
         ImageView imageviewSpannungsquelleCanvas = new ImageView();
         imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
         imageviewSpannungsquelleCanvas.setX(475);
@@ -449,9 +438,9 @@ public class Editor extends Application {
                 }
             }});
         */
+        //Darstellung der menubar und vbox auf Borderpane mit Stylesheet
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
-
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
@@ -459,14 +448,12 @@ public class Editor extends Application {
     //Linien für das Gitter Werden gezeichnet;
      private void drawGitter(GraphicsContext gc){
          int i,j;
-         //System.out.println("Bildschirmgröße: "+dim.getWidth()+" "+dim.getHeight());
          gc.beginPath();
          gc.moveTo(0,0);
          gc.setStroke(Color.WHITE);
          for(i =0; i<=dim.getWidth(); i+=25){ //Senkrechte linien werden gezeichnet
              gc.moveTo(i,0);
              gc.lineTo(i, dim.getHeight());
-
          }
          for(j=0; j<=dim.getHeight(); j+=25){ //waagrechte linien werden gezichnet
              gc.moveTo(0,j);
@@ -484,7 +471,7 @@ public class Editor extends Application {
                 + "		<Teile>\n\n";
         String end="		</Teile>\n"
                 + "        </Header>\n";
-         all=start+xmlstring+end;
+        all=start+xmlstring+end;
 
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
@@ -507,7 +494,6 @@ public class Editor extends Application {
     {
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
         double konOr,spaOr,widOr,spuOr;
-       ;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
         FileChooser.ExtensionFilter extFilter =
@@ -516,7 +502,7 @@ public class Editor extends Application {
         file = fileChooser.showOpenDialog(window);
         deleteall();
         if (file != null) {
-            //Zeig den File Inhalt in Console an
+            //Zeig den File Inhalt in String
             try (Scanner scanner = new Scanner(new File(file.toString()))) {
                 //entscheidet ob Kondensator usw
                 while(scanner.hasNext())
@@ -524,6 +510,7 @@ public class Editor extends Application {
                     String line=scanner.nextLine();
                     if(line.indexOf("Kondensator")!=-1)
                     {
+                        //Schreibt die Werte aus dem String in Variable
                         line=scanner.nextLine();
                         xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
                         line=scanner.nextLine();
@@ -532,11 +519,14 @@ public class Editor extends Application {
                         konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
                         Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
                         //kondensator1.draw(gc,0);
+                        //Kondensator wird auf BorderPane gezeichnet
                         kondensator1.draw1(borderPane);
+                        //Kondensator wird in String gespeichert um es später wieder abspeichern zu können
                         xmlstring=kondensator1.toxml(xmlstring);
                     }
                     else if(line.indexOf("Spule")!=-1)
                     {
+                        //Schreibt die Werte aus dem String in Variable
                         line=scanner.nextLine();
                         xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
                         line=scanner.nextLine();
@@ -544,12 +534,15 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
                        Spule spule1= new Spule(xspu,yspu,spuOr);
+                        //Spule wird auf BorderPane gezeichnet
+                        spule1.draw1(borderPane);
                         xmlstring=spule1.toxml(xmlstring);
                        //spule1.draw(gc,0);
-                       spule1.draw1(borderPane);
+
                     }
                     else if(line.indexOf("Widerstand")!=-1)
                     {
+                        //Schreibt die Werte aus dem String in Variable
                         line=scanner.nextLine();
                         xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
                         line=scanner.nextLine();
@@ -557,13 +550,16 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
                         Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
-                        xmlstring=widerstand1.toxml(xmlstring);
                         //widerstand1.draw(gc,0);
+                        //Widersatnd wird auf BorderPane gezeichnet
                         widerstand1.draw1(borderPane);
-                    }
+                        //Widerstand wird in String gespeichert um es später wieder abspeichern zu können
+                        xmlstring=widerstand1.toxml(xmlstring);
 
+                    }
                     else if(line.indexOf("Spannungsquelle")!=-1)
                     {
+                        //Schreibt die Werte aus dem String in Variable
                         line=scanner.nextLine();
                         xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
                         line=scanner.nextLine();
@@ -571,14 +567,16 @@ public class Editor extends Application {
                         line=scanner.nextLine();
                         spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
                         Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
-                        xmlstring=spannungsquelle1.toxml(xmlstring);
                         //spannungsquelle1.draw(gc, 0);
+                        //Sannungsquelle wird auf BorderPane gezeichnet
                         spannungsquelle1.draw1(borderPane);
+                        //Spannungsquelle wird in String gespeichert um es später wieder abspeichern zu können
+                        xmlstring=spannungsquelle1.toxml(xmlstring);
+
                     }
                     else if(line.indexOf("Leitung")!=-1)
                     {
-
-                        //Todo
+                        //Schreibt die Werte aus dem String in Variable
                         line=scanner.nextLine();
                         xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
                         line=scanner.nextLine();
@@ -589,12 +587,14 @@ public class Editor extends Application {
                         ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
                         System.out.println("xles: "+xles+"yles: "+yles+"xlee: "+xlee+"ylee: "+ylee);
                         Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
-                        xmlstring=leitung1.toxml(xmlstring);
                         gc.setLineWidth(5);
                         gc.setStroke(color);
+                        //Leitung wird auf BorderPane gezeichnet
                         gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
                         gc.setStroke(Color.WHITE);
                         gc.setLineWidth(1);
+                        //Leitung wird in String gespeichert um es später wieder abspeichern zu können
+                        xmlstring=leitung1.toxml(xmlstring);
                     }
                 }
             } catch (Exception f){//Catch exception if any
@@ -619,6 +619,7 @@ public class Editor extends Application {
             }
         }
     }
+    //Zeichne Linien mit 2 Mausklicks
     public void drawLines(MouseEvent event, GraphicsContext gc)
     {
     clickCount++;
@@ -654,6 +655,7 @@ public class Editor extends Application {
         else return;
     }
     }
+    //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
@@ -661,6 +663,7 @@ public class Editor extends Application {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
+    //Snap der Linien ans Raster
     public double rundenLeitungen(double runden)
     {
         double a=0,b=0;
@@ -673,6 +676,7 @@ public class Editor extends Application {
             return b;
         } else return 0;
     }
+    //Neu
     public void neu()
     {
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
@@ -687,6 +691,7 @@ public class Editor extends Application {
         else return;
 
     }
+    //Löscht alles auf dem Borderpane und Graphic Content
     public void deleteall()
     {
         xmlstring="";

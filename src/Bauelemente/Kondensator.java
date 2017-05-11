@@ -106,7 +106,6 @@ public class Kondensator extends Bauelement {
                 + "		<konor>"+(int)Orientation+"</konor>\n\n";
         return xml;
     }
-
     /*
     public void draw(GraphicsContext gc, double Orientation)
     {

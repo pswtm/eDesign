@@ -34,8 +34,9 @@ public abstract class Bauelement {
     }
 
     //public abstract void draw(GraphicsContext gc, double Orientation);
+    //Zeichnen Methode
     public abstract void draw1(BorderPane borderPane);
-
+    //Wird zum String xml hinzugefügt
     public abstract String toxml(String xml);
 
 
