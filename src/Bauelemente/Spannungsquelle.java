@@ -16,69 +16,43 @@ import javafx.scene.layout.BorderPane;
 
 public class Spannungsquelle extends Bauelement {
 
-    //Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
-    //Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
-    //Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
-    //Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
-
-    int WidthHeight=50;
-    Image Spannungsquelle00S=new Image("file:Images/Bauelementeschwarz/spannungsquelle00S.png",WidthHeight,WidthHeight,false,false);
-    Image Spannungsquelle45S=new Image("file:Images/Bauelementeschwarz/spannungsquelle45S.png",WidthHeight,WidthHeight,false,false);
-    Image Spannungsquelle90S=new Image("file:Images/Bauelementeschwarz/spannungsquelle90S.png",WidthHeight,WidthHeight,false,false);
-    Image Spannungsquelle135S=new Image("file:Images/Bauelementeschwarz/spannungsquelle135S.png",WidthHeight,WidthHeight,false,false);
-
-    Image Spannungsquelle00T=new Image("file:Images/Bauelementetransparent/spannungsquelle00T.png",50,50,false,false);
-    Image Spannungsquelle45T=new Image("file:Images/Bauelementetransparent/spannungsquelle45T.png",50,50,false,false);
-    Image Spannungsquelle90T=new Image("file:Images/Bauelementetransparent/spannungsquelle90T.png",50,50,false,false);
-    Image Spannungsquelle135T=new Image("file:Images/Bauelementetransparent/spannungsquelle135T.png",50,50,false,false);
-
-
-
+    Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
+    Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
+    Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
+    Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
     ImageView imageviewSpannungsquelle1 = new ImageView();
 
     public Spannungsquelle(double x, double y, double Orientation)
     {
         super(x,y,Orientation);
-        imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
+        //System.out.println("Class Spann: "+posX+","+posY+","+Orientation);
+        imageviewSpannungsquelle1.setImage(Spannungsquelle0);
         imageviewSpannungsquelle1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
+                System.out.println("click");
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewSpannungsquelle1.getImage()==Spannungsquelle00S){
-                        imageviewSpannungsquelle1.setImage(Spannungsquelle45S);
+                    if(imageviewSpannungsquelle1.getImage()==Spannungsquelle0){
+                        // System.out.println("Rechtsklick Maus image2");
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle1);
                     }
-                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle45S)
+                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle1)
                     {
-                        imageviewSpannungsquelle1.setImage(Spannungsquelle90S);
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle2);
                     }
-                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle90S)
+                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle2)
                     {
-                        imageviewSpannungsquelle1.setImage(Spannungsquelle135S);
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle3);
                     }
-                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135S)
+                    else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle3)
                     {
-                        imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle0);
                     }
             }}});
         imageviewSpannungsquelle1.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewSpannungsquelle1.getImage()==Spannungsquelle00T){
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle45T)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle45S);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle90T)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle90S);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135T)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle135S);
-                }
                 imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY())-25);
                 //Todo
@@ -88,27 +62,11 @@ public class Spannungsquelle extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewSpannungsquelle1.getImage()==Spannungsquelle00S){
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle00T);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle45S)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle45T);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle90S)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle90T);
-                }
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135S)
-                {
-                    imageviewSpannungsquelle1.setImage(Spannungsquelle135T);
-                }
                 imageviewSpannungsquelle1.setX(event.getSceneX()-25);
                 imageviewSpannungsquelle1.setY(event.getSceneY()-25);
             }});
 
     }
-    /*
     public void draw(GraphicsContext gc, double Orientation)
     {
         if(Orientation==0) {
@@ -126,7 +84,6 @@ public class Spannungsquelle extends Bauelement {
         else gc.drawImage(Spannungsquelle0,posX-25,posY-25);
 
     }
-    */
     public void draw1(BorderPane borderPane)
     {
             imageviewSpannungsquelle1.setX(posX-25);

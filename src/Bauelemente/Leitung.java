@@ -2,7 +2,6 @@ package Bauelemente;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -32,7 +31,7 @@ public class Leitung extends Bauelement{
                 + "		<ylee>"+(int)yend+"</ylee>\n\n";
         return xml;
     }
-    public void draw1(BorderPane borderPane)
+    public void draw(GraphicsContext gc, double Orientation)
     {
 
     }

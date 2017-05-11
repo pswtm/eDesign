@@ -9,67 +9,44 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Widerstand extends Bauelement {
-    //Image Widerstand2=new Image("file:Images/BauelementIcon/widerstandN_S.png",50,50,false,false);
-    //Image Widerstand3=new Image("file:Images/BauelementIcon/widerstandNO_SW.png",50,50,false,false);
-    //Image Widerstand0=new Image("file:Images/BauelementIcon/widerstandO_W.png",50,50,false,false);
-    //Image Widerstand1=new Image("file:Images/BauelementIcon/widerstandNW_SO.png",50,50,false,false);
-
-    Image Widerstand00S=new Image("file:Images/Bauelementeschwarz/widerstand00S.png",50,50,false,false);
-    Image Widerstand45S=new Image("file:Images/Bauelementeschwarz/widerstand45S.png",50,50,false,false);
-    Image Widerstand90S=new Image("file:Images/Bauelementeschwarz/widerstand90S.png",50,50,false,false);
-    Image Widerstand135S=new Image("file:Images/Bauelementeschwarz/widerstand135S.png",50,50,false,false);
-
-    Image Widerstand00T=new Image("file:Images/Bauelementetransparent/widerstand00T.png",50,50,false,false);
-    Image Widerstand45T=new Image("file:Images/Bauelementetransparent/widerstand45T.png",50,50,false,false);
-    Image Widerstand90T=new Image("file:Images/Bauelementetransparent/widerstand90T.png",50,50,false,false);
-    Image Widerstand135T=new Image("file:Images/Bauelementetransparent/widerstand135T.png",50,50,false,false);
-
+    Image Widerstand2=new Image("file:Images/BauelementIcon/widerstandN_S.png",50,50,false,false);
+    Image Widerstand3=new Image("file:Images/BauelementIcon/widerstandNO_SW.png",50,50,false,false);
+    Image Widerstand0=new Image("file:Images/BauelementIcon/widerstandO_W.png",50,50,false,false);
+    Image Widerstand1=new Image("file:Images/BauelementIcon/widerstandNW_SO.png",50,50,false,false);
     ImageView imageviewWiderstand1 = new ImageView();
 
 
     public Widerstand(double x, double y, double Orientation)
     {
         super(x,y,Orientation);
-        imageviewWiderstand1.setImage(Widerstand00S);
+        //System.out.println("Class Wid: "+posX+","+posY+","+Orientation);
+        imageviewWiderstand1.setImage(Widerstand0);
         imageviewWiderstand1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
+                System.out.println("click");
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewWiderstand1.getImage()==Widerstand00S){
-                        imageviewWiderstand1.setImage(Widerstand45S);
+                    if(imageviewWiderstand1.getImage()==Widerstand0){
+                        // System.out.println("Rechtsklick Maus image2");
+                        imageviewWiderstand1.setImage(Widerstand1);
                     }
-                    else if(imageviewWiderstand1.getImage()==Widerstand45S)
+                    else if(imageviewWiderstand1.getImage()==Widerstand1)
                     {
-                        imageviewWiderstand1.setImage(Widerstand90S);
+                        imageviewWiderstand1.setImage(Widerstand2);
                     }
-                    else if(imageviewWiderstand1.getImage()==Widerstand90S)
+                    else if(imageviewWiderstand1.getImage()==Widerstand2)
                     {
-                        imageviewWiderstand1.setImage(Widerstand135S);
+                        imageviewWiderstand1.setImage(Widerstand3);
                     }
-                    else if(imageviewWiderstand1.getImage()==Widerstand135S)
+                    else if(imageviewWiderstand1.getImage()==Widerstand3)
                     {
-                        imageviewWiderstand1.setImage(Widerstand00S);
+                        imageviewWiderstand1.setImage(Widerstand0);
                     }
                 }}});
         imageviewWiderstand1.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewWiderstand1.getImage()==Widerstand00T){
-                    imageviewWiderstand1.setImage(Widerstand00S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand45T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand45S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand90T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand90S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand135T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand135S);
-                }
                 imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
             }});
@@ -77,27 +54,11 @@ public class Widerstand extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewWiderstand1.getImage()==Widerstand00S){
-                    imageviewWiderstand1.setImage(Widerstand00T);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand45T);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand90T);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand135T);
-                }
                 imageviewWiderstand1.setX(event.getSceneX()-25);
                 imageviewWiderstand1.setY(event.getSceneY()-25);
             }});
 
     }
-    /*
     public void draw(GraphicsContext gc, double Orientation)
     {
         if(Orientation==0) {
@@ -114,7 +75,6 @@ public class Widerstand extends Bauelement {
         }
         else gc.drawImage(Widerstand0,posX-25,posY-25);
     }
-    */
     public String toxml(String xml){
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
                 + "		<xwid>"+(int)posX+"</xwid>\n"

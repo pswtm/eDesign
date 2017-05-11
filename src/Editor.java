@@ -184,12 +184,12 @@ public class Editor extends Application {
         vbox.getChildren().addAll(imageviewKondensator);
         Image kondensatorSchrift= new Image("file:Images/kondensatorSchrift.png",100,100,false,false);
 
-/*
+
         Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
         Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
         Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
         Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
-*/
+
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewKondensator.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
@@ -223,29 +223,13 @@ public class Editor extends Application {
             }});
 
         //Icon für die spannungsquelle
-        ImageView imageviewSpannungsquelle = new ImageView();
+         ImageView imageviewSpannungsquelle = new ImageView();
+         ImageView imageviewSpannungsquelle1 = new ImageView();
         Image spannungsquelle=new Image("file:Images/spannungsquelle.png",100,100,false,false);
         imageviewSpannungsquelle.setImage(spannungsquelle);
+        imageviewSpannungsquelle1.setImage(Spannungsquelle2);
         vbox.getChildren().addAll(imageviewSpannungsquelle);
         Image spannungsquelleSchrift= new Image("file:Images/spannungsquelleSchrift.png",100,100,false,false);
-
-        //Images beim draggen
-        ImageView imageviewSpannungsquelle1 = new ImageView();
-        Image spannungsquelle00T =new Image("file:Images/Bauelementetransparent/spannungsquelle00T.png",50,50,false,false);
-        imageviewSpannungsquelle1.setImage(spannungsquelle00T);
-
-        ImageView imageviewSpule1 = new ImageView();
-        Image spule00T =new Image("file:Images/Bauelementetransparent/spule00T.png",50,50,false,false);
-        imageviewSpule1.setImage(spule00T);
-
-        ImageView imageviewKondensator1 = new ImageView();
-        Image kondensator00T =new Image("file:Images/Bauelementetransparent/kondensator00T.png",50,50,false,false);
-        imageviewKondensator1.setImage(kondensator00T);
-
-        ImageView imageviewWiderstand1 = new ImageView();
-        Image widerstand00T =new Image("file:Images/Bauelementetransparent/widerstand00T.png",50,50,false,false);
-        imageviewWiderstand1.setImage(widerstand00T);
-
 
         //Mouse Over für das Einbleinden der IconBezeichnung
         imageviewSpannungsquelle.setOnMouseEntered(new EventHandler<MouseEvent>(){
@@ -287,22 +271,10 @@ public class Editor extends Application {
 
             }
         });
-        imageviewSpule.setOnMouseDragged(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                imageviewSpule1.setX(event.getSceneX()-25);
-                imageviewSpule1.setY(event.getSceneY()-25);
-                borderPane.getChildren().remove(imageviewSpule1);
-                borderPane.getChildren().add(imageviewSpule1);
-
-            }
-        });
         imageviewSpule.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                borderPane.getChildren().remove(imageviewSpule1);
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
@@ -313,21 +285,10 @@ public class Editor extends Application {
                 xmlstring=spule.toxml(xmlstring);
             }
         });
-        imageviewKondensator.setOnMouseDragged(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                imageviewKondensator1.setX(event.getSceneX()-25);
-                imageviewKondensator1.setY(event.getSceneY()-25);
-                borderPane.getChildren().remove(imageviewKondensator1);
-                borderPane.getChildren().add(imageviewKondensator1);
-            }
-        });
         imageviewKondensator.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                borderPane.getChildren().remove(imageviewKondensator1);
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
@@ -338,22 +299,10 @@ public class Editor extends Application {
                 xmlstring=kondensator.toxml(xmlstring);
             }
         });
-        imageviewWiderstand.setOnMouseDragged(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                imageviewWiderstand1.setX(event.getSceneX()-25);
-                imageviewWiderstand1.setY(event.getSceneY()-25);
-                borderPane.getChildren().remove(imageviewWiderstand1);
-                borderPane.getChildren().add(imageviewWiderstand1);
-            }
-        });
         imageviewWiderstand.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                borderPane.getChildren().remove(imageviewWiderstand1);
-
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
@@ -395,7 +344,7 @@ public class Editor extends Application {
         drawLines(event, gc);
 
         }});
-/*
+
         ImageView imageviewSpannungsquelleCanvas = new ImageView();
         imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
         imageviewSpannungsquelleCanvas.setX(475);
@@ -423,8 +372,6 @@ public class Editor extends Application {
                     }
                 }
             }});
-            */
-        /*
         //Unwichtige Linie zum testen
         Line line =new Line();
         line.setStartX(185);
@@ -448,7 +395,7 @@ public class Editor extends Application {
                     line.setStroke(Color.WHITE);
                 }
             }});
-        */
+
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
 
@@ -590,7 +537,7 @@ public class Editor extends Application {
                         System.out.println("xles: "+xles+"yles: "+yles+"xlee: "+xlee+"ylee: "+ylee);
                         Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
                         xmlstring=leitung1.toxml(xmlstring);
-                        gc.setLineWidth(5);
+                        gc.setLineWidth(4);
                         gc.setStroke(color);
                         gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
                         gc.setStroke(Color.WHITE);
@@ -640,7 +587,7 @@ public class Editor extends Application {
             Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
             //borderPane.getChildren().add(leitung.getline());
-            gc.setLineWidth(5);
+            gc.setLineWidth(4);
             gc.setStroke(color);
             gc.strokeLine(leitung.getxstart(),leitung.getystart(),leitung.getxend(),leitung.getyend());
             gc.setStroke(Color.WHITE);
