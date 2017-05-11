@@ -10,44 +10,68 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Spule extends Bauelement {
-    Image Spule2=new Image("file:Images/BauelementIcon/spuleN_S.png",50,50,false,false);
-    Image Spule3=new Image("file:Images/BauelementIcon/spuleNO_SW.png",50,50,false,false);
-    Image Spule0=new Image("file:Images/BauelementIcon/spuleO_W.png",50,50,false,false);
-    Image Spule1=new Image("file:Images/BauelementIcon/spuleNW_SO.png",50,50,false,false);
-    ImageView imageviewSpule1 = new ImageView();
+    //Image Spule2=new Image("file:Images/BauelementIcon/spuleN_S.png",50,50,false,false);
+    //Image Spule3=new Image("file:Images/BauelementIcon/spuleNO_SW.png",50,50,false,false);
+    //Image Spule0=new Image("file:Images/BauelementIcon/spuleO_W.png",50,50,false,false);
+    //Image Spule1=new Image("file:Images/BauelementIcon/spuleNW_SO.png",50,50,false,false);
 
+    Image Spule00S=new Image("file:Images/Bauelementeschwarz/spule00S.png",50,50,false,false);
+    Image Spule45S=new Image("file:Images/Bauelementeschwarz/spule45S.png",50,50,false,false);
+    Image Spule90S=new Image("file:Images/Bauelementeschwarz/spule90S.png",50,50,false,false);
+    Image Spule135S=new Image("file:Images/Bauelementeschwarz/spule135S.png",50,50,false,false);
+
+    Image Spule00T=new Image("file:Images/Bauelementetransparent/spule00T.png",50,50,false,false);
+    Image Spule45T=new Image("file:Images/Bauelementetransparent/spule45T.png",50,50,false,false);
+    Image Spule90T=new Image("file:Images/Bauelementetransparent/spule90T.png",50,50,false,false);
+    Image Spule135T=new Image("file:Images/Bauelementetransparent/spule135T.png",50,50,false,false);
+
+
+    ImageView imageviewSpule1 = new ImageView();
 
     public Spule(double x, double y, double Orientation)
     {
         super(x,y,Orientation);
-        //System.out.println("Class Spule: "+posX+","+posY+","+Orientation);
-        imageviewSpule1.setImage(Spule0);
+        imageviewSpule1.setImage(Spule00S);
         imageviewSpule1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("click");
+                //System.out.println("click");
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewSpule1.getImage()==Spule0){
-                        // System.out.println("Rechtsklick Maus image2");
-                        imageviewSpule1.setImage(Spule1);
+                    if(imageviewSpule1.getImage()==Spule00S){
+                        imageviewSpule1.setImage(Spule45S);
                     }
-                    else if(imageviewSpule1.getImage()==Spule1)
+                    else if(imageviewSpule1.getImage()==Spule45S)
                     {
-                        imageviewSpule1.setImage(Spule2);
+                        imageviewSpule1.setImage(Spule90S);
                     }
-                    else if(imageviewSpule1.getImage()==Spule2)
+                    else if(imageviewSpule1.getImage()==Spule90S)
                     {
-                        imageviewSpule1.setImage(Spule3);
+                        imageviewSpule1.setImage(Spule135S);
                     }
-                    else if(imageviewSpule1.getImage()==Spule3)
+                    else if(imageviewSpule1.getImage()==Spule135S)
                     {
-                        imageviewSpule1.setImage(Spule0);
+                        imageviewSpule1.setImage(Spule00S);
                     }
                 }}});
         imageviewSpule1.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
+                if(imageviewSpule1.getImage()==Spule00T){
+                    imageviewSpule1.setImage(Spule00S);
+                }
+                else if(imageviewSpule1.getImage()==Spule45T)
+                {
+                    imageviewSpule1.setImage(Spule45S);
+                }
+                else if(imageviewSpule1.getImage()==Spule90T)
+                {
+                    imageviewSpule1.setImage(Spule90S);
+                }
+                else if(imageviewSpule1.getImage()==Spule135T)
+                {
+                    imageviewSpule1.setImage(Spule135S);
+                }
                 imageviewSpule1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpule1.setY(rundenBauteile(event.getSceneY())-25);
             }});
@@ -55,11 +79,27 @@ public class Spule extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
+                if(imageviewSpule1.getImage()==Spule00S){
+                    imageviewSpule1.setImage(Spule00T);
+                }
+                else if(imageviewSpule1.getImage()==Spule45S)
+                {
+                    imageviewSpule1.setImage(Spule45T);
+                }
+                else if(imageviewSpule1.getImage()==Spule90S)
+                {
+                    imageviewSpule1.setImage(Spule90T);
+                }
+                else if(imageviewSpule1.getImage()==Spule135S)
+                {
+                    imageviewSpule1.setImage(Spule135T);
+                }
                 imageviewSpule1.setX(event.getSceneX()-25);
                 imageviewSpule1.setY(event.getSceneY()-25);
             }});
 
     }
+    /*
     public void draw(GraphicsContext gc, double Orientation)
     {
         if(Orientation==0) {
@@ -76,6 +116,7 @@ public class Spule extends Bauelement {
         }
         else gc.drawImage(Spule0,posX-25,posY-25);
     }
+    */
     public String toxml(String xml){
         xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
                 + "		<xspu>"+(int)posX+"</xspu>\n"
