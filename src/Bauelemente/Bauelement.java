@@ -4,6 +4,7 @@ package Bauelemente;
 import javafx.geometry.Orientation;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 
 public abstract class Bauelement {
 
@@ -32,14 +33,10 @@ public abstract class Bauelement {
         this.Orientation = Orientation;
     }
 
-    public abstract void draw(GraphicsContext gc, double Orientation);
+    //public abstract void draw(GraphicsContext gc, double Orientation);
+    public abstract void draw1(BorderPane borderPane);
 
     public abstract String toxml(String xml);
-
-    public void deleteimage(GraphicsContext gc)
-    {
-        gc.clearRect(posX-25,posY-25,50,50);
-    }
 
 
 }

@@ -9,44 +9,69 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Kondensator extends Bauelement {
-    Image Kondensator2=new Image("file:Images/BauelementIcon/kondensatorN_S.png",50,50,false,false);
-    Image Kondensator3=new Image("file:Images/BauelementIcon/kondensatorNO_SW.png",50,50,false,false);
-    Image Kondensator0=new Image("file:Images/BauelementIcon/kondensatorO_W.png",50,50,false,false);
-    Image Kondensator1=new Image("file:Images/BauelementIcon/kondensatorNW_SO.png",50,50,false,false);
+    //Image Kondensator2=new Image("file:Images/BauelementIcon/kondensatorN_S.png",50,50,false,false);
+    //Image Kondensator3=new Image("file:Images/BauelementIcon/kondensatorNO_SW.png",50,50,false,false);
+    //Image Kondensator0=new Image("file:Images/BauelementIcon/kondensatorO_W.png",50,50,false,false);
+    //Image Kondensator1=new Image("file:Images/BauelementIcon/kondensatorNW_SO.png",50,50,false,false);
+
+    Image Kondensator00S=new Image("file:Images/Bauelementeschwarz/kondensator00S.png",50,50,false,false);
+    Image Kondensator45S=new Image("file:Images/Bauelementeschwarz/kondensator45S.png",50,50,false,false);
+    Image Kondensator90S=new Image("file:Images/Bauelementeschwarz/kondensator90S.png",50,50,false,false);
+    Image Kondensator135S=new Image("file:Images/Bauelementeschwarz/kondensator135S.png",50,50,false,false);
+
+    Image Kondensator00T=new Image("file:Images/Bauelementetransparent/kondensator00T.png",50,50,false,false);
+    Image Kondensator45T=new Image("file:Images/Bauelementetransparent/kondensator45T.png",50,50,false,false);
+    Image Kondensator90T=new Image("file:Images/Bauelementetransparent/kondensator90T.png",50,50,false,false);
+    Image Kondensator135T=new Image("file:Images/Bauelementetransparent/kondensator135T.png",50,50,false,false);
+
     ImageView imageviewKondensator1 = new ImageView();
 
 
     public Kondensator(double x, double y, double Orientation)
     {
+
         super(x,y,Orientation);
-        //System.out.println("Class Kon: "+posX+","+posY+","+Orientation);
-        imageviewKondensator1.setImage(Kondensator0);
+        imageviewKondensator1.setImage(Kondensator00S);
         imageviewKondensator1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("click");
+                //System.out.println("click");
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewKondensator1.getImage()==Kondensator0){
-                        // System.out.println("Rechtsklick Maus image2");
-                        imageviewKondensator1.setImage(Kondensator1);
+                    if(imageviewKondensator1.getImage()==Kondensator00S){
+                        imageviewKondensator1.setImage(Kondensator45S);
                     }
-                    else if(imageviewKondensator1.getImage()==Kondensator1)
+                    else if(imageviewKondensator1.getImage()==Kondensator45S)
                     {
-                        imageviewKondensator1.setImage(Kondensator2);
+                        imageviewKondensator1.setImage(Kondensator90S);
                     }
-                    else if(imageviewKondensator1.getImage()==Kondensator2)
+                    else if(imageviewKondensator1.getImage()==Kondensator90S)
                     {
-                        imageviewKondensator1.setImage(Kondensator3);
+                        imageviewKondensator1.setImage(Kondensator135S);
                     }
-                    else if(imageviewKondensator1.getImage()==Kondensator3)
+                    else if(imageviewKondensator1.getImage()==Kondensator135S)
                     {
-                        imageviewKondensator1.setImage(Kondensator0);
+                        imageviewKondensator1.setImage(Kondensator00S);
                     }
                 }}});
         imageviewKondensator1.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
+                if(imageviewKondensator1.getImage()==Kondensator00T){
+                    imageviewKondensator1.setImage(Kondensator00S);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator45T)
+                {
+                    imageviewKondensator1.setImage(Kondensator45S);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator90T)
+                {
+                    imageviewKondensator1.setImage(Kondensator90S);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator135T)
+                {
+                    imageviewKondensator1.setImage(Kondensator135S);
+                }
                 imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
             }});
@@ -54,6 +79,21 @@ public class Kondensator extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
+                if(imageviewKondensator1.getImage()==Kondensator00S){
+                    imageviewKondensator1.setImage(Kondensator00T);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator45S)
+                {
+                    imageviewKondensator1.setImage(Kondensator45T);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator90S)
+                {
+                    imageviewKondensator1.setImage(Kondensator90T);
+                }
+                else if(imageviewKondensator1.getImage()==Kondensator135S)
+                {
+                    imageviewKondensator1.setImage(Kondensator135T);
+                }
                 imageviewKondensator1.setX(event.getSceneX()-25);
                 imageviewKondensator1.setY(event.getSceneY()-25);
             }});
@@ -67,6 +107,7 @@ public class Kondensator extends Bauelement {
         return xml;
     }
 
+    /*
     public void draw(GraphicsContext gc, double Orientation)
     {
         if(Orientation==0) {
@@ -83,6 +124,7 @@ public class Kondensator extends Bauelement {
         }
         else gc.drawImage(Kondensator0,posX-25,posY-25);
     }
+    */
     public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
