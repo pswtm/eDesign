@@ -1,52 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="husD">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/kondensator00S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/kondensator135S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/kondensator45S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/kondensator90S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle00S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle135S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle45S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle90S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spule00S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spule135S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spule45S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spule90S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/widerstand00S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/widerstand135S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/widerstand45S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/widerstand90S.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/kondensator00T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/kondensator135T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/kondensator45T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/kondensator90T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle00T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle135T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle45T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle90T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spule00T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spule135T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spule45T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spule90T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/widerstand00T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/widerstand135T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/widerstand45T.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/widerstand90T.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$1.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$2.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$3.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Bauelement.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Bauelement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Leitung.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Leitung.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Spule.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Spule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Widerstand.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Widerstand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.java" afterPath="$PROJECT_DIR$/src/Editor.java" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="husD" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -109,8 +64,8 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="596" column="38" lean-forward="false" selection-start-line="596" selection-start-column="27" selection-end-line="596" selection-end-column="38" />
+            <state relative-caret-position="226">
+              <caret line="601" column="13" lean-forward="false" selection-start-line="601" selection-start-column="13" selection-end-line="601" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#10676:11101" expanded="false" />
@@ -135,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/Bauelemente/Leitung.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
-              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+              <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -854,7 +809,7 @@
       <workItem from="1494446521314" duration="2572000" />
       <workItem from="1494449125332" duration="30000" />
       <workItem from="1494494402730" duration="40000" />
-      <workItem from="1494503297709" duration="6291000" />
+      <workItem from="1494503297709" duration="6473000" />
     </task>
     <task id="LOCAL-00001" summary="Ich habe einen Kommentar eingefügt">
       <created>1493039058456</created>
@@ -881,7 +836,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82974000" />
+    <option name="totallyTimeSpent" value="83156000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -917,7 +872,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2510288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2510288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1441,15 +1396,15 @@
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Leitung.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="596" column="38" lean-forward="false" selection-start-line="596" selection-start-column="27" selection-end-line="596" selection-end-column="38" />
+        <state relative-caret-position="226">
+          <caret line="601" column="13" lean-forward="false" selection-start-line="601" selection-start-column="13" selection-end-line="601" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#10676:11101" expanded="false" />
