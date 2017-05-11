@@ -20,9 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import javafx.event.EventHandler;
-
 import java.awt.*;
 import java.util.Optional;
 import java.util.Scanner;
@@ -33,7 +31,6 @@ import Bauelemente.Widerstand;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.Event;
-
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -47,9 +44,9 @@ import java.io.File;
 import java.util.Iterator;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import java.nio.charset.StandardCharsets;
 
 public class Editor extends Application {
-
     //unser Fenster
     Stage window;
     String xmlstring="";
@@ -140,10 +137,10 @@ public class Editor extends Application {
         viewMenu.getItems().add(new MenuItem("Theme ändern"));
         viewMenu.getItems().add(new MenuItem("Schriftgröße ändern"));
 
-        //Menüpunkt "Ansicht" erstellen
+        //Menüpunkt "Hilfe" erstellen
         Menu helpMenu = new Menu("_Hilfe");
 
-        //Menüleiste zusammenüfhren
+        //Menüleiste zusammenführen
         //MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
         //Vbox Größe
@@ -207,7 +204,7 @@ public class Editor extends Application {
         imageviewSpule.setImage(spule);
         vbox.getChildren().addAll(imageviewSpule);
         Image spuleSchrift= new Image("file:Images/spuleSchrift.png",100,100,false,false);
-        //Mouse Over für das Einbleinden der IconBezeichnung
+        //Mouse Over für das Einblenden der IconBezeichnung
         imageviewSpule.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {

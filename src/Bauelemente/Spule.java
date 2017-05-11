@@ -15,6 +15,7 @@ public class Spule extends Bauelement {
     //Image Spule0=new Image("file:Images/BauelementIcon/spuleO_W.png",50,50,false,false);
     //Image Spule1=new Image("file:Images/BauelementIcon/spuleNW_SO.png",50,50,false,false);
 
+    //Bilder von den Objekten beim drag and drop Schwarz und Transparent
     Image Spule00S=new Image("file:Images/Bauelementeschwarz/spule00S.png",50,50,false,false);
     Image Spule45S=new Image("file:Images/Bauelementeschwarz/spule45S.png",50,50,false,false);
     Image Spule90S=new Image("file:Images/Bauelementeschwarz/spule90S.png",50,50,false,false);
@@ -32,70 +33,55 @@ public class Spule extends Bauelement {
     {
         super(x,y,Orientation);
         imageviewSpule1.setImage(Spule00S);
+        //Rechtsklick Drehung bzw ändern des Bildes
         imageviewSpule1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
-                //System.out.println("click");
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewSpule1.getImage()==Spule00S){
-                        imageviewSpule1.setImage(Spule45S);
-                    }
+                    if(imageviewSpule1.getImage()==Spule00S)
+                    {imageviewSpule1.setImage(Spule45S);}
                     else if(imageviewSpule1.getImage()==Spule45S)
-                    {
-                        imageviewSpule1.setImage(Spule90S);
-                    }
+                    {imageviewSpule1.setImage(Spule90S);}
                     else if(imageviewSpule1.getImage()==Spule90S)
-                    {
-                        imageviewSpule1.setImage(Spule135S);
-                    }
+                    {imageviewSpule1.setImage(Spule135S);}
                     else if(imageviewSpule1.getImage()==Spule135S)
-                    {
-                        imageviewSpule1.setImage(Spule00S);
-                    }
+                    {imageviewSpule1.setImage(Spule00S);}
                 }}});
-        imageviewSpule1.setOnMouseReleased(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                if(imageviewSpule1.getImage()==Spule00T){
-                    imageviewSpule1.setImage(Spule00S);
-                }
-                else if(imageviewSpule1.getImage()==Spule45T)
-                {
-                    imageviewSpule1.setImage(Spule45S);
-                }
-                else if(imageviewSpule1.getImage()==Spule90T)
-                {
-                    imageviewSpule1.setImage(Spule90S);
-                }
-                else if(imageviewSpule1.getImage()==Spule135T)
-                {
-                    imageviewSpule1.setImage(Spule135S);
-                }
-                imageviewSpule1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewSpule1.setY(rundenBauteile(event.getSceneY())-25);
-            }});
+        //zeichnet während des drag das Transparente Bild
         imageviewSpule1.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewSpule1.getImage()==Spule00S){
-                    imageviewSpule1.setImage(Spule00T);
-                }
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewSpule1.getImage()==Spule00S)
+                {imageviewSpule1.setImage(Spule00T);}
                 else if(imageviewSpule1.getImage()==Spule45S)
-                {
-                    imageviewSpule1.setImage(Spule45T);
-                }
+                {imageviewSpule1.setImage(Spule45T);}
                 else if(imageviewSpule1.getImage()==Spule90S)
-                {
-                    imageviewSpule1.setImage(Spule90T);
-                }
+                {imageviewSpule1.setImage(Spule90T);}
                 else if(imageviewSpule1.getImage()==Spule135S)
-                {
-                    imageviewSpule1.setImage(Spule135T);
-                }
+                {imageviewSpule1.setImage(Spule135T);}
+
                 imageviewSpule1.setX(event.getSceneX()-25);
                 imageviewSpule1.setY(event.getSceneY()-25);
+            }});
+        //Ändert das Bild in das mit schwarzen Hintergrund beim Losllassen der Maustaste
+        imageviewSpule1.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewSpule1.getImage()==Spule00T)
+                {imageviewSpule1.setImage(Spule00S);}
+                else if(imageviewSpule1.getImage()==Spule45T)
+                {imageviewSpule1.setImage(Spule45S);}
+                else if(imageviewSpule1.getImage()==Spule90T)
+                {imageviewSpule1.setImage(Spule90S);}
+                else if(imageviewSpule1.getImage()==Spule135T)
+                {imageviewSpule1.setImage(Spule135S);}
+                imageviewSpule1.setX(rundenBauteile(event.getSceneX())-25);
+                imageviewSpule1.setY(rundenBauteile(event.getSceneY())-25);
             }});
 
     }
@@ -117,6 +103,7 @@ public class Spule extends Bauelement {
         else gc.drawImage(Spule0,posX-25,posY-25);
     }
     */
+    //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
                 + "		<xspu>"+(int)posX+"</xspu>\n"
@@ -124,6 +111,7 @@ public class Spule extends Bauelement {
                 + "		<spuor>"+(int)Orientation+"</spuor>\n\n";
         return xml;
     }
+    //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
@@ -131,6 +119,7 @@ public class Spule extends Bauelement {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
+    //Zeichnen Methode
     public void draw1(BorderPane borderPane)
     {
         imageviewSpule1.setX(posX-25);

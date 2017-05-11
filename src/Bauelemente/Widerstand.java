@@ -14,6 +14,7 @@ public class Widerstand extends Bauelement {
     //Image Widerstand0=new Image("file:Images/BauelementIcon/widerstandO_W.png",50,50,false,false);
     //Image Widerstand1=new Image("file:Images/BauelementIcon/widerstandNW_SO.png",50,50,false,false);
 
+    //Bilder von den Objekten beim drag and drop Schwarz und Transparent
     Image Widerstand00S=new Image("file:Images/Bauelementeschwarz/widerstand00S.png",50,50,false,false);
     Image Widerstand45S=new Image("file:Images/Bauelementeschwarz/widerstand45S.png",50,50,false,false);
     Image Widerstand90S=new Image("file:Images/Bauelementeschwarz/widerstand90S.png",50,50,false,false);
@@ -31,71 +32,57 @@ public class Widerstand extends Bauelement {
     {
         super(x,y,Orientation);
         imageviewWiderstand1.setImage(Widerstand00S);
+        //Rechtsklick Drehung bzw ändern des Bildes
         imageviewWiderstand1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewWiderstand1.getImage()==Widerstand00S){
-                        imageviewWiderstand1.setImage(Widerstand45S);
-                    }
+                    if(imageviewWiderstand1.getImage()==Widerstand00S)
+                    {imageviewWiderstand1.setImage(Widerstand45S);}
                     else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                    {
-                        imageviewWiderstand1.setImage(Widerstand90S);
-                    }
+                    {imageviewWiderstand1.setImage(Widerstand90S);}
                     else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                    {
-                        imageviewWiderstand1.setImage(Widerstand135S);
-                    }
+                    {imageviewWiderstand1.setImage(Widerstand135S);}
                     else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                    {
-                        imageviewWiderstand1.setImage(Widerstand00S);
-                    }
+                    {imageviewWiderstand1.setImage(Widerstand00S);}
                 }}});
-        imageviewWiderstand1.setOnMouseReleased(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                if(imageviewWiderstand1.getImage()==Widerstand00T){
-                    imageviewWiderstand1.setImage(Widerstand00S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand45T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand45S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand90T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand90S);
-                }
-                else if(imageviewWiderstand1.getImage()==Widerstand135T)
-                {
-                    imageviewWiderstand1.setImage(Widerstand135S);
-                }
-                imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
-            }});
+        //zeichnet während des drag das Transparente Bild
         imageviewWiderstand1.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewWiderstand1.getImage()==Widerstand00S){
-                    imageviewWiderstand1.setImage(Widerstand00T);
-                }
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewWiderstand1.getImage()==Widerstand00S)
+                {imageviewWiderstand1.setImage(Widerstand00T);}
                 else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand45T);
-                }
+                {imageviewWiderstand1.setImage(Widerstand45T);}
                 else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand90T);
-                }
+                {imageviewWiderstand1.setImage(Widerstand90T);}
                 else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                {
-                    imageviewWiderstand1.setImage(Widerstand135T);
-                }
+                {imageviewWiderstand1.setImage(Widerstand135T);}
+
                 imageviewWiderstand1.setX(event.getSceneX()-25);
                 imageviewWiderstand1.setY(event.getSceneY()-25);
             }});
+        //Ändert das Bild in das mit schwarzen Hintergrund beim Losllassen der Maustaste
+        imageviewWiderstand1.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewWiderstand1.getImage()==Widerstand00T)
+                {imageviewWiderstand1.setImage(Widerstand00S);}
+                else if(imageviewWiderstand1.getImage()==Widerstand45T)
+                {imageviewWiderstand1.setImage(Widerstand45S);}
+                else if(imageviewWiderstand1.getImage()==Widerstand90T)
+                {imageviewWiderstand1.setImage(Widerstand90S);}
+                else if(imageviewWiderstand1.getImage()==Widerstand135T)
+                {imageviewWiderstand1.setImage(Widerstand135S);}
 
+                imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
+                imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
+            }});
     }
     /*
     public void draw(GraphicsContext gc, double Orientation)
@@ -115,6 +102,7 @@ public class Widerstand extends Bauelement {
         else gc.drawImage(Widerstand0,posX-25,posY-25);
     }
     */
+    //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
                 + "		<xwid>"+(int)posX+"</xwid>\n"
@@ -122,6 +110,7 @@ public class Widerstand extends Bauelement {
                 + "		<widor>"+(int)Orientation+"</widor>\n\n";
         return xml;
     }
+    //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
@@ -129,6 +118,7 @@ public class Widerstand extends Bauelement {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
+    //Zeichnen Methode
     public void draw1( BorderPane borderPane)
     {
         imageviewWiderstand1.setX(posX-25);

@@ -14,6 +14,7 @@ public class Kondensator extends Bauelement {
     //Image Kondensator0=new Image("file:Images/BauelementIcon/kondensatorO_W.png",50,50,false,false);
     //Image Kondensator1=new Image("file:Images/BauelementIcon/kondensatorNW_SO.png",50,50,false,false);
 
+    //Bilder von den Objekten beim drag and drop Schwarz und Transparent
     Image Kondensator00S=new Image("file:Images/Bauelementeschwarz/kondensator00S.png",50,50,false,false);
     Image Kondensator45S=new Image("file:Images/Bauelementeschwarz/kondensator45S.png",50,50,false,false);
     Image Kondensator90S=new Image("file:Images/Bauelementeschwarz/kondensator90S.png",50,50,false,false);
@@ -26,79 +27,63 @@ public class Kondensator extends Bauelement {
 
     ImageView imageviewKondensator1 = new ImageView();
 
-
     public Kondensator(double x, double y, double Orientation)
     {
-
         super(x,y,Orientation);
         imageviewKondensator1.setImage(Kondensator00S);
+        //Rechtsklick Drehung bzw ändern des Bildes
         imageviewKondensator1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
-                //System.out.println("click");
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewKondensator1.getImage()==Kondensator00S){
-                        imageviewKondensator1.setImage(Kondensator45S);
-                    }
+                    if(imageviewKondensator1.getImage()==Kondensator00S)
+                    {imageviewKondensator1.setImage(Kondensator45S);}
                     else if(imageviewKondensator1.getImage()==Kondensator45S)
-                    {
-                        imageviewKondensator1.setImage(Kondensator90S);
-                    }
+                    {imageviewKondensator1.setImage(Kondensator90S);}
                     else if(imageviewKondensator1.getImage()==Kondensator90S)
-                    {
-                        imageviewKondensator1.setImage(Kondensator135S);
-                    }
+                    {imageviewKondensator1.setImage(Kondensator135S);}
                     else if(imageviewKondensator1.getImage()==Kondensator135S)
-                    {
-                        imageviewKondensator1.setImage(Kondensator00S);
-                    }
+                    {imageviewKondensator1.setImage(Kondensator00S);}
                 }}});
-        imageviewKondensator1.setOnMouseReleased(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event)
-            {
-                if(imageviewKondensator1.getImage()==Kondensator00T){
-                    imageviewKondensator1.setImage(Kondensator00S);
-                }
-                else if(imageviewKondensator1.getImage()==Kondensator45T)
-                {
-                    imageviewKondensator1.setImage(Kondensator45S);
-                }
-                else if(imageviewKondensator1.getImage()==Kondensator90T)
-                {
-                    imageviewKondensator1.setImage(Kondensator90S);
-                }
-                else if(imageviewKondensator1.getImage()==Kondensator135T)
-                {
-                    imageviewKondensator1.setImage(Kondensator135S);
-                }
-                imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
-            }});
+        //zeichnet während des drag das Transparente Bild
         imageviewKondensator1.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(imageviewKondensator1.getImage()==Kondensator00S){
-                    imageviewKondensator1.setImage(Kondensator00T);
-                }
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewKondensator1.getImage()==Kondensator00S)
+                {imageviewKondensator1.setImage(Kondensator00T);}
                 else if(imageviewKondensator1.getImage()==Kondensator45S)
-                {
-                    imageviewKondensator1.setImage(Kondensator45T);
-                }
+                {imageviewKondensator1.setImage(Kondensator45T);}
                 else if(imageviewKondensator1.getImage()==Kondensator90S)
-                {
-                    imageviewKondensator1.setImage(Kondensator90T);
-                }
+                {imageviewKondensator1.setImage(Kondensator90T);}
                 else if(imageviewKondensator1.getImage()==Kondensator135S)
-                {
-                    imageviewKondensator1.setImage(Kondensator135T);
-                }
+                {imageviewKondensator1.setImage(Kondensator135T);}
+
                 imageviewKondensator1.setX(event.getSceneX()-25);
                 imageviewKondensator1.setY(event.getSceneY()-25);
             }});
+        //Ändert das Bild in das mit schwarzen Hintergrund beim Losllassen der Maustaste
+        imageviewKondensator1.setOnMouseReleased(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {
+                //Welches Bild ist aktuell? Wegen drehen des Bildes
+                if(imageviewKondensator1.getImage()==Kondensator00T)
+                {imageviewKondensator1.setImage(Kondensator00S);}
+                else if(imageviewKondensator1.getImage()==Kondensator45T)
+                {imageviewKondensator1.setImage(Kondensator45S);}
+                else if(imageviewKondensator1.getImage()==Kondensator90T)
+                {imageviewKondensator1.setImage(Kondensator90S);}
+                else if(imageviewKondensator1.getImage()==Kondensator135T)
+                {imageviewKondensator1.setImage(Kondensator135S);}
 
+                imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
+                imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
+            }});
     }
+    //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=            "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
                 + "		<xkon>"+(int)posX+"</xkon>\n"
@@ -124,6 +109,8 @@ public class Kondensator extends Bauelement {
         else gc.drawImage(Kondensator0,posX-25,posY-25);
     }
     */
+
+    //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {
         if (runden % 50 < 25) {
             return runden - (runden % 50);
@@ -131,6 +118,7 @@ public class Kondensator extends Bauelement {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
+    //Zeichnen Methode
     public void draw1(BorderPane borderPane)
     {
         imageviewKondensator1.setX(posX-25);
