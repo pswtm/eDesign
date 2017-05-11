@@ -80,7 +80,6 @@ public class Editor extends Application {
         //Allgemeine Fenstereinstellungen
         window = primaryStage;
         window.setTitle("eDesign");
-        //TODO: ProgrammIcon einbauen
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
 
         // BorderPane borderPane = new BorderPane();
@@ -489,7 +488,9 @@ public class Editor extends Application {
     //Öffnen
     public void open()
     {
+        //XKondensator, YKondensator, XlineStart, XLineEnd
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
+        //KondensatorOrientation
         double konOr,spaOr,widOr,spuOr;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Öffnen");
@@ -582,16 +583,20 @@ public class Editor extends Application {
                         xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
                         line=scanner.nextLine();
                         ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
-                        System.out.println("xles: "+xles+"yles: "+yles+"xlee: "+xlee+"ylee: "+ylee);
                         Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
+                        //leitung1.draw(gc);
+                        leitung1.draw1(borderPane);
+                        //Leitung wird in String gespeichert um es später wieder abspeichern zu können
+                        xmlstring=leitung1.toxml(xmlstring);
+                        /*
                         gc.setLineWidth(5);
                         gc.setStroke(color);
                         //Leitung wird auf BorderPane gezeichnet
                         gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
                         gc.setStroke(Color.WHITE);
                         gc.setLineWidth(1);
-                        //Leitung wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=leitung1.toxml(xmlstring);
+                        */
+
                     }
                 }
             } catch (Exception f){//Catch exception if any
@@ -635,19 +640,22 @@ public class Editor extends Application {
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
-            Leitung leitung=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
-            //Todo entscheiden wie man drauf malt bzw es als Element fassen kann
-            //borderPane.getChildren().add(leitung.getline());
+            Leitung leitung1=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
+            leitung1.draw1(borderPane);
+            xmlstring=leitung1.toxml(xmlstring);
+            //leitung1.draw(gc);
+            /*
             gc.setLineWidth(5);
             gc.setStroke(color);
-            gc.strokeLine(leitung.getxstart(),leitung.getystart(),leitung.getxend(),leitung.getyend());
+            gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
             gc.setStroke(Color.WHITE);
             gc.setLineWidth(1);
+            */
             xStartLeitung=0;
             yStartLeitung=0;
             xEndLeitung=0;
             yEndLeitung=0;
-            xmlstring=leitung.toxml(xmlstring);
+
         }
         else return;
     }
