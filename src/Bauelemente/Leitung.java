@@ -53,7 +53,7 @@ public class Leitung extends Bauelement{
                 xe=xend-event.getSceneX();
                 ye=yend-event.getSceneY();
             }});
-        //zeichnet wenn Maus losgelassen
+        //zeichnet wenn dropped
         line.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)

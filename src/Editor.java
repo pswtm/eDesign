@@ -81,8 +81,7 @@ public class Editor extends Application {
         window = primaryStage;
         window.setTitle("eDesign");
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
-
-        // BorderPane borderPane = new BorderPane();
+        //BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 990, 600);
 
         //Menüpunkt "Datei" erstellen
