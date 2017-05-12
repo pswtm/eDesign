@@ -9,19 +9,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class Leitung extends Bauelement{
-    double xend;
-    double yend;
+    public double xend;
+    public double yend;
     double xs,ys,xe,ye;
     Color color=Color.rgb(238,238,238);
     Line line =new Line();
 
 
-    public Leitung(double xstart, double ystart, double Orientation, double xend, double yend)
+    public Leitung(double xstart, double ystart, double Orientation, double xende, double yende)
     {
         super(xstart,ystart,Orientation);
-        this.xend=xend;
-        this.yend=yend;
-        System.out.println("Class Leitung: "+xstart+","+ystart+","+xend+","+yend);
+        this.xend=xende;
+        this.yend=yende;
+        //System.out.println("Class Leitung: "+xstart+","+ystart+","+xend+","+yend);
         line.setStartX(xstart);
         line.setStartY(ystart);
         line.setEndX(xend);
@@ -34,60 +34,40 @@ public class Leitung extends Bauelement{
         @Override
         public void handle(MouseEvent event)
         {
-            //TOdo Berechnuns wo die Linie sein muss
-            //Rechnung wo Maus ist und Länge der Linie zum positionieren
-            //System.out.println("Line alt xs:"+posX+" ys: "+posY+" xe: "+xend+" ye: "+yend);
-            //xs=posX-event.getSceneX();
-            //ys=posY-event.getSceneY();
-            //xe=event.getSceneX()-xend;
-            //ye=event.getSceneY()-yend;
-            //System.out.println("dragged falsch xs:"+xs+" ys: "+ys+" Maus x: "+event.getSceneX()+" Maus y: "+event.getSceneY());
-            //line.setStartX(xs);
-            //line.setStartY(ys);
-            //line.setEndX(xe);
-            //line.setEndY(ye);
+            posX=event.getSceneX()+xs;
+            posY=event.getSceneY()+ys;
+            xend=event.getSceneX()+xe;
+            yend=event.getSceneY()+ye;
+
+            line.setStartX(posX);
+            line.setStartY(posY);
+            line.setEndX(xe+event.getSceneX());
+            line.setEndY(ye+event.getSceneY());
         }});
+        //um den Abstand von X und Y Koordinaten zu der Maus zu bekommen
+        line.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                xs=posX-event.getSceneX();
+                ys=posY-event.getSceneY();
+                xe=xend-event.getSceneX();
+                ye=yend-event.getSceneY();
+            }});
         //zeichnet wenn Maus losgelassen
         line.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                if(posX>event.getSceneX()&&posY>event.getSceneY())
-                {
-                    xs= event.getSceneX()-posX;
-                    ys=event.getSceneY()-posY;
-                    System.out.println("Startpunkt unten rechts. posx: "+posX+ " >Mausx:"+event.getSceneX()+" posy: "+posY+" >Mausy "+event.getSceneY());
-                    System.out.println(xs+","+ys);
-                }
-                else if(posX<event.getSceneX()&&posY<event.getSceneY())
-                {
-                    System.out.println("Startpunkt oben links. posx: "+posX+ " <Mausx:"+event.getSceneX()+" posy: "+posY+" <Mausy "+event.getSceneY());
-                }
-                else if(posX>event.getSceneX()&&posY<event.getSceneY())
-                {
-                    System.out.println("Startpunkt oben rechts. posx: "+posX+ " >Mausx:"+event.getSceneX()+" posy: "+posY+" <Mausy "+event.getSceneY());
-                }
-                else if(posX<event.getSceneX()&&posY>event.getSceneY())
-                {
-                    System.out.println("Startpunkt unten links. posx: "+posX+ " <Mausx:"+event.getSceneX()+" posy: "+posY+" >Mausy "+event.getSceneY());
-                }
-                else {
-                    System.out.println("Startpunkt gleich. posx: "+posX+ " Mausx:"+event.getSceneX()+" posy: "+posY+" Mausy "+event.getSceneY());
-                    return;
-                }
-                //xs=event.getSceneX()-posX;
-                //ys=event.getSceneY()-posY;
-                //xe=xend-event.getSceneX();
-                //ye=yend-event.getSceneY();
+                posX=rundenLeitungen(event.getSceneX()+xs);
+                posY=rundenLeitungen(event.getSceneY()+ys);
+                xend=rundenLeitungen(event.getSceneX()+xe);
+                yend=rundenLeitungen(event.getSceneY()+ye);
+                line.setStartX(posX);
+                line.setStartY(posY);
+                line.setEndX(xend);
+                line.setEndY(yend);
 
-                //System.out.println("Line alt xs:"+posX+" ys: "+posY+" xe: "+xend+" ye: "+yend);
-                //System.out.println("dropped falsch xs:"+xs+" ys: "+ys+" xe: "+xe+" ye: "+ye);
-                //System.out.println("Maus x: "+event.getSceneX()+" Maus y: "+event.getSceneY());
 
-                //line.setStartX(xs+event.getSceneX());
-                //line.setStartY(ys+event.getSceneY());
-                //line.setEndX(xe+event.getSceneX());
-                //line.setEndY(ye+event.getSceneY());
 
             }});
     }
@@ -104,6 +84,18 @@ public class Leitung extends Bauelement{
     {
         borderPane.getChildren().add(line);
     }
+    public double rundenLeitungen(double runden)
+    {
+        double a=0,b=0;
+        if (runden % 25 < 12.5) {
+            a= runden - (runden % 25);
+            return a;
+
+        } else if (runden % 25 >= 12.5) {
+            b= runden +  (25-runden % 25);
+            return b;
+        } else return 0;
+    }
     /*
     public void draw(GraphicsContext gc)
     {
@@ -114,10 +106,5 @@ public class Leitung extends Bauelement{
         gc.setLineWidth(1);
     }
     */
-    public double getxstart() {return posX;}
-    public double getystart() {return posY;}
-    public double getxend()   {return xend;}
-    public double getyend()   {return yend;}
-    public Line getline()  {return line;}
 
 }
