@@ -47,12 +47,11 @@ import javafx.scene.shape.Rectangle;
 import java.nio.charset.StandardCharsets;
 
 public class Editor extends Application {
-    //unser Fenster
+    //Variablen die auch in den Funktionen verwendet werden
     Stage window;
     String xmlstring="";
     File file;
     String all="";
-   // XMLCreater xmlcreater;
     int clickCount=0;
     double xStartLeitung=0,yStartLeitung=0,xEndLeitung=0,yEndLeitung=0;
     Dimension dim =Toolkit.getDefaultToolkit().getScreenSize();
@@ -62,13 +61,6 @@ public class Editor extends Application {
     VBox vbox = new VBox();
     GraphicsContext gc = canvas.getGraphicsContext2D();
     MenuBar menuBar = new MenuBar();
-
-    /*
-    Image SpannungsquelleCanvas=new Image("file:Images/spannungsquelleCanvas.png",50,50,false,false);
-    Image SpuleCanvas=new Image("file:Images/spuleCanvas.png",50,50,false,false);
-    Image KondensatorCanvas=new Image("file:Images/kondensatorCanvas.png",50,50,false,false);
-    Image WiderstandCanvas=new Image("file:Images/widerstandCanvas.png",50,50,false,false);
-    */
     BorderPane borderPane=new BorderPane();
 
     public static void main(String[] args) {
@@ -81,7 +73,6 @@ public class Editor extends Application {
         window = primaryStage;
         window.setTitle("eDesign");
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
-        //BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 990, 600);
 
         //Menüpunkt "Datei" erstellen
@@ -139,11 +130,9 @@ public class Editor extends Application {
         Menu helpMenu = new Menu("_Hilfe");
 
         //Menüleiste zusammenführen
-        //MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
         //Vbox Größe
         vbox.setPrefSize(100,100);
-        //kit.setAlignment(Pos.BOTTOM_LEFT);
         //VBox Style
         vbox.setStyle("-fx-background-color: black;"
                 + "-fx-border-style: solid;"
@@ -154,12 +143,6 @@ public class Editor extends Application {
         drawGitter(gc);
         borderPane.getChildren().add(canvas);
 
-/*      //alte icons sollte man löschen können
-        Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
-        Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
-        Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
-        Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
-*/
         //Icon für den Widerstand auf der Vbox
         final ImageView imageviewWiderstand = new ImageView();
         Image widerstand=new Image("file:Images/widerstand.png",100,100,false,false);
@@ -378,61 +361,7 @@ public class Editor extends Application {
         @Override
         public void handle(MouseEvent event)
         {drawLines(event, gc);}});
-/*
-//Beispielsachen wie image drehen und die linie
-        ImageView imageviewSpannungsquelleCanvas = new ImageView();
-        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
-        imageviewSpannungsquelleCanvas.setX(475);
-        imageviewSpannungsquelleCanvas.setY(275);
-        borderPane.getChildren().add(imageviewSpannungsquelleCanvas);
-        imageviewSpannungsquelleCanvas.setOnMouseClicked(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle0){
-                       // System.out.println("Rechtsklick Maus image2");
-                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle1);
-                    }
-                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle1)
-                    {
-                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle2);
-                    }
-                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle2)
-                    {
-                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle3);
-                    }
-                    else if(imageviewSpannungsquelleCanvas.getImage()==Spannungsquelle3)
-                    {
-                        imageviewSpannungsquelleCanvas.setImage(Spannungsquelle0);
-                    }
-                }
-            }});
-            */
-        /*
-        //Unwichtige Linie zum testen
-        Line line =new Line();
-        line.setStartX(185);
-        line.setStartY(185);
-        line.setEndX(438);
-        line.setEndY(438);
-        line.setStroke(Color.WHITE);
-        line.setStrokeWidth(10);
-        borderPane.getChildren().add(line);
-        line.setOnMouseClicked(new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                if(event.getButton()== MouseButton.SECONDARY) {
 
-                    System.out.println("Rechtsklick Maus");
-                    line.setStroke(Color.color(Math.random(),Math.random(),Math.random()));
-                }
-                else if(event.getButton()==MouseButton.PRIMARY)
-                {
-                    System.out.println("Linksklick Maus");
-                    line.setStroke(Color.WHITE);
-                }
-            }});
-        */
         //Darstellung der menubar und vbox auf Borderpane mit Stylesheet
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
@@ -606,9 +535,7 @@ public class Editor extends Application {
     //Speichern
     public void autosave()
     {
-        if(file==null) {
-            System.out.println("Error kein Dateipfad vorhanden");
-        }
+        if(file==null) {System.out.println("Error kein Dateipfad vorhanden");}
         else
         {
             try {
@@ -642,14 +569,6 @@ public class Editor extends Application {
             Leitung leitung1=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             leitung1.draw1(borderPane);
             xmlstring=leitung1.toxml(xmlstring);
-            //leitung1.draw(gc);
-            /*
-            gc.setLineWidth(5);
-            gc.setStroke(color);
-            gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
-            gc.setStroke(Color.WHITE);
-            gc.setLineWidth(1);
-            */
             xStartLeitung=0;
             yStartLeitung=0;
             xEndLeitung=0;
@@ -699,10 +618,8 @@ public class Editor extends Application {
     public void deleteall()
     {
         xmlstring="";
-        //Todo brauchen wir später nicht mehr
-        gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
-        drawGitter(gc);
-        //Todo bis hier
+        //gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
+        //drawGitter(gc);
         borderPane.getChildren().clear();
         borderPane.getChildren().add(canvas);
         borderPane.setTop(menuBar);

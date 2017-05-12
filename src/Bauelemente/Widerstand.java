@@ -9,10 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Widerstand extends Bauelement {
-    //Image Widerstand2=new Image("file:Images/BauelementIcon/widerstandN_S.png",50,50,false,false);
-    //Image Widerstand3=new Image("file:Images/BauelementIcon/widerstandNO_SW.png",50,50,false,false);
-    //Image Widerstand0=new Image("file:Images/BauelementIcon/widerstandO_W.png",50,50,false,false);
-    //Image Widerstand1=new Image("file:Images/BauelementIcon/widerstandNW_SO.png",50,50,false,false);
 
     //Bilder von den Objekten beim drag and drop Schwarz und Transparent
     Image Widerstand00S=new Image("file:Images/Bauelementeschwarz/widerstand00S.png",50,50,false,false);
@@ -26,7 +22,6 @@ public class Widerstand extends Bauelement {
     Image Widerstand135T=new Image("file:Images/Bauelementetransparent/widerstand135T.png",50,50,false,false);
 
     ImageView imageviewWiderstand1 = new ImageView();
-
 
     public Widerstand(double x, double y, double Orientation)
     {
@@ -84,24 +79,7 @@ public class Widerstand extends Bauelement {
                 imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
             }});
     }
-    /*
-    public void draw(GraphicsContext gc, double Orientation)
-    {
-        if(Orientation==0) {
-            gc.drawImage(Widerstand0, posX - 25, posY - 25);
-        }
-        else if(Orientation==1) {
-            gc.drawImage(Widerstand1, posX - 25, posY - 25);
-        }
-        else if(Orientation==2) {
-            gc.drawImage(Widerstand2, posX - 25, posY - 25);
-        }
-        else if(Orientation==3) {
-            gc.drawImage(Widerstand3, posX - 25, posY - 25);
-        }
-        else gc.drawImage(Widerstand0,posX-25,posY-25);
-    }
-    */
+
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"

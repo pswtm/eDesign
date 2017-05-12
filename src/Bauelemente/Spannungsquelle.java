@@ -16,11 +16,6 @@ import javafx.scene.layout.BorderPane;
 
 public class Spannungsquelle extends Bauelement {
 
-    //Image Spannungsquelle2=new Image("file:Images/BauelementIcon/spannungsquelleN_S.png",50,50,false,false);
-    //Image Spannungsquelle3=new Image("file:Images/BauelementIcon/spannungsquelleNO_SW.png",50,50,false,false);
-    //Image Spannungsquelle0=new Image("file:Images/BauelementIcon/spannungsquelleO_W.png",50,50,false,false);
-    //Image Spannungsquelle1=new Image("file:Images/BauelementIcon/spannungsquelleNW_SO.png",50,50,false,false);
-
     int WidthHeight=50;
     //Bilder von den Objekten beim drag and drop Schwarz und Transparent
     Image Spannungsquelle00S=new Image("file:Images/Bauelementeschwarz/spannungsquelle00S.png",WidthHeight,WidthHeight,false,false);
@@ -96,25 +91,6 @@ public class Spannungsquelle extends Bauelement {
 
 
     }
-    /*
-    public void draw(GraphicsContext gc, double Orientation)
-    {
-        if(Orientation==0) {
-            gc.drawImage(Spannungsquelle0, posX - 25, posY - 25);
-        }
-        else if(Orientation==1) {
-            gc.drawImage(Spannungsquelle1, posX - 25, posY - 25);
-        }
-        else if(Orientation==2) {
-            gc.drawImage(Spannungsquelle2, posX - 25, posY - 25);
-        }
-        else if(Orientation==3) {
-            gc.drawImage(Spannungsquelle3, posX - 25, posY - 25);
-        }
-        else gc.drawImage(Spannungsquelle0,posX-25,posY-25);
-
-    }
-    */
     //Zeichnen Methode
     public void draw1(BorderPane borderPane)
     {

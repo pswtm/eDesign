@@ -96,15 +96,5 @@ public class Leitung extends Bauelement{
             return b;
         } else return 0;
     }
-    /*
-    public void draw(GraphicsContext gc)
-    {
-        gc.setLineWidth(5);
-        gc.setStroke(color);
-        gc.strokeLine(getxstart(),getystart(),getxend(),getyend());
-        gc.setStroke(Color.WHITE);
-        gc.setLineWidth(1);
-    }
-    */
 
 }
