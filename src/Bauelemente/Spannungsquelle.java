@@ -3,10 +3,14 @@ package Bauelemente;
 import com.sun.javafx.geom.Rectangle;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+
+import java.awt.*;
+import java.awt.Button;
 import java.awt.event.MouseAdapter;
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
@@ -29,6 +33,7 @@ public class Spannungsquelle extends Bauelement {
     Image Spannungsquelle135T=new Image("file:Images/Bauelementetransparent/spannungsquelle135T.png",50,50,false,false);
 
     ImageView imageviewSpannungsquelle1 = new ImageView();
+    BorderPane border=new BorderPane();
 
     public Spannungsquelle(double x, double y, double Orientation1)
     {
@@ -67,7 +72,7 @@ public class Spannungsquelle extends Bauelement {
 
                 imageviewSpannungsquelle1.setX(event.getSceneX()-25);
                 imageviewSpannungsquelle1.setY(event.getSceneY()-25);
-                //if(event.getSceneX()>=)
+
             }});
         //Ändert das Bild in das mit schwarzen Hintergrund beim Losllassen der Maustaste
         imageviewSpannungsquelle1.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -86,14 +91,18 @@ public class Spannungsquelle extends Bauelement {
 
                 imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY())-25);
-                //Todo
-                //toxml()
+
+                //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    imageviewSpannungsquelle1.setImage(null);
+                    imageviewSpannungsquelle1.removeEventHandler(MouseEvent.ANY, this);
+                }
             }});
         imageviewSpannungsquelle1.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 //Todo entweder Hilfe anzeigen weden Drehung oder kleine Buttons zum drehen
-                System.out.println("Drehung mit rechtsklick auf das Objekt");
+                //System.out.println("Drehung mit rechtsklick auf das Objekt");
             }});
         imageviewSpannungsquelle1.setOnMouseExited(new EventHandler<MouseEvent>(){
             @Override
@@ -106,6 +115,8 @@ public class Spannungsquelle extends Bauelement {
     //Zeichnen Methode
     public void draw1(BorderPane borderPane)
     {
+        //ka ob das gut ist funktioniert allerdings
+        this.border=borderPane;
             imageviewSpannungsquelle1.setX(posX-25);
             imageviewSpannungsquelle1.setY(posY-25);
             borderPane.getChildren().add(imageviewSpannungsquelle1);

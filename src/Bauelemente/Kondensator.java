@@ -77,6 +77,12 @@ public class Kondensator extends Bauelement {
 
                 imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
+
+                //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    imageviewKondensator1.setImage(null);
+                    imageviewKondensator1.removeEventHandler(MouseEvent.ANY, this);
+                }
             }});
     }
     //Wird zum String xml hinzugefügt

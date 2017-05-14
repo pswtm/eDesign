@@ -14,6 +14,7 @@ public class Leitung extends Bauelement{
     double xs,ys,xe,ye;
     Color color=Color.rgb(238,238,238);
     Line line =new Line();
+    BorderPane border=new BorderPane();
 
 
     public Leitung(double xstart, double ystart, double Orientation, double xende, double yende)
@@ -67,7 +68,12 @@ public class Leitung extends Bauelement{
                 line.setEndX(xend);
                 line.setEndY(yend);
 
-
+                //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    //Todo ka ob das gut so ist mit löschen
+                    border.getChildren().remove(line);
+                    line.removeEventHandler(MouseEvent.ANY, this);
+                }
 
             }});
     }
@@ -82,7 +88,10 @@ public class Leitung extends Bauelement{
     }
     public void draw1(BorderPane borderPane)
     {
-        borderPane.getChildren().add(line);
+        //Todo ka ob das gut ist
+        this.border=borderPane;
+        border.getChildren().add(line);
+        //borderPane.getChildren().add(line);
     }
     public double rundenLeitungen(double runden)
     {

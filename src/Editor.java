@@ -337,11 +337,22 @@ public class Editor extends Application {
 
         //Mülleimer
         ImageView imageMuelleimer=new ImageView();
-        Image muelleimer= new Image("file:Images/muelleimer.png",50,50,false,false);
-        imageMuelleimer.setImage(muelleimer);
+        Image muelleimerZu= new Image("file:Images/muelleimerZu.png",50,50,false,false);
+        Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",50,50,false,false);
+        imageMuelleimer.setImage(muelleimerZu);
         imageMuelleimer.setX(120);
         imageMuelleimer.setY(400);
-        borderPane.getChildren().add(imageMuelleimer);
+        //borderPane.getChildren().add(imageMuelleimer);
+        vbox.getChildren().addAll(imageMuelleimer);
+        imageMuelleimer.setOnMouseEntered(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {imageMuelleimer.setImage(muelleimerOffen);}});
+        imageMuelleimer.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event)
+            {imageMuelleimer.setImage(muelleimerZu);}});
+
     /*
         //Todo extra Das ist Drag Drop um eine Datei in das Programm zu ziehen noch nicht fertig
         scene.setOnDragOver(new EventHandler<DragEvent>() {

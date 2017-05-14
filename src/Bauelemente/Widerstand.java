@@ -77,6 +77,12 @@ public class Widerstand extends Bauelement {
 
                 imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
+
+                //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    imageviewWiderstand1.setImage(null);
+                    imageviewWiderstand1.removeEventHandler(MouseEvent.ANY, this);
+                }
             }});
     }
 

@@ -78,6 +78,12 @@ public class Spule extends Bauelement {
                 {imageviewSpule1.setImage(Spule135S);}
                 imageviewSpule1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpule1.setY(rundenBauteile(event.getSceneY())-25);
+
+                //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    imageviewSpule1.setImage(null);
+                    imageviewSpule1.removeEventHandler(MouseEvent.ANY, this);
+                }
             }});
 
     }
