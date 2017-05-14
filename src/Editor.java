@@ -334,6 +334,14 @@ public class Editor extends Application {
 
             }
         });
+
+        //Mülleimer
+        ImageView imageMuelleimer=new ImageView();
+        Image muelleimer= new Image("file:Images/muelleimer.png",50,50,false,false);
+        imageMuelleimer.setImage(muelleimer);
+        imageMuelleimer.setX(120);
+        imageMuelleimer.setY(400);
+        borderPane.getChildren().add(imageMuelleimer);
     /*
         //Todo extra Das ist Drag Drop um eine Datei in das Programm zu ziehen noch nicht fertig
         scene.setOnDragOver(new EventHandler<DragEvent>() {

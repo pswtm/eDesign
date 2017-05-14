@@ -96,5 +96,8 @@ public class Leitung extends Bauelement{
             return b;
         } else return 0;
     }
-
+    public double getOrientation() {return Orientation;}
+    public double getPosX() {return posX;}
+    public double getPosY() {return posY;}
+    public double getXend() {return xend;}
 }

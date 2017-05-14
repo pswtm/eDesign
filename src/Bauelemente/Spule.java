@@ -25,9 +25,9 @@ public class Spule extends Bauelement {
 
     ImageView imageviewSpule1 = new ImageView();
 
-    public Spule(double x, double y, double Orientation)
+    public Spule(double x, double y, double Orientation1)
     {
-        super(x,y,Orientation);
+        super(x,y,Orientation1);
         imageviewSpule1.setImage(Spule00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewSpule1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -36,13 +36,13 @@ public class Spule extends Bauelement {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
                     if(imageviewSpule1.getImage()==Spule00S)
-                    {imageviewSpule1.setImage(Spule45S);}
+                    {imageviewSpule1.setImage(Spule45S);Orientation=1;}
                     else if(imageviewSpule1.getImage()==Spule45S)
-                    {imageviewSpule1.setImage(Spule90S);}
+                    {imageviewSpule1.setImage(Spule90S);Orientation=2;}
                     else if(imageviewSpule1.getImage()==Spule90S)
-                    {imageviewSpule1.setImage(Spule135S);}
+                    {imageviewSpule1.setImage(Spule135S);Orientation=3;}
                     else if(imageviewSpule1.getImage()==Spule135S)
-                    {imageviewSpule1.setImage(Spule00S);}
+                    {imageviewSpule1.setImage(Spule00S);Orientation=0;}
                 }}});
         //zeichnet während des drag das Transparente Bild
         imageviewSpule1.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -105,4 +105,8 @@ public class Spule extends Bauelement {
         imageviewSpule1.setY(posY-25);
         borderPane.getChildren().add(imageviewSpule1);
     }
+    public  double getOrientation() {return Orientation;}
+    public  double getPosX() {return posX;}
+    public  double getPosY() {return posY;}
+
 }

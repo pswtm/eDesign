@@ -23,9 +23,9 @@ public class Widerstand extends Bauelement {
 
     ImageView imageviewWiderstand1 = new ImageView();
 
-    public Widerstand(double x, double y, double Orientation)
+    public Widerstand(double x, double y, double Orientation1)
     {
-        super(x,y,Orientation);
+        super(x,y,Orientation1);
         imageviewWiderstand1.setImage(Widerstand00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewWiderstand1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -34,13 +34,13 @@ public class Widerstand extends Bauelement {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
                     if(imageviewWiderstand1.getImage()==Widerstand00S)
-                    {imageviewWiderstand1.setImage(Widerstand45S);}
+                    {imageviewWiderstand1.setImage(Widerstand45S);Orientation=1;}
                     else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                    {imageviewWiderstand1.setImage(Widerstand90S);}
+                    {imageviewWiderstand1.setImage(Widerstand90S);Orientation=2;}
                     else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                    {imageviewWiderstand1.setImage(Widerstand135S);}
+                    {imageviewWiderstand1.setImage(Widerstand135S);Orientation=3;}
                     else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                    {imageviewWiderstand1.setImage(Widerstand00S);}
+                    {imageviewWiderstand1.setImage(Widerstand00S);Orientation=0;}
                 }}});
         //zeichnet während des drag das Transparente Bild
         imageviewWiderstand1.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -103,4 +103,8 @@ public class Widerstand extends Bauelement {
         imageviewWiderstand1.setY(posY-25);
         borderPane.getChildren().add(imageviewWiderstand1);
     }
+    public  double getOrientation() {return Orientation;}
+    public  double getPosX() {return posX;}
+    public  double getPosY() {return posY;}
+
 }

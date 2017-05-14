@@ -38,6 +38,8 @@ public abstract class Bauelement {
     public abstract void draw1(BorderPane borderPane);
     //Wird zum String xml hinzugefügt
     public abstract String toxml(String xml);
-
+    public abstract double getOrientation();
+    public abstract double getPosX();
+    public abstract double getPosY();
 
 }

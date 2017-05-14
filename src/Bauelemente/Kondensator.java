@@ -23,9 +23,9 @@ public class Kondensator extends Bauelement {
 
     ImageView imageviewKondensator1 = new ImageView();
 
-    public Kondensator(double x, double y, double Orientation)
+    public Kondensator(double x, double y, double Orientation1)
     {
-        super(x,y,Orientation);
+        super(x,y,Orientation1);
         imageviewKondensator1.setImage(Kondensator00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewKondensator1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -34,13 +34,13 @@ public class Kondensator extends Bauelement {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
                     if(imageviewKondensator1.getImage()==Kondensator00S)
-                    {imageviewKondensator1.setImage(Kondensator45S);}
+                    {imageviewKondensator1.setImage(Kondensator45S);Orientation=1;}
                     else if(imageviewKondensator1.getImage()==Kondensator45S)
-                    {imageviewKondensator1.setImage(Kondensator90S);}
+                    {imageviewKondensator1.setImage(Kondensator90S);Orientation=2;}
                     else if(imageviewKondensator1.getImage()==Kondensator90S)
-                    {imageviewKondensator1.setImage(Kondensator135S);}
+                    {imageviewKondensator1.setImage(Kondensator135S);Orientation=3;}
                     else if(imageviewKondensator1.getImage()==Kondensator135S)
-                    {imageviewKondensator1.setImage(Kondensator00S);}
+                    {imageviewKondensator1.setImage(Kondensator00S);Orientation=0;}
                 }}});
         //zeichnet während des drag das Transparente Bild
         imageviewKondensator1.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -103,5 +103,8 @@ public class Kondensator extends Bauelement {
         imageviewKondensator1.setY(posY-25);
         borderPane.getChildren().add(imageviewKondensator1);
     }
+    public  double getOrientation() {return Orientation;}
+    public  double getPosX() {return posX;}
+    public  double getPosY() {return posY;}
 
 }
