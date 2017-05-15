@@ -74,7 +74,16 @@ public class Editor extends Application {
         window.setTitle("eDesign");
         window.getIcons().add(new Image ("file:Images/eIcon.png"));
         Scene scene = new Scene(borderPane, 990, 600);
-
+        //Todo Taste Entf zum löschen des Objekts
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>()
+        {
+        @Override
+         public void handle(KeyEvent event)
+        {
+        if(event.getCode()==KeyCode.DELETE)
+            System.out.println("Lösch aktion noch nicht erledigt");
+        }
+        });
         //Menüpunkt "Datei" erstellen
         //TODO: Menüstruktur und Funktionen ergänzen
         Menu fileMenu = new Menu("_Datei");

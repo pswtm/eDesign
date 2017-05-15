@@ -6,12 +6,13 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 
 import java.awt.*;
 import java.awt.Button;
-import java.awt.event.MouseAdapter;
+import java.awt.event.*;
+import java.awt.event.KeyEvent;
+
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -54,7 +55,6 @@ public class Spannungsquelle extends Bauelement {
                     else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135S)
                     {imageviewSpannungsquelle1.setImage(Spannungsquelle00S);Orientation=0;}
                 }}});
-
         //zeichnet während des drag das Transparente Bild
         imageviewSpannungsquelle1.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
@@ -98,11 +98,22 @@ public class Spannungsquelle extends Bauelement {
                     imageviewSpannungsquelle1.removeEventHandler(MouseEvent.ANY, this);
                 }
             }});
+
         imageviewSpannungsquelle1.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
                 //Todo entweder Hilfe anzeigen weden Drehung oder kleine Buttons zum drehen
-                //System.out.println("Drehung mit rechtsklick auf das Objekt");
+                System.out.println("Drehung mit rechtsklick auf das Objekt");
+                /*
+                imageviewSpannungsquelle1.setOnKeyReleased(new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent event) {
+                        // if(event.getCode()==KeyCode.E) {
+                        //if(event.getCode()== KeyCode.DELETE)
+                        System.out.println("Test"+event.getText());
+                    //}
+                    }
+                });*/
             }});
         imageviewSpannungsquelle1.setOnMouseExited(new EventHandler<MouseEvent>(){
             @Override
@@ -110,6 +121,18 @@ public class Spannungsquelle extends Bauelement {
             //Todo Buttons wieder verschwinden lassen bzw ausblenden falls wir uns dafür entscheiden oder Hilfetext verschwinden lassen
 
             }});
+        /*
+        //Key drücken um Aktion durchzuführen geht nicht
+        imageviewSpannungsquelle1.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+               // if(event.getCode()==KeyCode.E) {
+                    //if(event.getCode()== KeyCode.DELETE)
+                    System.out.println("Test"+event.getText());
+                }
+            //}
+        });
+        */
 
     }
     //Zeichnen Methode
