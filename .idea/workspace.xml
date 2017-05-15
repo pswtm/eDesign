@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="husD">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.java" afterPath="$PROJECT_DIR$/src/Editor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle00S.png" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle00S.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle135S.png" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle135S.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle45S.png" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle45S.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle90S.png" afterPath="$PROJECT_DIR$/Images/Bauelementeschwarz/spannungsquelle90S.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle00T.png" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle00T.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle135T.png" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle135T.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle45T.png" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle45T.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle90T.png" afterPath="$PROJECT_DIR$/Images/Bauelementetransparent/spannungsquelle90T.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/kondensator.png" afterPath="$PROJECT_DIR$/Images/kondensator.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/kondensatorSchrift.png" afterPath="$PROJECT_DIR$/Images/kondensatorSchrift.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/widerstand.png" afterPath="$PROJECT_DIR$/Images/widerstand.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/widerstandSchrift.png" afterPath="$PROJECT_DIR$/Images/widerstandSchrift.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,27 +87,55 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="366" column="16" lean-forward="false" selection-start-line="366" selection-start-column="16" selection-end-line="366" selection-end-column="16" />
+            <state relative-caret-position="-263">
+              <caret line="237" column="69" lean-forward="false" selection-start-line="237" selection-start-column="69" selection-end-line="237" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2837#2900#0" expanded="false" />
-                <element signature="e#3273#3366#0" expanded="false" />
-                <element signature="e#3492#3558#0" expanded="false" />
-                <element signature="class#14986:15142" expanded="false" />
-                <element signature="class#15190:15343" expanded="false" />
-                <element signature="class#15380:15785" expanded="false" />
-                <element signature="class#15823:22702" expanded="false" />
-                <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-                <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-                <element signature="method#open#0;class#Editor#0" expanded="false" />
-                <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-                <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-                <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-                <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-                <element signature="method#neu#0;class#Editor#0" expanded="false" />
-                <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Spannungsquelle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1965">
+              <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Kondensator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Kondensator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1650">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding>
+                <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Spule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Widerstand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1650">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -177,10 +217,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="87" />
-    <option name="y" value="28" />
-    <option name="width" value="1353" />
-    <option name="height" value="798" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -203,6 +242,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,9 +304,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,6 +333,191 @@
       <recent name="Z:\Hochschule\Projektarbeit\eDesign\src\Bauelemente" />
       <recent name="C:\Users\XQF\Documents\GitHub\eDesign\Images" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Bauelement.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Kondensator.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Leitung$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Leitung$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Leitung.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spule.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Widerstand.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$10.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$11.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$12.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$13.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$14.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$15.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$16.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$17.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$4.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$5.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$6.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$7.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$8.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$9.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Bauelement.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Kondensator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Leitung.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Spule.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Bauelemente/Widerstand.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Editor.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/codeStyleSettings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/muelleimerOffen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/muelleimerZu.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Leitung$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$4.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Bauelemente/Spannungsquelle$5.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$18.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$19.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$20.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/eDesign/Editor$21.class</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/kondensatorNO_SW.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/kondensatorNW_SO.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/kondensatorN_S.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/kondensatorO_W.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spannungsquelleNO_SW.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spannungsquelleNW_SO.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spannungsquelleN_S.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spannungsquelleO_W.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spuleNO_SW.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spuleNW_SO.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spuleN_S.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/spuleO_W.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/widerstandNO_SW.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/widerstandNW_SO.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/widerstandN_S.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/BauelementIcon/widerstandO_W.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/kondensatorCanvas.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/spannungsquelleCanvas.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/spuleCanvas.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Images/widerstandCanvas.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -411,136 +635,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -555,15 +649,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -608,22 +693,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -657,12 +726,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -689,28 +752,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application">
@@ -860,8 +901,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="87" y="28" width="1353" height="798" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="808" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10863239" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -872,14 +912,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2510288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2503383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18403548" sideWeight="0.82758623" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.82758623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -887,16 +926,38 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10863239" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2510288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18403548" sideWeight="0.82758623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -965,11 +1026,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-          <folding>
-            <element signature="method#toxml#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#draw1#0;class#Widerstand#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -986,14 +1043,6 @@
           <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#2083:3050" expanded="false" />
-            <element signature="class#3168:4126" expanded="false" />
-            <element signature="class#4275:5630" expanded="false" />
-            <element signature="class#5689:5976" expanded="false" />
-            <element signature="class#6034:6286" expanded="false" />
-            <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1003,9 +1052,7 @@
         <state relative-caret-position="165">
           <caret line="11" column="65" lean-forward="false" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
           <folding>
-            <element signature="method#toxml#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#draw1#0;class#Kondensator#0" expanded="false" />
+            <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1016,22 +1063,6 @@
           <caret line="337" column="5" lean-forward="false" selection-start-line="337" selection-start-column="5" selection-end-line="337" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1047,11 +1078,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding>
-            <element signature="method#toxml#0;class#Spule#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spule#0" expanded="false" />
-            <element signature="method#draw1#0;class#Spule#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1059,11 +1086,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-          <folding>
-            <element signature="method#toxml#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#draw1#0;class#Widerstand#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,14 +1103,6 @@
           <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#2083:3050" expanded="false" />
-            <element signature="class#3168:4126" expanded="false" />
-            <element signature="class#4275:5630" expanded="false" />
-            <element signature="class#5689:5976" expanded="false" />
-            <element signature="class#6034:6286" expanded="false" />
-            <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1097,9 +1112,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
           <folding>
-            <element signature="method#toxml#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#draw1#0;class#Kondensator#0" expanded="false" />
+            <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1110,22 +1123,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1141,11 +1138,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#toxml#0;class#Spule#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spule#0" expanded="false" />
-            <element signature="method#draw1#0;class#Spule#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,14 +1155,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#2083:3050" expanded="false" />
-            <element signature="class#3168:4126" expanded="false" />
-            <element signature="class#4275:5630" expanded="false" />
-            <element signature="class#5689:5976" expanded="false" />
-            <element signature="class#6034:6286" expanded="false" />
-            <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1179,9 +1164,7 @@
         <state relative-caret-position="75">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="method#toxml#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#draw1#0;class#Kondensator#0" expanded="false" />
+            <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1192,22 +1175,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1223,11 +1190,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#toxml#0;class#Spule#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spule#0" expanded="false" />
-            <element signature="method#draw1#0;class#Spule#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,14 +1207,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#2083:3050" expanded="false" />
-            <element signature="class#3168:4126" expanded="false" />
-            <element signature="class#4275:5630" expanded="false" />
-            <element signature="class#5689:5976" expanded="false" />
-            <element signature="class#6034:6286" expanded="false" />
-            <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1261,9 +1216,7 @@
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="method#toxml#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#draw1#0;class#Kondensator#0" expanded="false" />
+            <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1295,22 +1248,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1321,22 +1258,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1403,37 +1324,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Kondensator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="1650">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
-            <element signature="method#toxml#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Kondensator#0" expanded="false" />
-            <element signature="method#draw1#0;class#Kondensator#0" expanded="false" />
+            <marker date="1494834280000" expanded="true" signature="5959:5960" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <element signature="method#toxml#0;class#Spule#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spule#0" expanded="false" />
-            <element signature="method#draw1#0;class#Spule#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1680">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="method#toxml#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Widerstand#0" expanded="false" />
-            <element signature="method#draw1#0;class#Widerstand#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1650">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1444,18 +1355,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="106" column="81" lean-forward="false" selection-start-line="106" selection-start-column="81" selection-end-line="106" selection-end-column="81" />
+        <state relative-caret-position="1965">
+          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#2083:3050" expanded="false" />
-            <element signature="class#3168:4126" expanded="false" />
-            <element signature="class#4275:5630" expanded="false" />
-            <element signature="class#5689:5976" expanded="false" />
-            <element signature="class#6034:6286" expanded="false" />
-            <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1478,26 +1381,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="366" column="16" lean-forward="false" selection-start-line="366" selection-start-column="16" selection-end-line="366" selection-end-column="16" />
+        <state relative-caret-position="-263">
+          <caret line="237" column="69" lean-forward="false" selection-start-line="237" selection-start-column="69" selection-end-line="237" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2837#2900#0" expanded="false" />
-            <element signature="e#3273#3366#0" expanded="false" />
-            <element signature="e#3492#3558#0" expanded="false" />
-            <element signature="class#14986:15142" expanded="false" />
-            <element signature="class#15190:15343" expanded="false" />
-            <element signature="class#15380:15785" expanded="false" />
-            <element signature="class#15823:22702" expanded="false" />
-            <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
-            <element signature="method#saveas#0;class#Editor#0" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
