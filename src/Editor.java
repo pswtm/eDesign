@@ -253,7 +253,6 @@ public class Editor extends Application {
                 //spannungsquelle.draw(gc,0);
                 spannungsquelle.draw1(borderPane);
                 xmlstring=spannungsquelle.toxml(xmlstring);
-
             }
         });
         imageviewSpule.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -264,7 +263,6 @@ public class Editor extends Application {
                 imageviewSpule1.setY(event.getSceneY()-25);
                 borderPane.getChildren().remove(imageviewSpule1);
                 borderPane.getChildren().add(imageviewSpule1);
-
             }
         });
         imageviewSpule.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -353,7 +351,6 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {imageMuelleimer.setImage(muelleimerZu);}});
 
-
         scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -368,120 +365,34 @@ public class Editor extends Application {
         scene.setOnDragDropped(new EventHandler<DragEvent>()  {
             @Override
             public void handle(DragEvent event) {
-                //XKondensator, YKondensator, XlineStart, XLineEnd
-                double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
-                //KondensatorOrientation
-                double konOr,spaOr,widOr,spuOr;
+
                 Dragboard db = event.getDragboard();
                 boolean success = false;
-                if (db.hasFiles()) {
-                    success = true;
-                    for (File file:db.getFiles()) {
-                        //entscheidet ob es ein xml file ist
-if(file.getName().toLowerCase().endsWith(".xml"))
-{
-    //prüft ob das file etwas beinhaltet
-    if (file != null) {
-        {
-            //Löscht die borderpane
-            deleteall();
-            //Zeig den File Inhalt in String
-            try (Scanner scanner = new Scanner(new File(file.toString()))) {
-                //entscheidet ob Kondensator usw
-                while(scanner.hasNext())
+                if (db.hasFiles())
                 {
-                    String line=scanner.nextLine();
-                    if(line.indexOf("Kondensator")!=-1)
+                    success = true;
+                    for (File file:db.getFiles())
                     {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
-                        line=scanner.nextLine();
-                        ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
-                        line=scanner.nextLine();
-                        konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
-                        Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
-                        //kondensator1.draw(gc,0);
-                        //Kondensator wird auf BorderPane gezeichnet
-                        kondensator1.draw1(borderPane);
-                        //Kondensator wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=kondensator1.toxml(xmlstring);
-                    }
-                    else if(line.indexOf("Spule")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
-                        line=scanner.nextLine();
-                        yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
-                        line=scanner.nextLine();
-                        spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
-                        Spule spule1= new Spule(xspu,yspu,spuOr);
-                        //Spule wird auf BorderPane gezeichnet
-                        spule1.draw1(borderPane);
-                        xmlstring=spule1.toxml(xmlstring);
-                        //spule1.draw(gc,0);
-                    }
-                    else if(line.indexOf("Widerstand")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
-                        line=scanner.nextLine();
-                        ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
-                        line=scanner.nextLine();
-                        widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
-                        Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
-                        //widerstand1.draw(gc,0);
-                        //Widersatnd wird auf BorderPane gezeichnet
-                        widerstand1.draw1(borderPane);
-                        //Widerstand wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=widerstand1.toxml(xmlstring);
-
-                    }
-                    else if(line.indexOf("Spannungsquelle")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
-                        line=scanner.nextLine();
-                        yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
-                        line=scanner.nextLine();
-                        spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
-                        Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
-                        //spannungsquelle1.draw(gc, 0);
-                        //Sannungsquelle wird auf BorderPane gezeichnet
-                        spannungsquelle1.draw1(borderPane);
-                        //Spannungsquelle wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=spannungsquelle1.toxml(xmlstring);
-
-                    }
-                    else if(line.indexOf("Leitung")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
-                        line=scanner.nextLine();
-                        yles =Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
-                        line=scanner.nextLine();
-                        xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
-                        line=scanner.nextLine();
-                        ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
-                        Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
-                        //leitung1.draw(gc);
-                        leitung1.draw1(borderPane);
-                        //Leitung wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=leitung1.toxml(xmlstring);
-                    }
+                        //entscheidet ob es ein xml file ist
+                if(file.getName().toLowerCase().endsWith(".xml"))
+                {
+                    Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Achtung");
+                    alert.setHeaderText("");
+                    alert.setContentText("Wollen sie das neue Projekt: \""+file.getName()+"\" laden? Alle nicht gespeicherten Änderungen gehen verloren");
+                    Optional<ButtonType> result=alert.showAndWait();
+                    if(result.get()==ButtonType.OK) {FileReader(file);}
+                    else return;
                 }
-            } catch (Exception f){//Catch exception if any
-                System.err.println("Error: " + f.getMessage());
-            }
-        }
-    }
-}
-    else return;
-                     }
+                else
+                    {
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Falsches Dateiformat");
+                    alert.setHeaderText("");
+                    alert.setContentText("Das Programm unterstützt nur das XML Format");
+                    alert.showAndWait();
+                    }
+                    }
                 }
                 event.setDropCompleted(success);
                 event.consume();
@@ -558,110 +469,7 @@ if(file.getName().toLowerCase().endsWith(".xml"))
         fileChooser.getExtensionFilters().add(extFilter);
         file = fileChooser.showOpenDialog(window);
         deleteall();
-        if (file != null) {
-            //Zeig den File Inhalt in String
-            try (Scanner scanner = new Scanner(new File(file.toString()))) {
-                //entscheidet ob Kondensator usw
-                while(scanner.hasNext())
-                {
-                    String line=scanner.nextLine();
-                    if(line.indexOf("Kondensator")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
-                        line=scanner.nextLine();
-                        ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
-                        line=scanner.nextLine();
-                        konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
-                        Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
-                        //kondensator1.draw(gc,0);
-                        //Kondensator wird auf BorderPane gezeichnet
-                        kondensator1.draw1(borderPane);
-                        //Kondensator wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=kondensator1.toxml(xmlstring);
-                    }
-                    else if(line.indexOf("Spule")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
-                        line=scanner.nextLine();
-                        yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
-                        line=scanner.nextLine();
-                        spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
-                       Spule spule1= new Spule(xspu,yspu,spuOr);
-                        //Spule wird auf BorderPane gezeichnet
-                        spule1.draw1(borderPane);
-                        xmlstring=spule1.toxml(xmlstring);
-                       //spule1.draw(gc,0);
-
-                    }
-                    else if(line.indexOf("Widerstand")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
-                        line=scanner.nextLine();
-                        ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
-                        line=scanner.nextLine();
-                        widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
-                        Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
-                        //widerstand1.draw(gc,0);
-                        //Widersatnd wird auf BorderPane gezeichnet
-                        widerstand1.draw1(borderPane);
-                        //Widerstand wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=widerstand1.toxml(xmlstring);
-
-                    }
-                    else if(line.indexOf("Spannungsquelle")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
-                        line=scanner.nextLine();
-                        yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
-                        line=scanner.nextLine();
-                        spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
-                        Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
-                        //spannungsquelle1.draw(gc, 0);
-                        //Sannungsquelle wird auf BorderPane gezeichnet
-                        spannungsquelle1.draw1(borderPane);
-                        //Spannungsquelle wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=spannungsquelle1.toxml(xmlstring);
-
-                    }
-                    else if(line.indexOf("Leitung")!=-1)
-                    {
-                        //Schreibt die Werte aus dem String in Variable
-                        line=scanner.nextLine();
-                        xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
-                        line=scanner.nextLine();
-                        yles =Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
-                        line=scanner.nextLine();
-                        xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
-                        line=scanner.nextLine();
-                        ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
-                        Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
-                        //leitung1.draw(gc);
-                        leitung1.draw1(borderPane);
-                        //Leitung wird in String gespeichert um es später wieder abspeichern zu können
-                        xmlstring=leitung1.toxml(xmlstring);
-                        /*
-                        gc.setLineWidth(5);
-                        gc.setStroke(color);
-                        //Leitung wird auf BorderPane gezeichnet
-                        gc.strokeLine(leitung1.getxstart(),leitung1.getystart(),leitung1.getxend(),leitung1.getyend());
-                        gc.setStroke(Color.WHITE);
-                        gc.setLineWidth(1);
-                        */
-
-                    }
-                }
-            } catch (Exception f){//Catch exception if any
-                System.err.println("Error: " + f.getMessage());
-            }
-        }
+        FileReader(file);
     }
     //Speichern
     public void autosave()
@@ -734,13 +542,13 @@ if(file.getName().toLowerCase().endsWith(".xml"))
     public void neu()
     {
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
-        xmlstring="";
         alert.setTitle("Neues Projekt anlegen");
         alert.setHeaderText("");
         alert.setContentText("Wollen Sie das aktuelle Projekt löschen und ein neues anlegen? Alle nicht gespeicherten Änderungen werden gelöscht.");
         Optional<ButtonType> result=alert.showAndWait();
         if(result.get()==ButtonType.OK) {
             deleteall();
+            xmlstring="";
         }
         else return;
 
@@ -755,5 +563,119 @@ if(file.getName().toLowerCase().endsWith(".xml"))
         borderPane.getChildren().add(canvas);
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
+    }
+    public void FileReader(File file)
+    {
+        //XKondensator, YKondensator, XlineStart, XLineEnd
+        double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
+        //KondensatorOrientation
+        double konOr,spaOr,widOr,spuOr;
+        {
+            //prüft ob das file etwas beinhaltet
+            if (file != null) {
+                //Löscht die borderpane
+                deleteall();
+                //Zeig den File Inhalt in String
+                try (Scanner scanner = new Scanner(new File(file.toString()))) {
+                    //entscheidet ob Kondensator usw
+                    while(scanner.hasNext())
+                    {
+                        String line=scanner.nextLine();
+                        if(line.indexOf("Kondensator")!=-1)
+                        {
+                            //Schreibt die Werte aus dem String in Variable
+                            line=scanner.nextLine();
+                            xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
+                            line=scanner.nextLine();
+                            ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
+                            line=scanner.nextLine();
+                            konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
+                            Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
+                            //kondensator1.draw(gc,0);
+                            //Kondensator wird auf BorderPane gezeichnet
+                            kondensator1.draw1(borderPane);
+                            //Kondensator wird in String gespeichert um es später wieder abspeichern zu können
+                            xmlstring=kondensator1.toxml(xmlstring);
+                        }
+                        else if(line.indexOf("Spule")!=-1)
+                        {
+                            //Schreibt die Werte aus dem String in Variable
+                            line=scanner.nextLine();
+                            xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
+                            line=scanner.nextLine();
+                            yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
+                            line=scanner.nextLine();
+                            spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
+                            Spule spule1= new Spule(xspu,yspu,spuOr);
+                            //Spule wird auf BorderPane gezeichnet
+                            spule1.draw1(borderPane);
+                            xmlstring=spule1.toxml(xmlstring);
+                            //spule1.draw(gc,0);
+                        }
+                        else if(line.indexOf("Widerstand")!=-1)
+                        {
+                            //Schreibt die Werte aus dem String in Variable
+                            line=scanner.nextLine();
+                            xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
+                            line=scanner.nextLine();
+                            ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
+                            line=scanner.nextLine();
+                            widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
+                            Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
+                            //widerstand1.draw(gc,0);
+                            //Widersatnd wird auf BorderPane gezeichnet
+                            widerstand1.draw1(borderPane);
+                            //Widerstand wird in String gespeichert um es später wieder abspeichern zu können
+                            xmlstring=widerstand1.toxml(xmlstring);
+
+                        }
+                        else if(line.indexOf("Spannungsquelle")!=-1)
+                        {
+                            //Schreibt die Werte aus dem String in Variable
+                            line=scanner.nextLine();
+                            xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
+                            line=scanner.nextLine();
+                            yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
+                            line=scanner.nextLine();
+                            spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
+                            Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
+                            //spannungsquelle1.draw(gc, 0);
+                            //Sannungsquelle wird auf BorderPane gezeichnet
+                            spannungsquelle1.draw1(borderPane);
+                            //Spannungsquelle wird in String gespeichert um es später wieder abspeichern zu können
+                            xmlstring=spannungsquelle1.toxml(xmlstring);
+
+                        }
+                        else if(line.indexOf("Leitung")!=-1)
+                        {
+                            //Schreibt die Werte aus dem String in Variable
+                            line=scanner.nextLine();
+                            xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
+                            line=scanner.nextLine();
+                            yles =Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
+                            line=scanner.nextLine();
+                            xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
+                            line=scanner.nextLine();
+                            ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
+                            Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
+                            //leitung1.draw(gc);
+                            leitung1.draw1(borderPane);
+                            //Leitung wird in String gespeichert um es später wieder abspeichern zu können
+                            xmlstring=leitung1.toxml(xmlstring);
+                        }
+                    }
+                } catch (Exception f){//Catch exception if any
+                    System.err.println("Error: " + f.getMessage());
+                }
+            }
+            else
+            {
+                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Leeres Dokument");
+                alert.setHeaderText("");
+                alert.setContentText("Konnte Datei nicht laden, da die Datei leer ist");
+                alert.showAndWait();
+            }
+        }
     }
 }
