@@ -344,13 +344,14 @@ public class Editor extends Application {
 
         //Mülleimer
         ImageView imageMuelleimer=new ImageView();
-        Image muelleimerZu= new Image("file:Images/muelleimerZu.png",50,50,false,false);
-        Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",50,50,false,false);
+        Image muelleimerZu= new Image("file:Images/muelleimerOffen.png",100,75,false,false);
+        Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",100,75,false,false);
         imageMuelleimer.setImage(muelleimerZu);
         imageMuelleimer.setX(120);
         imageMuelleimer.setY(400);
         //borderPane.getChildren().add(imageMuelleimer);
         vbox.getChildren().addAll(imageMuelleimer);
+        /*
         imageMuelleimer.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
@@ -359,7 +360,7 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {imageMuelleimer.setImage(muelleimerZu);}});
-
+*/
         scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
