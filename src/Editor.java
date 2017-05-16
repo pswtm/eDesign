@@ -413,9 +413,33 @@ public class Editor extends Application {
         public void handle(MouseEvent event)
         {drawLines(event, gc);}});
 
+        //leere Vbox für die rechte Spalte
+        VBox vboxLeer = new VBox();
+        vboxLeer.setPrefSize(15,100);
+        //VBox Style
+        vboxLeer.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-color: darkgrey;"
+                + "-fx-border-width: 0 0 0 3;"
+                + "-fx-padding: 10.5px;");
+
+
+        //HBox als untere Leiste
+        HBox hboxLeiste = new HBox();
+        hboxLeiste.setPrefSize(100,15);
+        //VBox Style
+        hboxLeiste.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-color: darkgrey;"
+                + "-fx-border-width: 3 0 0 0;"
+                + "-fx-padding: 10.5px;");
+
+
         //Darstellung der menubar und vbox auf Borderpane mit Stylesheet
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
+        borderPane.setRight(vboxLeer);
+        borderPane.setBottom(hboxLeiste);
         scene.getStylesheets().add("Css.css");
         window.setScene(scene);
         window.show();
