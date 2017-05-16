@@ -344,13 +344,14 @@ public class Editor extends Application {
 
         //Mülleimer
         ImageView imageMuelleimer=new ImageView();
-        Image muelleimerZu= new Image("file:Images/muelleimerZu.png",50,50,false,false);
+        Image muelleimerZu= new Image("file:Images/muelleimerOffen.png",100,75,false,false);
         Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",50,50,false,false);
         imageMuelleimer.setImage(muelleimerZu);
         imageMuelleimer.setX(120);
         imageMuelleimer.setY(400);
         //borderPane.getChildren().add(imageMuelleimer);
         vbox.getChildren().addAll(imageMuelleimer);
+        /*
         imageMuelleimer.setOnMouseEntered(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
@@ -359,7 +360,7 @@ public class Editor extends Application {
             @Override
             public void handle(MouseEvent event)
             {imageMuelleimer.setImage(muelleimerZu);}});
-
+*/
         scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -413,7 +414,29 @@ public class Editor extends Application {
         public void handle(MouseEvent event)
         {drawLines(event, gc);}});
 
+        VBox vboxLeer = new VBox();
+        vboxLeer.setPrefSize(15,100);
+        //VBox Style
+        vboxLeer.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-color: darkgrey;"
+                + "-fx-border-width: 0 0 0 3;"
+                + "-fx-padding: 10.5px;");
+
+
+        //HBox als untere Leiste
+        HBox hboxLeiste = new HBox();
+        hboxLeiste.setPrefSize(100,15);
+        //VBox Style
+        hboxLeiste.setStyle("-fx-background-color: black;"
+                + "-fx-border-style: solid;"
+                + "-fx-border-color: darkgrey;"
+                + "-fx-border-width: 3 0 0 0;"
+                + "-fx-padding: 10.5px;");
+
         //Darstellung der menubar und vbox auf Borderpane mit Stylesheet
+        borderPane.setRight(vboxLeer);
+        borderPane.setBottom(hboxLeiste);
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
         scene.getStylesheets().add("Css.css");
