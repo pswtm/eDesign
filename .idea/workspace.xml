@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="husD">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$21.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$22.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$1.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$10.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$11.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$12.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$13.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$14.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$15.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$16.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$17.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$18.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$19.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$2.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$20.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$3.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$4.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$5.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$6.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$7.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$8.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$9.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.java" afterPath="$PROJECT_DIR$/src/Editor.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -76,8 +99,8 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+            <state relative-caret-position="212">
+              <caret line="352" column="51" lean-forward="true" selection-start-line="352" selection-start-column="51" selection-end-line="352" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#2633:2871" expanded="false" />
@@ -97,11 +120,9 @@
                 <element signature="class#12952:13611" expanded="false" />
                 <element signature="class#13664:14069" expanded="false" />
                 <element signature="class#14123:14777" expanded="false" />
-                <element signature="class#15308:15464" expanded="false" />
-                <element signature="class#15512:15665" expanded="false" />
-                <element signature="class#15701:16106" expanded="false" />
-                <element signature="class#16144:17666" expanded="false" />
-                <element signature="class#17767:17890" expanded="false" />
+                <element signature="class#15717:16122" expanded="false" />
+                <element signature="class#16160:17682" expanded="false" />
+                <element signature="class#17783:17906" expanded="false" />
                 <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
                 <element signature="method#saveas#0;class#Editor#0" expanded="false" />
                 <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -112,25 +133,8 @@
                 <element signature="method#neu#0;class#Editor#0" expanded="false" />
                 <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
                 <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Spannungsquelle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#2057:3024" expanded="false" />
-                <element signature="class#3141:4099" expanded="false" />
-                <element signature="class#4248:5603" expanded="false" />
-                <element signature="class#6461:6713" expanded="false" />
-                <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
-                <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
-                <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
+                <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+                <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -170,6 +174,7 @@
       <find>draw</find>
       <find>.draw</find>
       <find>setlinewidt</find>
+      <find>mue</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -215,7 +220,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="798" />
+    <option name="height" value="801" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -235,8 +240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -282,22 +285,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eDesign" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eDesign" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -856,6 +847,7 @@
       <workItem from="1494791831728" duration="2323000" />
       <workItem from="1494869993577" duration="2837000" />
       <workItem from="1494875245428" duration="2575000" />
+      <workItem from="1494926105553" duration="1045000" />
     </task>
     <task id="LOCAL-00001" summary="Ich habe einen Kommentar eingefügt">
       <created>1493039058456</created>
@@ -882,7 +874,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116215000" />
+    <option name="totallyTimeSpent" value="117260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -894,7 +886,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="798" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -906,8 +898,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24453552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24500665" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -918,8 +910,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1019,6 +1011,7 @@
             <element signature="class#2057:3024" expanded="false" />
             <element signature="class#3141:4099" expanded="false" />
             <element signature="class#4248:5603" expanded="false" />
+            <element signature="class#5663:6403" expanded="false" />
             <element signature="class#6461:6713" expanded="false" />
             <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
             <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
@@ -1058,11 +1051,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1073,6 +1064,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1116,6 +1109,7 @@
             <element signature="class#2057:3024" expanded="false" />
             <element signature="class#3141:4099" expanded="false" />
             <element signature="class#4248:5603" expanded="false" />
+            <element signature="class#5663:6403" expanded="false" />
             <element signature="class#6461:6713" expanded="false" />
             <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
             <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
@@ -1155,11 +1149,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1170,6 +1162,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1205,6 +1199,7 @@
             <element signature="class#2057:3024" expanded="false" />
             <element signature="class#3141:4099" expanded="false" />
             <element signature="class#4248:5603" expanded="false" />
+            <element signature="class#5663:6403" expanded="false" />
             <element signature="class#6461:6713" expanded="false" />
             <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
             <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
@@ -1244,11 +1239,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1259,6 +1252,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1294,6 +1289,7 @@
             <element signature="class#2057:3024" expanded="false" />
             <element signature="class#3141:4099" expanded="false" />
             <element signature="class#4248:5603" expanded="false" />
+            <element signature="class#5663:6403" expanded="false" />
             <element signature="class#6461:6713" expanded="false" />
             <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
             <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
@@ -1354,11 +1350,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1369,6 +1363,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1396,11 +1392,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1411,6 +1405,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1521,13 +1517,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+        <state relative-caret-position="366">
+          <caret line="130" column="28" lean-forward="false" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#2057:3024" expanded="false" />
             <element signature="class#3141:4099" expanded="false" />
             <element signature="class#4248:5603" expanded="false" />
+            <element signature="class#5663:6403" expanded="false" />
             <element signature="class#6461:6713" expanded="false" />
             <element signature="method#draw1#0;class#Spannungsquelle#0" expanded="false" />
             <element signature="method#toxml#0;class#Spannungsquelle#0" expanded="false" />
@@ -1538,8 +1535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+        <state relative-caret-position="212">
+          <caret line="352" column="51" lean-forward="true" selection-start-line="352" selection-start-column="51" selection-end-line="352" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#2633:2871" expanded="false" />
@@ -1559,11 +1556,9 @@
             <element signature="class#12952:13611" expanded="false" />
             <element signature="class#13664:14069" expanded="false" />
             <element signature="class#14123:14777" expanded="false" />
-            <element signature="class#15308:15464" expanded="false" />
-            <element signature="class#15512:15665" expanded="false" />
-            <element signature="class#15701:16106" expanded="false" />
-            <element signature="class#16144:17666" expanded="false" />
-            <element signature="class#17767:17890" expanded="false" />
+            <element signature="class#15717:16122" expanded="false" />
+            <element signature="class#16160:17682" expanded="false" />
+            <element signature="class#17783:17906" expanded="false" />
             <element signature="method#drawGitter#0;class#Editor#0" expanded="false" />
             <element signature="method#saveas#0;class#Editor#0" expanded="false" />
             <element signature="method#open#0;class#Editor#0" expanded="false" />
@@ -1574,6 +1569,8 @@
             <element signature="method#neu#0;class#Editor#0" expanded="false" />
             <element signature="method#deleteall#0;class#Editor#0" expanded="false" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+            <marker date="1494926863000" expanded="false" signature="15348:15478" ph="{...}" />
+            <marker date="1494926863000" expanded="false" signature="15552:15679" ph="{...}" />
           </folding>
         </state>
       </provider>
