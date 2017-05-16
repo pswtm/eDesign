@@ -344,8 +344,8 @@ public class Editor extends Application {
 
         //Mülleimer
         ImageView imageMuelleimer=new ImageView();
-        Image muelleimerZu= new Image("file:Images/muelleimerOffen.png",50,50,false,false);
-        Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",50,50,false,false);
+        Image muelleimerZu= new Image("file:Images/muelleimerOffen.png",100,75,false,false);
+        Image muelleimerOffen=new Image("file:Images/muelleimerOffen.png",100,75,false,false);
         imageMuelleimer.setImage(muelleimerZu);
         imageMuelleimer.setX(120);
         imageMuelleimer.setY(400);
