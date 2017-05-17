@@ -22,8 +22,8 @@ public class Spule extends Bauelement {
     Image Spule90T=new Image("file:Images/Bauelementetransparent/spule90T.png",50,50,false,false);
     Image Spule135T=new Image("file:Images/Bauelementetransparent/spule135T.png",50,50,false,false);
 
-
     ImageView imageviewSpule1 = new ImageView();
+    boolean deleted=false;
 
     public Spule(int ID,double x, double y, int Orientation1)
     {
@@ -84,6 +84,7 @@ public class Spule extends Bauelement {
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    deleted=true;
                     imageviewSpule1.setImage(null);
                     imageviewSpule1.removeEventHandler(MouseEvent.ANY, this);
                 }
@@ -93,12 +94,15 @@ public class Spule extends Bauelement {
 
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
-                + "         <ID>"+ID+"</ID>\n"
-                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
-                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
-                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
-        return xml;
+        if(deleted==false) {
+            xml += "		<Spule>" + "Spule" + "</Spule>\n"
+                    + "         <ID>" + ID + "</ID>\n"
+                    + "		    <PositionX>" + (int) posX + "</PositionX>\n"
+                    + "		    <PositionY>" + (int) posY + "</PositionY>\n"
+                    + "		    <Richtung>" + Orientation + "</Richtung>\n\n";
+            return xml;
+        }
+        else return xml;
     }
     //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {

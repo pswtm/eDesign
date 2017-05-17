@@ -15,7 +15,7 @@ public class Leitung extends Bauelement{
     Color color=Color.rgb(238,238,238);
     Line line =new Line();
     BorderPane border=new BorderPane();
-
+    boolean deleted=false;
 
     public Leitung(int ID,double xstart, double ystart, int Orientation, double xende, double yende)
     {
@@ -73,7 +73,7 @@ public class Leitung extends Bauelement{
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
-                    //Todo ka ob das gut so ist mit löschen
+                    deleted=true;
                     border.getChildren().remove(line);
                     line.removeEventHandler(MouseEvent.ANY, this);
                 }
@@ -82,13 +82,16 @@ public class Leitung extends Bauelement{
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
-                + "         <ID>"+ID+"</ID>\n"
-                + "		    <PositionXstart>"+(int)posX+"</PositionXstart>\n"
-                + "		    <PositionYstart>"+(int)posY+"</PositionYstart>\n"
-                + "		    <PositionXend>"+(int)xend+"</PositionXend>\n"
-                + "		    <PositionYend>"+(int)yend+"</PositionYend>\n\n";
-        return xml;
+        if(deleted==false) {
+            xml += "		<Leitung>" + "Leitung" + "</Leitung>\n"
+                    + "         <ID>" + ID + "</ID>\n"
+                    + "		    <PositionXstart>" + (int) posX + "</PositionXstart>\n"
+                    + "		    <PositionYstart>" + (int) posY + "</PositionYstart>\n"
+                    + "		    <PositionXend>" + (int) xend + "</PositionXend>\n"
+                    + "		    <PositionYend>" + (int) yend + "</PositionYend>\n\n";
+            return xml;
+        }
+        else return xml;
     }
     public void draw1(BorderPane borderPane)
     {

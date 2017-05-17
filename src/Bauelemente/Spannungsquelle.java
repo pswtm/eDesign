@@ -35,6 +35,7 @@ public class Spannungsquelle extends Bauelement {
 
     ImageView imageviewSpannungsquelle1 = new ImageView();
     BorderPane border=new BorderPane();
+    boolean deleted=false;
 
     public Spannungsquelle(int ID,double x, double y, int Orientation1)
     {
@@ -97,6 +98,7 @@ public class Spannungsquelle extends Bauelement {
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    deleted=true;
                     imageviewSpannungsquelle1.setImage(null);
                     imageviewSpannungsquelle1.removeEventHandler(MouseEvent.ANY, this);
                 }
@@ -155,12 +157,17 @@ public class Spannungsquelle extends Bauelement {
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
-                + "         <ID>"+ID+"</ID>\n"
-                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
-                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
-                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
-        return xml;
+        if(deleted==false) {
+            xml += "		<Spannungsquelle>" + "Spannungsquelle" + "</Spannungsquelle>\n"
+                    + "         <ID>" + ID + "</ID>\n"
+                    + "		    <PositionX>" + (int) posX + "</PositionX>\n"
+                    + "		    <PositionY>" + (int) posY + "</PositionY>\n"
+                    + "		    <Richtung>" + Orientation + "</Richtung>\n\n";
+            return xml;
+        }
+        else {
+            return xml;
+        }
     }
     //Snap ans Raster der Bauteile
     public double rundenBauteile(double runden) {

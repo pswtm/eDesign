@@ -22,6 +22,7 @@ public class Kondensator extends Bauelement {
     Image Kondensator135T=new Image("file:Images/Bauelementetransparent/kondensator135T.png",50,50,false,false);
 
     ImageView imageviewKondensator1 = new ImageView();
+    boolean deleted=false;
 
     public Kondensator(int ID, double x, double y, int Orientation1)
     {
@@ -82,6 +83,7 @@ public class Kondensator extends Bauelement {
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    deleted=true;
                     imageviewKondensator1.setImage(null);
                     imageviewKondensator1.removeEventHandler(MouseEvent.ANY, this);
                 }
@@ -89,12 +91,16 @@ public class Kondensator extends Bauelement {
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        xml+=     "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
-                + "         <ID>"+ID+"</ID>\n"
-                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
-                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
-                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
-        return xml;
+        if(deleted==false) {
+
+            xml += "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+                    + "         <ID>" + ID + "</ID>\n"
+                    + "		    <PositionX>" + (int) posX + "</PositionX>\n"
+                    + "		    <PositionY>" + (int) posY + "</PositionY>\n"
+                    + "		    <Richtung>" + Orientation + "</Richtung>\n\n";
+            return xml;
+        }
+        else return xml;
     }
 
     //Snap ans Raster der Bauteile
