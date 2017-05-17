@@ -19,15 +19,17 @@ public abstract class Bauelement {
     final int ausrSW = 5;
     final int ausrW = 6;
     final int ausrNW = 7;
+    int ID;
 
     //SnapPoint-Positionen
     double snap1X=0,snap1Y=0;
     double snap2X=0,snap2Y=0;
 
-    protected double posX = 0, posY = 0, Orientation=0;
+    protected double posX = 0, posY = 0;
+    int Orientation=0;
 
     //Icon
-    public Bauelement(double posX, double posY, double Orientation) {
+    public Bauelement(int ID, double posX, double posY, int Orientation) {
         this.posX = posX;
         this.posY = posY;
         this.Orientation = Orientation;

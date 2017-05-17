@@ -23,9 +23,9 @@ public class Kondensator extends Bauelement {
 
     ImageView imageviewKondensator1 = new ImageView();
 
-    public Kondensator(double x, double y, double Orientation1)
+    public Kondensator(int ID, double x, double y, int Orientation1)
     {
-        super(x,y,Orientation1);
+        super(ID,x,y,Orientation1);
         imageviewKondensator1.setImage(Kondensator00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewKondensator1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -87,10 +87,11 @@ public class Kondensator extends Bauelement {
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        xml+=            "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
-                + "		<xkon>"+(int)posX+"</xkon>\n"
-                + "		<ykon>"+(int)posY+"</ykon>\n"
-                + "		<konor>"+(int)Orientation+"</konor>\n\n";
+        xml+=     "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
+                + "         <ID>"+ID+"</ID>\n"
+                + "		    <xkon>"+(int)posX+"</xkon>\n"
+                + "		    <ykon>"+(int)posY+"</ykon>\n"
+                + "		    <konor>"+(int)Orientation+"</konor>\n\n";
         return xml;
     }
 

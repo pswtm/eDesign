@@ -25,9 +25,9 @@ public class Spule extends Bauelement {
 
     ImageView imageviewSpule1 = new ImageView();
 
-    public Spule(double x, double y, double Orientation1)
+    public Spule(int ID,double x, double y, int Orientation1)
     {
-        super(x,y,Orientation1);
+        super(ID,x,y,Orientation1);
         imageviewSpule1.setImage(Spule00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewSpule1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -91,9 +91,10 @@ public class Spule extends Bauelement {
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Spule>" + "Spule" + "</Spule>\n"
-                + "		<xspu>"+(int)posX+"</xspu>\n"
-                + "		<yspu>"+(int)posY+"</yspu>\n"
-                + "		<spuor>"+(int)Orientation+"</spuor>\n\n";
+                + "         <ID>"+ID+"</ID>\n"
+                + "		    <xspu>"+(int)posX+"</xspu>\n"
+                + "		    <yspu>"+(int)posY+"</yspu>\n"
+                + "		    <spuor>"+(int)Orientation+"</spuor>\n\n";
         return xml;
     }
     //Snap ans Raster der Bauteile

@@ -23,9 +23,9 @@ public class Widerstand extends Bauelement {
 
     ImageView imageviewWiderstand1 = new ImageView();
 
-    public Widerstand(double x, double y, double Orientation1)
+    public Widerstand(int ID,double x, double y, int Orientation1)
     {
-        super(x,y,Orientation1);
+        super(ID,x,y,Orientation1);
         imageviewWiderstand1.setImage(Widerstand00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewWiderstand1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -89,9 +89,10 @@ public class Widerstand extends Bauelement {
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
-                + "		<xwid>"+(int)posX+"</xwid>\n"
-                + "		<ywid>"+(int)posY+"</ywid>\n"
-                + "		<widor>"+(int)Orientation+"</widor>\n\n";
+                + "         <ID>"+ID+"</ID>\n"
+                + "		    <xwid>"+(int)posX+"</xwid>\n"
+                + "		    <ywid>"+(int)posY+"</ywid>\n"
+                + "		    <widor>"+(int)Orientation+"</widor>\n\n";
         return xml;
     }
     //Snap ans Raster der Bauteile

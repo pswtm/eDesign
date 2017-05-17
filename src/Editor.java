@@ -62,6 +62,8 @@ public class Editor extends Application {
     GraphicsContext gc = canvas.getGraphicsContext2D();
     MenuBar menuBar = new MenuBar();
     BorderPane borderPane=new BorderPane();
+    int IDLeitung=0,IDKondensator=0,IDSpule=0,IDSpannungsquelle=0,IDWiderstand=0;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -258,7 +260,8 @@ public class Editor extends Application {
                 double x=0,y=0;
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
-                Spannungsquelle spannungsquelle=new Spannungsquelle(x,y,0);
+                IDSpannungsquelle++;
+                Spannungsquelle spannungsquelle=new Spannungsquelle(IDSpannungsquelle,x,y,0);
                 //spannungsquelle.draw(gc,0);
                 spannungsquelle.draw1(borderPane);
                 xmlstring=spannungsquelle.toxml(xmlstring);
@@ -283,7 +286,8 @@ public class Editor extends Application {
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
-                Spule spule=new Spule(x,y,0);
+                IDSpule++;
+                Spule spule=new Spule(IDSpule,x,y,0);
                 //spule.draw(gc,0);
                 spule.draw1(borderPane);
                 xmlstring=spule.toxml(xmlstring);
@@ -308,7 +312,8 @@ public class Editor extends Application {
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
-                Kondensator kondensator=new Kondensator(x,y,0);
+                IDKondensator++;
+                Kondensator kondensator=new Kondensator(IDKondensator,x,y,0);
                 //kondensator.draw(gc,0);
                 kondensator.draw1(borderPane);
                 xmlstring=kondensator.toxml(xmlstring);
@@ -334,7 +339,8 @@ public class Editor extends Application {
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
-                Widerstand widerstand=new Widerstand(x,y,0);
+                IDWiderstand++;
+                Widerstand widerstand=new Widerstand(IDWiderstand,x,y,0);
                 //widerstand.draw(gc,0);
                 widerstand.draw1(borderPane);
                 xmlstring=widerstand.toxml(xmlstring);
@@ -537,7 +543,8 @@ public class Editor extends Application {
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
-            Leitung leitung1=new Leitung(xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
+            IDLeitung++;
+            Leitung leitung1=new Leitung(IDLeitung ,xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             leitung1.draw1(borderPane);
             xmlstring=leitung1.toxml(xmlstring);
             xStartLeitung=0;
@@ -580,7 +587,7 @@ public class Editor extends Application {
         Optional<ButtonType> result=alert.showAndWait();
         if(result.get()==ButtonType.OK) {
             deleteall();
-            xmlstring="";
+            //xmlstring="";
         }
         else return;
 
@@ -588,6 +595,11 @@ public class Editor extends Application {
     //Löscht alles auf dem Borderpane und Graphic Content
     public void deleteall()
     {
+        IDKondensator=0;
+        IDLeitung=0;
+        IDSpannungsquelle=0;
+        IDWiderstand=0;
+        IDSpule=0;
         xmlstring="";
         //gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
         //drawGitter(gc);
@@ -601,7 +613,7 @@ public class Editor extends Application {
         //XKondensator, YKondensator, XlineStart, XLineEnd
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
         //KondensatorOrientation
-        double konOr,spaOr,widOr,spuOr;
+        int konOr,spaOr,widOr,spuOr;
         {
             //prüft ob das file etwas beinhaltet
             if (file != null) {
@@ -617,12 +629,15 @@ public class Editor extends Application {
                         {
                             //Schreibt die Werte aus dem String in Variable
                             line=scanner.nextLine();
+                            IDKondensator=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
+                            line=scanner.nextLine();
                             xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
                             line=scanner.nextLine();
                             ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
                             line=scanner.nextLine();
-                            konOr=(double)Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
-                            Kondensator kondensator1=new Kondensator(xkon,ykon,konOr);
+                            konOr=Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
+                            //IDKondensator++;
+                            Kondensator kondensator1=new Kondensator(IDKondensator,xkon,ykon,konOr);
                             //kondensator1.draw(gc,0);
                             //Kondensator wird auf BorderPane gezeichnet
                             kondensator1.draw1(borderPane);
@@ -632,13 +647,16 @@ public class Editor extends Application {
                         else if(line.indexOf("Spule")!=-1)
                         {
                             //Schreibt die Werte aus dem String in Variable
+
                             line=scanner.nextLine();
-                            xspu=Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
+                            IDSpule=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            yspu=Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
+                            xspu=(double)Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
+                            line=scanner.nextLine();
+                            yspu=(double)Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
                             line=scanner.nextLine();
                             spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
-                            Spule spule1= new Spule(xspu,yspu,spuOr);
+                            Spule spule1= new Spule(IDSpule,xspu,yspu,spuOr);
                             //Spule wird auf BorderPane gezeichnet
                             spule1.draw1(borderPane);
                             xmlstring=spule1.toxml(xmlstring);
@@ -648,12 +666,14 @@ public class Editor extends Application {
                         {
                             //Schreibt die Werte aus dem String in Variable
                             line=scanner.nextLine();
-                            xwid=Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
+                            IDWiderstand=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            ywid=Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
+                            xwid=(double)Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
+                            line=scanner.nextLine();
+                            ywid=(double)Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
                             line=scanner.nextLine();
                             widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
-                            Widerstand widerstand1=new Widerstand(xwid,ywid,widOr);
+                            Widerstand widerstand1=new Widerstand(IDWiderstand,xwid,ywid,widOr);
                             //widerstand1.draw(gc,0);
                             //Widersatnd wird auf BorderPane gezeichnet
                             widerstand1.draw1(borderPane);
@@ -665,12 +685,14 @@ public class Editor extends Application {
                         {
                             //Schreibt die Werte aus dem String in Variable
                             line=scanner.nextLine();
-                            xspa=Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
+                            IDSpannungsquelle=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            yspa=Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
+                            xspa=(double)Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
+                            line=scanner.nextLine();
+                            yspa=(double)Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
                             line=scanner.nextLine();
                             spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
-                            Spannungsquelle spannungsquelle1=new Spannungsquelle(xspa,yspa,spaOr);
+                            Spannungsquelle spannungsquelle1=new Spannungsquelle(IDSpannungsquelle,xspa,yspa,spaOr);
                             //spannungsquelle1.draw(gc, 0);
                             //Sannungsquelle wird auf BorderPane gezeichnet
                             spannungsquelle1.draw1(borderPane);
@@ -682,14 +704,16 @@ public class Editor extends Application {
                         {
                             //Schreibt die Werte aus dem String in Variable
                             line=scanner.nextLine();
-                            xles=Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
+                            IDLeitung=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            yles =Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
+                            xles=(double)Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
                             line=scanner.nextLine();
-                            xlee=Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
+                            yles=(double)Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
                             line=scanner.nextLine();
-                            ylee=Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
-                            Leitung leitung1=new Leitung(xles,yles,0,xlee,ylee);
+                            xlee=(double)Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
+                            line=scanner.nextLine();
+                            ylee=(double)Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
+                            Leitung leitung1=new Leitung(IDLeitung,xles,yles,0,xlee,ylee);
                             //leitung1.draw(gc);
                             leitung1.draw1(borderPane);
                             //Leitung wird in String gespeichert um es später wieder abspeichern zu können

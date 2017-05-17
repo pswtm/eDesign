@@ -36,9 +36,10 @@ public class Spannungsquelle extends Bauelement {
     ImageView imageviewSpannungsquelle1 = new ImageView();
     BorderPane border=new BorderPane();
 
-    public Spannungsquelle(double x, double y, double Orientation1)
+    public Spannungsquelle(int ID,double x, double y, int Orientation1)
     {
-        super(x,y,Orientation1);
+        super(ID,x,y,Orientation1);
+        System.out.println("ID SPann in KLasse:"+ID);
         imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewSpannungsquelle1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -103,7 +104,7 @@ public class Spannungsquelle extends Bauelement {
             @Override
             public void handle(MouseEvent event) {
                 //Todo entweder Hilfe anzeigen weden Drehung oder kleine Buttons zum drehen
-                System.out.println("Drehung mit rechtsklick auf das Objekt");
+                System.out.println("Drehung mit rechtsklick auf das Objekt: "+ID);
                 /*
                 imageviewSpannungsquelle1.setOnKeyReleased(new EventHandler<KeyEvent>() {
                     @Override
@@ -136,20 +137,29 @@ public class Spannungsquelle extends Bauelement {
 
     }
     //Zeichnen Methode
+    //TODO Orientation ist hier richtig muss noch bei
     public void draw1(BorderPane borderPane)
     {
         //ka ob das gut ist funktioniert allerdings
         this.border=borderPane;
             imageviewSpannungsquelle1.setX(posX-25);
             imageviewSpannungsquelle1.setY(posY-25);
-            borderPane.getChildren().add(imageviewSpannungsquelle1);
+            if(Orientation==0) {imageviewSpannungsquelle1.setImage(Spannungsquelle00S);}
+            else if(Orientation==1){imageviewSpannungsquelle1.setImage(Spannungsquelle45S);}
+            else if(Orientation==2){imageviewSpannungsquelle1.setImage(Spannungsquelle90S);}
+            else if(Orientation==3){imageviewSpannungsquelle1.setImage(Spannungsquelle135S);}
+
+
+        borderPane.getChildren().add(imageviewSpannungsquelle1);
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
+        System.out.println("ID Spann in xml String:"+ID);
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
+                + "         <ID>"+ID+"</ID>\n"
                 + "		    <xspa>"+(int)posX+"</xspa>\n"
                 + "		    <yspa>"+(int)posY+"</yspa>\n"
-                + "		    <spaor>"+(int)Orientation+"</spaor>\n\n";
+                + "		    <spaor>"+Orientation+"</spaor>\n\n";
         return xml;
     }
     //Snap ans Raster der Bauteile
