@@ -67,6 +67,9 @@ public class Leitung extends Bauelement{
                 line.setStartY(posY);
                 line.setEndX(xend);
                 line.setEndY(yend);
+                //posX=rundenLeitungen(event.getSceneX());
+                //posY=rundenLeitungen(event.getSceneY());
+
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {

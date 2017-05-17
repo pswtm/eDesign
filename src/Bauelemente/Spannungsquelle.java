@@ -92,6 +92,8 @@ public class Spannungsquelle extends Bauelement {
 
                 imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX())-25);
                 imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY())-25);
+                posX=rundenBauteile(event.getSceneX());
+                posY=rundenBauteile(event.getSceneY());
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {

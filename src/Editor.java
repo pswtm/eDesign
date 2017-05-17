@@ -22,6 +22,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
 import java.io.BufferedWriter;
@@ -65,7 +66,7 @@ public class Editor extends Application {
     MenuBar menuBar = new MenuBar();
     BorderPane borderPane=new BorderPane();
     int IDLeitung=0,IDKondensator=0,IDSpule=0,IDSpannungsquelle=0,IDWiderstand=0;
-
+    ArrayList<Bauelement> arraylist= new ArrayList<Bauelement>();
 
     public static void main(String[] args) {
         launch(args);
@@ -264,9 +265,10 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 IDSpannungsquelle++;
                 Spannungsquelle spannungsquelle=new Spannungsquelle(IDSpannungsquelle,x,y,0);
+                arraylist.add(spannungsquelle);
                 //spannungsquelle.draw(gc,0);
                 spannungsquelle.draw1(borderPane);
-                xmlstring=spannungsquelle.toxml(xmlstring);
+                //xmlstring=spannungsquelle.toxml(xmlstring);
             }
         });
         imageviewSpule.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -290,9 +292,10 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 IDSpule++;
                 Spule spule=new Spule(IDSpule,x,y,0);
+                arraylist.add(spule);
                 //spule.draw(gc,0);
                 spule.draw1(borderPane);
-                xmlstring=spule.toxml(xmlstring);
+                //xmlstring=spule.toxml(xmlstring);
             }
         });
         imageviewKondensator.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -316,9 +319,10 @@ public class Editor extends Application {
                 y=rundenBauteile(event.getSceneY());
                 IDKondensator++;
                 Kondensator kondensator=new Kondensator(IDKondensator,x,y,0);
+                arraylist.add(kondensator);
                 //kondensator.draw(gc,0);
                 kondensator.draw1(borderPane);
-                xmlstring=kondensator.toxml(xmlstring);
+                //xmlstring=kondensator.toxml(xmlstring);
             }
         });
         imageviewWiderstand.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -336,16 +340,16 @@ public class Editor extends Application {
             public void handle(MouseEvent event)
             {
                 borderPane.getChildren().remove(imageviewWiderstand1);
-
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
                 x=rundenBauteile(event.getSceneX());
                 y=rundenBauteile(event.getSceneY());
                 IDWiderstand++;
                 Widerstand widerstand=new Widerstand(IDWiderstand,x,y,0);
+                arraylist.add(widerstand);
                 //widerstand.draw(gc,0);
                 widerstand.draw1(borderPane);
-                xmlstring=widerstand.toxml(xmlstring);
+                //xmlstring=widerstand.toxml(xmlstring);
 
             }
         });
@@ -470,14 +474,7 @@ public class Editor extends Application {
     //Speichern unter
     public void saveas()
     {
-        String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        String start= "			XML File\n"
-                + "        <Header>\n"
-                + "                <name>XML File</name>\n"
-                + "		<Teile>\n\n";
-        String end="		</Teile>\n"
-                + "        </Header>\n";
-        all=start+xmlstring+end;
+
 
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
@@ -486,6 +483,18 @@ public class Editor extends Application {
         fileChoose.getExtensionFilters().add(extFilter);
         file = fileChoose.showSaveDialog(window);
         try {
+            for(Bauelement a: arraylist)
+            {
+                xmlstring=a.toxml(xmlstring);
+            }
+            String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+            String start= "			XML File\n"
+                    + "        <Header>\n"
+                    + "                <name>XML File</name>\n"
+                    + "		<Teile>\n\n";
+            String end="		</Teile>\n"
+                    + "        </Header>\n";
+            all=start+xmlstring+end;
             FileWriter writer = new FileWriter(file);
             writer.write(all);
             writer.close();
@@ -548,7 +557,8 @@ public class Editor extends Application {
             IDLeitung++;
             Leitung leitung1=new Leitung(IDLeitung ,xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
             leitung1.draw1(borderPane);
-            xmlstring=leitung1.toxml(xmlstring);
+            //xmlstring=leitung1.toxml(xmlstring);
+            arraylist.add(leitung1);
             xStartLeitung=0;
             yStartLeitung=0;
             xEndLeitung=0;
@@ -603,6 +613,7 @@ public class Editor extends Application {
         IDWiderstand=0;
         IDSpule=0;
         xmlstring="";
+        arraylist.clear();
         //gc.clearRect(0, 0, dim.getWidth(), dim.getHeight());
         //drawGitter(gc);
         borderPane.getChildren().clear();
@@ -646,7 +657,8 @@ public class Editor extends Application {
                             //Kondensator wird auf BorderPane gezeichnet
                             kondensator1.draw1(borderPane);
                             //Kondensator wird in String gespeichert um es später wieder abspeichern zu können
-                            xmlstring=kondensator1.toxml(xmlstring);
+                            //xmlstring=kondensator1.toxml(xmlstring);
+                            arraylist.add(kondensator1);
                         }
                         else if(line.indexOf("Spule")!=-1)
                         {
@@ -663,7 +675,8 @@ public class Editor extends Application {
                             Spule spule1= new Spule(IDSpule,xspu,yspu,spuOr);
                             //Spule wird auf BorderPane gezeichnet
                             spule1.draw1(borderPane);
-                            xmlstring=spule1.toxml(xmlstring);
+                            //xmlstring=spule1.toxml(xmlstring);
+                            arraylist.add(spule1);
                             //spule1.draw(gc,0);
                         }
                         else if(line.indexOf("Widerstand")!=-1)
@@ -682,7 +695,8 @@ public class Editor extends Application {
                             //Widersatnd wird auf BorderPane gezeichnet
                             widerstand1.draw1(borderPane);
                             //Widerstand wird in String gespeichert um es später wieder abspeichern zu können
-                            xmlstring=widerstand1.toxml(xmlstring);
+                            //xmlstring=widerstand1.toxml(xmlstring);
+                            arraylist.add(widerstand1);
 
                         }
                         else if(line.indexOf("Spannungsquelle")!=-1)
@@ -701,7 +715,8 @@ public class Editor extends Application {
                             //Sannungsquelle wird auf BorderPane gezeichnet
                             spannungsquelle1.draw1(borderPane);
                             //Spannungsquelle wird in String gespeichert um es später wieder abspeichern zu können
-                            xmlstring=spannungsquelle1.toxml(xmlstring);
+                            //xmlstring=spannungsquelle1.toxml(xmlstring);
+                            arraylist.add(spannungsquelle1);
 
                         }
                         else if(line.indexOf("Leitung")!=-1)
@@ -721,7 +736,8 @@ public class Editor extends Application {
                             //leitung1.draw(gc);
                             leitung1.draw1(borderPane);
                             //Leitung wird in String gespeichert um es später wieder abspeichern zu können
-                            xmlstring=leitung1.toxml(xmlstring);
+                            //xmlstring=leitung1.toxml(xmlstring);
+                            arraylist.add(leitung1);
                         }
                     }
                 } catch (Exception f){//Catch exception if any

@@ -2,7 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4176fc5b-3b73-45af-8192-263f882c2c25" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$1.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$10.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$11.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$12.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$13.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$14.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$15.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$16.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$17.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$18.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$19.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$2.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$20.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$3.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$4.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$5.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$6.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$7.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$8.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor$9.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eDesign/Editor.class" afterPath="$PROJECT_DIR$/out/production/eDesign/Editor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Leitung.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Leitung.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Spule.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Spule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bauelemente/Widerstand.java" afterPath="$PROJECT_DIR$/src/Bauelemente/Widerstand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Editor.java" afterPath="$PROJECT_DIR$/src/Editor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,31 +45,33 @@
       <file leaf-file-name="Editor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6300">
-              <caret line="607" column="41" lean-forward="false" selection-start-line="607" selection-start-column="41" selection-end-line="607" selection-end-column="41" />
+            <state relative-caret-position="337">
+              <caret line="496" column="36" lean-forward="false" selection-start-line="496" selection-start-column="36" selection-end-line="496" selection-end-column="36" />
               <folding>
-                <element signature="class#11587:11972" expanded="false" />
-                <element signature="class#12021:12673" expanded="false" />
-                <element signature="class#12727:13136" expanded="false" />
-                <element signature="class#13191:13897" expanded="false" />
-                <element signature="class#13950:14355" expanded="false" />
-                <element signature="class#14409:15108" expanded="false" />
-                <element signature="method#open#0;class#Editor#0" expanded="false" />
-                <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-                <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-                <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-                <element signature="method#neu#0;class#Editor#0" expanded="false" />
+                <element signature="e#2410#2422#0" expanded="true" />
+                <element signature="e#6380#6381#0" expanded="true" />
+                <element signature="e#6459#6460#0" expanded="true" />
+                <element signature="e#6612#6613#0" expanded="true" />
+                <element signature="e#6684#6685#0" expanded="true" />
+                <element signature="e#7313#7314#0" expanded="true" />
+                <element signature="e#7394#7395#0" expanded="true" />
+                <element signature="e#7548#7549#0" expanded="true" />
+                <element signature="e#7622#7623#0" expanded="true" />
+                <element signature="e#8190#8191#0" expanded="true" />
+                <element signature="e#8259#8260#0" expanded="true" />
+                <element signature="e#8407#8408#0" expanded="true" />
+                <element signature="e#8469#8470#0" expanded="true" />
                 <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Widerstand.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
+      <file leaf-file-name="Leitung.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Bauelemente/Leitung.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="112" column="78" lean-forward="true" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
+            <state relative-caret-position="408">
+              <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -54,6 +83,7 @@
     <findStrings>
       <find>orientation</find>
       <find>IDSPa</find>
+      <find>toxml</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -67,13 +97,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Bauelemente/Leitung.java" />
         <option value="$PROJECT_DIR$/src/Bauelemente/Bauelement.java" />
         <option value="$PROJECT_DIR$/src/Editor.java" />
-        <option value="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" />
         <option value="$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java" />
-        <option value="$PROJECT_DIR$/src/Bauelemente/Spule.java" />
         <option value="$PROJECT_DIR$/src/Bauelemente/Widerstand.java" />
+        <option value="$PROJECT_DIR$/src/Bauelemente/Kondensator.java" />
+        <option value="$PROJECT_DIR$/src/Bauelemente/Spule.java" />
+        <option value="$PROJECT_DIR$/src/Bauelemente/Leitung.java" />
       </list>
     </option>
   </component>
@@ -103,8 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -151,7 +180,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -603,14 +633,17 @@
       <workItem from="1495021445560" duration="321000" />
       <workItem from="1495021845379" duration="620000" />
       <workItem from="1495023194802" duration="303000" />
+      <workItem from="1495028648361" duration="18000" />
+      <workItem from="1495028847018" duration="2824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6077000" />
+    <option name="totallyTimeSpent" value="8919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="798" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -621,8 +654,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32647464" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32647464" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -633,8 +666,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -682,7 +715,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -693,20 +726,84 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="112" column="78" lean-forward="true" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9105">
           <caret line="607" column="41" lean-forward="false" selection-start-line="607" selection-start-column="41" selection-end-line="607" selection-end-column="41" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="112" column="78" lean-forward="true" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9105">
+          <caret line="607" column="41" lean-forward="false" selection-start-line="607" selection-start-column="41" selection-end-line="607" selection-end-column="41" />
+          <folding>
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -725,17 +822,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -746,11 +845,6 @@
         <state relative-caret-position="555">
           <caret line="125" column="10" lean-forward="true" selection-start-line="125" selection-start-column="10" selection-end-line="125" selection-end-column="10" />
           <folding>
-            <element signature="class#2065:3032" expanded="false" />
-            <element signature="class#3149:4107" expanded="false" />
-            <element signature="class#4256:5611" expanded="false" />
-            <element signature="class#5671:6416" expanded="false" />
-            <element signature="class#6474:6726" expanded="false" />
             <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
@@ -761,17 +855,19 @@
         <state relative-caret-position="8070">
           <caret line="538" column="31" lean-forward="false" selection-start-line="538" selection-start-column="31" selection-end-line="538" selection-end-column="31" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -790,11 +886,6 @@
         <state relative-caret-position="570">
           <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding>
-            <element signature="class#2065:3032" expanded="false" />
-            <element signature="class#3149:4107" expanded="false" />
-            <element signature="class#4256:5611" expanded="false" />
-            <element signature="class#5671:6416" expanded="false" />
-            <element signature="class#6474:6726" expanded="false" />
             <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
@@ -805,17 +896,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -826,11 +919,6 @@
         <state relative-caret-position="645">
           <caret line="131" column="63" lean-forward="false" selection-start-line="131" selection-start-column="63" selection-end-line="131" selection-end-column="63" />
           <folding>
-            <element signature="class#2065:3032" expanded="false" />
-            <element signature="class#3149:4107" expanded="false" />
-            <element signature="class#4256:5611" expanded="false" />
-            <element signature="class#5671:6416" expanded="false" />
-            <element signature="class#6474:6726" expanded="false" />
             <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
           </folding>
         </state>
@@ -849,17 +937,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -870,17 +960,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -891,17 +983,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -912,17 +1006,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
             <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
@@ -930,76 +1026,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Bauelement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
+        <state relative-caret-position="142">
           <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Leitung.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="86" column="28" lean-forward="false" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Kondensator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="114" column="60" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spannungsquelle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="151" column="12" lean-forward="false" selection-start-line="151" selection-start-column="12" selection-end-line="151" selection-end-column="12" />
+        <state relative-caret-position="153">
+          <caret line="94" column="15" lean-forward="true" selection-start-line="94" selection-start-column="15" selection-end-line="95" selection-end-column="55" />
           <folding>
-            <element signature="class#2065:3032" expanded="false" />
-            <element signature="class#3149:4107" expanded="false" />
-            <element signature="class#4256:5611" expanded="false" />
-            <element signature="class#5671:6416" expanded="false" />
-            <element signature="class#6474:6726" expanded="false" />
             <element signature="method#rundenBauteile#0;class#Spannungsquelle#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="116" column="48" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Editor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6300">
-          <caret line="607" column="41" lean-forward="false" selection-start-line="607" selection-start-column="41" selection-end-line="607" selection-end-column="41" />
-          <folding>
-            <element signature="class#11587:11972" expanded="false" />
-            <element signature="class#12021:12673" expanded="false" />
-            <element signature="class#12727:13136" expanded="false" />
-            <element signature="class#13191:13897" expanded="false" />
-            <element signature="class#13950:14355" expanded="false" />
-            <element signature="class#14409:15108" expanded="false" />
-            <element signature="method#open#0;class#Editor#0" expanded="false" />
-            <element signature="method#autosave#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenBauteile#0;class#Editor#0" expanded="false" />
-            <element signature="method#rundenLeitungen#0;class#Editor#0" expanded="false" />
-            <element signature="method#neu#0;class#Editor#0" expanded="false" />
-            <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bauelemente/Widerstand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="112" column="78" lean-forward="true" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
+        <state relative-caret-position="248">
+          <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="496" column="36" lean-forward="false" selection-start-line="496" selection-start-column="36" selection-end-line="496" selection-end-column="36" />
+          <folding>
+            <element signature="e#2410#2422#0" expanded="true" />
+            <element signature="e#6380#6381#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#7313#7314#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7548#7549#0" expanded="true" />
+            <element signature="e#7622#7623#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#8259#8260#0" expanded="true" />
+            <element signature="e#8407#8408#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="method#FileReader#0;class#Editor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Kondensator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Spule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="78" column="16" lean-forward="false" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bauelemente/Leitung.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
           <folding />
         </state>
       </provider>
