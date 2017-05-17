@@ -157,9 +157,9 @@ public class Spannungsquelle extends Bauelement {
     public String toxml(String xml){
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                 + "         <ID>"+ID+"</ID>\n"
-                + "		    <xspa>"+(int)posX+"</xspa>\n"
-                + "		    <yspa>"+(int)posY+"</yspa>\n"
-                + "		    <spaor>"+Orientation+"</spaor>\n\n";
+                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
+                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
+                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
         return xml;
     }
     //Snap ans Raster der Bauteile

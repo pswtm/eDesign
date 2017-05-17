@@ -91,9 +91,9 @@ public class Kondensator extends Bauelement {
     public String toxml(String xml){
         xml+=     "		<Kondensator>" + "Kondensator" + "</Kondensator>\n" //Kondensatorname in fett
                 + "         <ID>"+ID+"</ID>\n"
-                + "		    <xkon>"+(int)posX+"</xkon>\n"
-                + "		    <ykon>"+(int)posY+"</ykon>\n"
-                + "		    <konor>"+(int)Orientation+"</konor>\n\n";
+                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
+                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
+                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
         return xml;
     }
 

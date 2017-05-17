@@ -92,9 +92,9 @@ public class Widerstand extends Bauelement {
     public String toxml(String xml){
         xml+=     "		<Widerstand>" + "Widerstand"  + "</Widerstand>\n"
                 + "         <ID>"+ID+"</ID>\n"
-                + "		    <xwid>"+(int)posX+"</xwid>\n"
-                + "		    <ywid>"+(int)posY+"</ywid>\n"
-                + "		    <widor>"+(int)Orientation+"</widor>\n\n";
+                + "		    <PositionX>"+(int)posX+"</PositionX>\n"
+                + "		    <PositionY>"+(int)posY+"</PositionY>\n"
+                + "		    <Richtung>"+Orientation+"</Richtung>\n\n";
         return xml;
     }
     //Snap ans Raster der Bauteile

@@ -84,10 +84,10 @@ public class Leitung extends Bauelement{
     public String toxml(String xml){
         xml+=     "		<Leitung>" + "Leitung" + "</Leitung>\n"
                 + "         <ID>"+ID+"</ID>\n"
-                + "		    <xles>"+(int)posX+"</xles>\n"
-                + "		    <yles>"+(int)posY+"</yles>\n"
-                + "		    <xlee>"+(int)xend+"</xlee>\n"
-                + "		    <ylee>"+(int)yend+"</ylee>\n\n";
+                + "		    <PositionXstart>"+(int)posX+"</PositionXstart>\n"
+                + "		    <PositionYstart>"+(int)posY+"</PositionYstart>\n"
+                + "		    <PositionXend>"+(int)xend+"</PositionXend>\n"
+                + "		    <PositionYend>"+(int)yend+"</PositionYend>\n\n";
         return xml;
     }
     public void draw1(BorderPane borderPane)

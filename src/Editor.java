@@ -474,8 +474,6 @@ public class Editor extends Application {
     //Speichern unter
     public void saveas()
     {
-
-
         FileChooser fileChoose= new FileChooser();
         fileChoose.setTitle("Speichern unter...");
         FileChooser.ExtensionFilter extFilter =
@@ -500,9 +498,45 @@ public class Editor extends Application {
             writer.close();
 
         }catch (Exception f){//Catch exception if any
-            System.err.println("Error: " + f.getMessage());
+            //System.err.println("Error: " + f.getMessage());
         }
+        xmlstring="";
 
+    }
+    //Speichern
+    public void autosave()
+    {
+        if(file==null)
+        {
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("");
+            alert.setContentText("Es wurde kein Speicherort ausgewählt");
+            alert.showAndWait();
+        }
+        else
+        {
+            try {
+                for(Bauelement a: arraylist)
+                {
+                    xmlstring=a.toxml(xmlstring);
+                }
+                String xmlheader="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+                String start= "			XML File\n"
+                        + "        <Header>\n"
+                        + "                <name>XML File</name>\n"
+                        + "		<Teile>\n\n";
+                String end="		</Teile>\n"
+                        + "        </Header>\n";
+                all=start+xmlstring+end;
+                FileWriter writer = new FileWriter(file);
+                writer.write(all);
+                writer.close();
+            }catch (Exception f) {//Catch exception if any
+                //System.err.println("Error: " + f.getMessage());
+            }
+            xmlstring="";
+        }
     }
     //Öffnen
     public void open()
@@ -520,21 +554,7 @@ public class Editor extends Application {
         deleteall();
         FileReader(file);
     }
-    //Speichern
-    public void autosave()
-    {
-        if(file==null) {System.out.println("Error kein Dateipfad vorhanden");}
-        else
-        {
-            try {
-                FileWriter writer = new FileWriter(file);
-                writer.write(all);
-                writer.close();
-            }catch (Exception f) {//Catch exception if any
-                System.err.println("Error: " + f.getMessage());
-            }
-        }
-    }
+
     //Zeichne Linien mit 2 Mausklicks
     public void drawLines(MouseEvent event, GraphicsContext gc)
     {
@@ -646,11 +666,11 @@ public class Editor extends Application {
                             line=scanner.nextLine();
                             IDKondensator=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            xkon=(double)Integer.parseInt(line.substring(line.indexOf("<xkon>")+6, line.indexOf("</xkon>")));
+                            xkon=(double)Integer.parseInt(line.substring(line.indexOf("<PositionX>")+11, line.indexOf("</PositionX>")));
                             line=scanner.nextLine();
-                            ykon=(double)Integer.parseInt(line.substring(line.indexOf("<ykon>")+6, line.indexOf("</ykon>")));
+                            ykon=(double)Integer.parseInt(line.substring(line.indexOf("<PositionY>")+11, line.indexOf("</PositionY>")));
                             line=scanner.nextLine();
-                            konOr=Integer.parseInt(line.substring(line.indexOf("<konor>")+7, line.indexOf("</konor>")));
+                            konOr=Integer.parseInt(line.substring(line.indexOf("<Richtung>")+10, line.indexOf("</Richtung>")));
                             //IDKondensator++;
                             Kondensator kondensator1=new Kondensator(IDKondensator,xkon,ykon,konOr);
                             //kondensator1.draw(gc,0);
@@ -667,11 +687,11 @@ public class Editor extends Application {
                             line=scanner.nextLine();
                             IDSpule=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            xspu=(double)Integer.parseInt(line.substring(line.indexOf("<xspu>")+6, line.indexOf("</xspu>")));
+                            xspu=(double)Integer.parseInt(line.substring(line.indexOf("<PositionX>")+11, line.indexOf("</PositionX>")));
                             line=scanner.nextLine();
-                            yspu=(double)Integer.parseInt(line.substring(line.indexOf("<yspu>")+6, line.indexOf("</yspu>")));
+                            yspu=(double)Integer.parseInt(line.substring(line.indexOf("<PositionY>")+11, line.indexOf("</PositionY>")));
                             line=scanner.nextLine();
-                            spuOr=Integer.parseInt(line.substring(line.indexOf("<spuor>")+7, line.indexOf("</spuor>")));
+                            spuOr=Integer.parseInt(line.substring(line.indexOf("<Richtung>")+10, line.indexOf("</Richtung>")));
                             Spule spule1= new Spule(IDSpule,xspu,yspu,spuOr);
                             //Spule wird auf BorderPane gezeichnet
                             spule1.draw1(borderPane);
@@ -685,11 +705,11 @@ public class Editor extends Application {
                             line=scanner.nextLine();
                             IDWiderstand=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            xwid=(double)Integer.parseInt(line.substring(line.indexOf("<xwid>")+6, line.indexOf("</xwid>")));
+                            xwid=(double)Integer.parseInt(line.substring(line.indexOf("<PositionX>")+11, line.indexOf("</PositionX>")));
                             line=scanner.nextLine();
-                            ywid=(double)Integer.parseInt(line.substring(line.indexOf("<ywid>")+6, line.indexOf("</ywid>")));
+                            ywid=(double)Integer.parseInt(line.substring(line.indexOf("<PositionY>")+11, line.indexOf("</PositionY>")));
                             line=scanner.nextLine();
-                            widOr= Integer.parseInt(line.substring(line.indexOf("<widor>")+7, line.indexOf("</widor>")));
+                            widOr= Integer.parseInt(line.substring(line.indexOf("<Richtung>")+10, line.indexOf("</Richtung>")));
                             Widerstand widerstand1=new Widerstand(IDWiderstand,xwid,ywid,widOr);
                             //widerstand1.draw(gc,0);
                             //Widersatnd wird auf BorderPane gezeichnet
@@ -705,11 +725,11 @@ public class Editor extends Application {
                             line=scanner.nextLine();
                             IDSpannungsquelle=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            xspa=(double)Integer.parseInt(line.substring(line.indexOf("<xspa>")+6, line.indexOf("</xspa>")));
+                            xspa=(double)Integer.parseInt(line.substring(line.indexOf("<PositionX>")+11, line.indexOf("</PositionX>")));
                             line=scanner.nextLine();
-                            yspa=(double)Integer.parseInt(line.substring(line.indexOf("<yspa>")+6, line.indexOf("</yspa>")));
+                            yspa=(double)Integer.parseInt(line.substring(line.indexOf("<PositionY>")+11, line.indexOf("</PositionY>")));
                             line=scanner.nextLine();
-                            spaOr =Integer.parseInt(line.substring(line.indexOf("<spaor>")+7, line.indexOf("</spaor>")));
+                            spaOr =Integer.parseInt(line.substring(line.indexOf("<Richtung>")+10, line.indexOf("</Richtung>")));
                             Spannungsquelle spannungsquelle1=new Spannungsquelle(IDSpannungsquelle,xspa,yspa,spaOr);
                             //spannungsquelle1.draw(gc, 0);
                             //Sannungsquelle wird auf BorderPane gezeichnet
@@ -725,13 +745,13 @@ public class Editor extends Application {
                             line=scanner.nextLine();
                             IDLeitung=Integer.parseInt(line.substring(line.indexOf("<ID>")+4,line.indexOf("</ID>")));
                             line=scanner.nextLine();
-                            xles=(double)Integer.parseInt(line.substring(line.indexOf("<xles>")+6, line.indexOf("</xles>")));
+                            xles=(double)Integer.parseInt(line.substring(line.indexOf("<PositionXstart>")+16, line.indexOf("</PositionXstart>")));
                             line=scanner.nextLine();
-                            yles=(double)Integer.parseInt(line.substring(line.indexOf("<yles>")+6, line.indexOf("</yles>")));
+                            yles=(double)Integer.parseInt(line.substring(line.indexOf("<PositionYstart>")+16, line.indexOf("</PositionYstart>")));
                             line=scanner.nextLine();
-                            xlee=(double)Integer.parseInt(line.substring(line.indexOf("<xlee>")+6, line.indexOf("</xlee>")));
+                            xlee=(double)Integer.parseInt(line.substring(line.indexOf("<PositionXend>")+14, line.indexOf("</PositionXend>")));
                             line=scanner.nextLine();
-                            ylee=(double)Integer.parseInt(line.substring(line.indexOf("<ylee>")+6, line.indexOf("</ylee>")));
+                            ylee=(double)Integer.parseInt(line.substring(line.indexOf("<PositionYend>")+14, line.indexOf("</PositionYend>")));
                             Leitung leitung1=new Leitung(IDLeitung,xles,yles,0,xlee,ylee);
                             //leitung1.draw(gc);
                             leitung1.draw1(borderPane);
