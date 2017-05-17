@@ -506,6 +506,7 @@ public class Editor extends Application {
     //Speichern
     public void autosave()
     {
+        //System.out.println(file.getAbsolutePath());
         if(file==null)
         {
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
@@ -541,6 +542,7 @@ public class Editor extends Application {
     //Öffnen
     public void open()
     {
+        file=null;
         //XKondensator, YKondensator, XlineStart, XLineEnd
         double xkon, yspu,xwid,yspa,xspa,ywid,ykon,xspu,xles,yles,xlee,ylee;
         //KondensatorOrientation
@@ -627,7 +629,7 @@ public class Editor extends Application {
     //Löscht alles auf dem Borderpane und Graphic Content
     public void deleteall()
     {
-        IDKondensator=0;
+                IDKondensator=0;
         IDLeitung=0;
         IDSpannungsquelle=0;
         IDWiderstand=0;
