@@ -108,6 +108,12 @@ public class Kondensator extends Bauelement {
     {
         imageviewKondensator1.setX(posX-25);
         imageviewKondensator1.setY(posY-25);
+        if(Orientation==0) {imageviewKondensator1.setImage(Kondensator00S);}
+        else if(Orientation==1){imageviewKondensator1.setImage(Kondensator45S);}
+        else if(Orientation==2){imageviewKondensator1.setImage(Kondensator90S);}
+        else if(Orientation==3){imageviewKondensator1.setImage(Kondensator135S);}
+        else imageviewKondensator1.setImage(Kondensator00S);
+
         borderPane.getChildren().add(imageviewKondensator1);
     }
     public  double getOrientation() {return Orientation;}

@@ -110,6 +110,11 @@ public class Spule extends Bauelement {
     {
         imageviewSpule1.setX(posX-25);
         imageviewSpule1.setY(posY-25);
+        if(Orientation==0) {imageviewSpule1.setImage(Spule00S);}
+        else if(Orientation==1){imageviewSpule1.setImage(Spule45S);}
+        else if(Orientation==2){imageviewSpule1.setImage(Spule90S);}
+        else if(Orientation==3){imageviewSpule1.setImage(Spule135S);}
+        else imageviewSpule1.setImage(Spule00S);
         borderPane.getChildren().add(imageviewSpule1);
     }
     public  double getOrientation() {return Orientation;}

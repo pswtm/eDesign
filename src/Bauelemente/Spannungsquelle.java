@@ -40,7 +40,6 @@ public class Spannungsquelle extends Bauelement {
     {
 
         super(ID,x,y,Orientation1);
-        System.out.println("ID SPann in KLasse:"+ID);
         imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
         //Rechtsklick Drehung bzw ändern des Bildes
         imageviewSpannungsquelle1.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -149,13 +148,11 @@ public class Spannungsquelle extends Bauelement {
             else if(Orientation==1){imageviewSpannungsquelle1.setImage(Spannungsquelle45S);}
             else if(Orientation==2){imageviewSpannungsquelle1.setImage(Spannungsquelle90S);}
             else if(Orientation==3){imageviewSpannungsquelle1.setImage(Spannungsquelle135S);}
-
-
-        borderPane.getChildren().add(imageviewSpannungsquelle1);
+            else imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
+            borderPane.getChildren().add(imageviewSpannungsquelle1);
     }
     //Wird zum String xml hinzugefügt
     public String toxml(String xml){
-        System.out.println("ID Spann in xml String:"+ID);
         xml+=     "		<Spannungsquelle>" + "Spannungsquelle" +  "</Spannungsquelle>\n"
                 + "         <ID>"+ID+"</ID>\n"
                 + "		    <xspa>"+(int)posX+"</xspa>\n"

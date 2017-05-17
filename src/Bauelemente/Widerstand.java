@@ -108,6 +108,12 @@ public class Widerstand extends Bauelement {
     {
         imageviewWiderstand1.setX(posX-25);
         imageviewWiderstand1.setY(posY-25);
+        if(Orientation==0) {imageviewWiderstand1.setImage(Widerstand00S);}
+        else if(Orientation==1){imageviewWiderstand1.setImage(Widerstand45S);}
+        else if(Orientation==2){imageviewWiderstand1.setImage(Widerstand90S);}
+        else if(Orientation==3){imageviewWiderstand1.setImage(Widerstand135S);}
+        else imageviewWiderstand1.setImage(Widerstand00S);
+
         borderPane.getChildren().add(imageviewWiderstand1);
     }
     public  double getOrientation() {return Orientation;}
