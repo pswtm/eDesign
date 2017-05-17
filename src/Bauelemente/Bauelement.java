@@ -32,6 +32,7 @@ public abstract class Bauelement {
     public Bauelement(int ID, double posX, double posY, int Orientation) {
         this.posX = posX;
         this.posY = posY;
+        this.ID=ID;
         this.Orientation = Orientation;
     }
 

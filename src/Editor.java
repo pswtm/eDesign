@@ -59,6 +59,8 @@ public class Editor extends Application {
     private EventHandler<DragEvent> mIconDragOverRoot = null;
     Canvas canvas = new Canvas(dim.getWidth(),dim.getHeight());
     VBox vbox = new VBox();
+    VBox vboxLeer = new VBox();
+    HBox hboxLeiste = new HBox();
     GraphicsContext gc = canvas.getGraphicsContext2D();
     MenuBar menuBar = new MenuBar();
     BorderPane borderPane=new BorderPane();
@@ -420,7 +422,7 @@ public class Editor extends Application {
         public void handle(MouseEvent event)
         {drawLines(event, gc);}});
 
-        VBox vboxLeer = new VBox();
+
         vboxLeer.setPrefSize(15,100);
         //VBox Style
         vboxLeer.setStyle("-fx-background-color: black;"
@@ -431,7 +433,7 @@ public class Editor extends Application {
 
 
         //HBox als untere Leiste
-        HBox hboxLeiste = new HBox();
+
         hboxLeiste.setPrefSize(100,15);
         //VBox Style
         hboxLeiste.setStyle("-fx-background-color: black;"
@@ -605,6 +607,8 @@ public class Editor extends Application {
         //drawGitter(gc);
         borderPane.getChildren().clear();
         borderPane.getChildren().add(canvas);
+        borderPane.setRight(vboxLeer);
+        borderPane.setBottom(hboxLeiste);
         borderPane.setTop(menuBar);
         borderPane.setLeft(vbox);
     }

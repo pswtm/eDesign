@@ -38,6 +38,7 @@ public class Spannungsquelle extends Bauelement {
 
     public Spannungsquelle(int ID,double x, double y, int Orientation1)
     {
+
         super(ID,x,y,Orientation1);
         System.out.println("ID SPann in KLasse:"+ID);
         imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
