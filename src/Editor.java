@@ -72,6 +72,7 @@ public class Editor extends Application {
     int IDLeitung=0,IDKondensator=0,IDSpule=0,IDSpannungsquelle=0,IDWiderstand=0;
     ArrayList<Bauelement> arraylist= new ArrayList<Bauelement>();
     Text textToolTipps=new Text();
+    Line lineZeichnen=new Line();
 
     public static void main(String[] args) {
         launch(args);
@@ -577,11 +578,22 @@ public class Editor extends Application {
         {
             xStartLeitung=rundenLeitungen(event.getSceneX());
             yStartLeitung=rundenLeitungen(event.getSceneY());
+            //Todo Leitung zeichnen während man die Maus bewegt
+            /*
+            lineZeichnen.setStrokeWidth(5);
+            lineZeichnen.setStroke(Color.GRAY);
+            lineZeichnen.setStartX(xStartLeitung);
+            lineZeichnen.setStartY(yStartLeitung);
+            lineZeichnen.setEndX(event.getSceneX());
+            lineZeichnen.setEndY(event.getSceneY());
+            borderPane.getChildren().add(lineZeichnen);
+            */
         }
         else if (clickCount==0)
         {
             xEndLeitung=rundenLeitungen(event.getSceneX());
             yEndLeitung=rundenLeitungen(event.getSceneY());
+           //borderPane.getChildren().remove(lineZeichnen);
         }
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
