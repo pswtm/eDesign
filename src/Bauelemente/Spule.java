@@ -67,26 +67,28 @@ public class Spule extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewSpule1.getImage()==Spule00T)
-                {imageviewSpule1.setImage(Spule00S);}
-                else if(imageviewSpule1.getImage()==Spule45T)
-                {imageviewSpule1.setImage(Spule45S);}
-                else if(imageviewSpule1.getImage()==Spule90T)
-                {imageviewSpule1.setImage(Spule90S);}
-                else if(imageviewSpule1.getImage()==Spule135T)
-                {imageviewSpule1.setImage(Spule135S);}
-
-                imageviewSpule1.setX(rundenLeitungen(event.getSceneX())-25);
-                imageviewSpule1.setY(rundenLeitungen(event.getSceneY())-25);
-                posX=rundenLeitungen(event.getSceneX());
-                posY=rundenLeitungen(event.getSceneY());
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
                     imageviewSpule1.setImage(null);
                     imageviewSpule1.removeEventHandler(MouseEvent.ANY, this);
+                }
+                else {
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    if (imageviewSpule1.getImage() == Spule00T) {
+                        imageviewSpule1.setImage(Spule00S);
+                    } else if (imageviewSpule1.getImage() == Spule45T) {
+                        imageviewSpule1.setImage(Spule45S);
+                    } else if (imageviewSpule1.getImage() == Spule90T) {
+                        imageviewSpule1.setImage(Spule90S);
+                    } else if (imageviewSpule1.getImage() == Spule135T) {
+                        imageviewSpule1.setImage(Spule135S);
+                    }
+
+                    imageviewSpule1.setX(rundenLeitungen(event.getSceneX()) - 25);
+                    imageviewSpule1.setY(rundenLeitungen(event.getSceneY()) - 25);
+                    posX = rundenLeitungen(event.getSceneX());
+                    posY = rundenLeitungen(event.getSceneY());
                 }
             }});
 

@@ -270,12 +270,15 @@ public class Editor extends Application {
                 double x=0,y=0;
                 x=rundenLeitungen(event.getSceneX());
                 y=rundenLeitungen(event.getSceneY());
-                IDSpannungsquelle++;
-                Spannungsquelle spannungsquelle=new Spannungsquelle(IDSpannungsquelle,x,y,0);
-                arraylist.add(spannungsquelle);
-                //spannungsquelle.draw(gc,0);
-                spannungsquelle.draw1(borderPane);
-                //xmlstring=spannungsquelle.toxml(xmlstring);
+                if(x<150) return;
+                else {
+                    IDSpannungsquelle++;
+                    Spannungsquelle spannungsquelle = new Spannungsquelle(IDSpannungsquelle, x, y, 0);
+                    arraylist.add(spannungsquelle);
+                    //spannungsquelle.draw(gc,0);
+                    spannungsquelle.draw1(borderPane);
+                    //xmlstring=spannungsquelle.toxml(xmlstring);
+                }
             }
         });
         imageviewSpule.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -294,15 +297,18 @@ public class Editor extends Application {
             {
                 borderPane.getChildren().remove(imageviewSpule1);
                 double x=0,y=0;
-                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenLeitungen(event.getSceneX());
-                y=rundenLeitungen(event.getSceneY());
-                IDSpule++;
-                Spule spule=new Spule(IDSpule,x,y,0);
-                arraylist.add(spule);
-                //spule.draw(gc,0);
-                spule.draw1(borderPane);
-                //xmlstring=spule.toxml(xmlstring);
+                    //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                    x = rundenLeitungen(event.getSceneX());
+                    y = rundenLeitungen(event.getSceneY());
+                if(x<150) return;
+                else {
+                    IDSpule++;
+                    Spule spule = new Spule(IDSpule, x, y, 0);
+                    arraylist.add(spule);
+                    //spule.draw(gc,0);
+                    spule.draw1(borderPane);
+                    //xmlstring=spule.toxml(xmlstring);
+                }
             }
         });
         imageviewKondensator.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -321,15 +327,18 @@ public class Editor extends Application {
             {
                 borderPane.getChildren().remove(imageviewKondensator1);
                 double x=0,y=0;
-                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenLeitungen(event.getSceneX());
-                y=rundenLeitungen(event.getSceneY());
-                IDKondensator++;
-                Kondensator kondensator=new Kondensator(IDKondensator,x,y,0);
-                arraylist.add(kondensator);
-                //kondensator.draw(gc,0);
-                kondensator.draw1(borderPane);
-                //xmlstring=kondensator.toxml(xmlstring);
+                    //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                    x = rundenLeitungen(event.getSceneX());
+                    y = rundenLeitungen(event.getSceneY());
+                if(x<150) return;
+                else {
+                    IDKondensator++;
+                    Kondensator kondensator = new Kondensator(IDKondensator, x, y, 0);
+                    arraylist.add(kondensator);
+                    //kondensator.draw(gc,0);
+                    kondensator.draw1(borderPane);
+                    //xmlstring=kondensator.toxml(xmlstring);
+                }
             }
         });
         imageviewWiderstand.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -348,16 +357,19 @@ public class Editor extends Application {
             {
                 borderPane.getChildren().remove(imageviewWiderstand1);
                 double x=0,y=0;
-                //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenLeitungen(event.getSceneX());
-                y=rundenLeitungen(event.getSceneY());
-                IDWiderstand++;
-                Widerstand widerstand=new Widerstand(IDWiderstand,x,y,0);
-                arraylist.add(widerstand);
-                //widerstand.draw(gc,0);
-                widerstand.draw1(borderPane);
-                //xmlstring=widerstand.toxml(xmlstring);
 
+                    //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
+                    x = rundenLeitungen(event.getSceneX());
+                    y = rundenLeitungen(event.getSceneY());
+                if(x<150) return;
+                else {
+                    IDWiderstand++;
+                    Widerstand widerstand = new Widerstand(IDWiderstand, x, y, 0);
+                    arraylist.add(widerstand);
+                    //widerstand.draw(gc,0);
+                    widerstand.draw1(borderPane);
+                    //xmlstring=widerstand.toxml(xmlstring);
+                }
             }
         });
 

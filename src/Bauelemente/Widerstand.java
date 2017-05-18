@@ -66,26 +66,27 @@ public class Widerstand extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewWiderstand1.getImage()==Widerstand00T)
-                {imageviewWiderstand1.setImage(Widerstand00S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand45T)
-                {imageviewWiderstand1.setImage(Widerstand45S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand90T)
-                {imageviewWiderstand1.setImage(Widerstand90S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand135T)
-                {imageviewWiderstand1.setImage(Widerstand135S);}
-
-                imageviewWiderstand1.setX(rundenLeitungen(event.getSceneX())-25);
-                imageviewWiderstand1.setY(rundenLeitungen(event.getSceneY())-25);
-                posX=rundenLeitungen(event.getSceneX());
-                posY=rundenLeitungen(event.getSceneY());
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
                     imageviewWiderstand1.setImage(null);
                     imageviewWiderstand1.removeEventHandler(MouseEvent.ANY, this);
+                }
+                else {
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    if (imageviewWiderstand1.getImage() == Widerstand00T) {
+                        imageviewWiderstand1.setImage(Widerstand00S);
+                    } else if (imageviewWiderstand1.getImage() == Widerstand45T) {
+                        imageviewWiderstand1.setImage(Widerstand45S);
+                    } else if (imageviewWiderstand1.getImage() == Widerstand90T) {
+                        imageviewWiderstand1.setImage(Widerstand90S);
+                    } else if (imageviewWiderstand1.getImage() == Widerstand135T) {
+                        imageviewWiderstand1.setImage(Widerstand135S);
+                    }
+                    imageviewWiderstand1.setX(rundenLeitungen(event.getSceneX()) - 25);
+                    imageviewWiderstand1.setY(rundenLeitungen(event.getSceneY()) - 25);
+                    posX = rundenLeitungen(event.getSceneX());
+                    posY = rundenLeitungen(event.getSceneY());
                 }
             }});
     }

@@ -59,25 +59,24 @@ public class Leitung extends Bauelement{
             @Override
             public void handle(MouseEvent event)
             {
-                posX=rundenLeitungen(event.getSceneX()+xs);
-                posY=rundenLeitungen(event.getSceneY()+ys);
-                xend=rundenLeitungen(event.getSceneX()+xe);
-                yend=rundenLeitungen(event.getSceneY()+ye);
-                line.setStartX(posX);
-                line.setStartY(posY);
-                line.setEndX(xend);
-                line.setEndY(yend);
-                //posX=rundenLeitungen(event.getSceneX());
-                //posY=rundenLeitungen(event.getSceneY());
-
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
                     border.getChildren().remove(line);
                     line.removeEventHandler(MouseEvent.ANY, this);
                 }
-
+                else {
+                    posX = rundenLeitungen(event.getSceneX() + xs);
+                    posY = rundenLeitungen(event.getSceneY() + ys);
+                    xend = rundenLeitungen(event.getSceneX() + xe);
+                    yend = rundenLeitungen(event.getSceneY() + ye);
+                    line.setStartX(posX);
+                    line.setStartY(posY);
+                    line.setEndX(xend);
+                    line.setEndY(yend);
+                    //posX=rundenLeitungen(event.getSceneX());
+                    //posY=rundenLeitungen(event.getSceneY());
+                }
             }});
     }
     //Wird zum String xml hinzugefügt

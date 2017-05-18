@@ -81,26 +81,29 @@ public class Spannungsquelle extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewSpannungsquelle1.getImage()==Spannungsquelle00T)
-                {imageviewSpannungsquelle1.setImage(Spannungsquelle00S);}
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle45T)
-                {imageviewSpannungsquelle1.setImage(Spannungsquelle45S);}
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle90T)
-                {imageviewSpannungsquelle1.setImage(Spannungsquelle90S);}
-                else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135T)
-                {imageviewSpannungsquelle1.setImage(Spannungsquelle135S);}
-
-                imageviewSpannungsquelle1.setX(rundenLeitungen(event.getSceneX())-25);
-                imageviewSpannungsquelle1.setY(rundenLeitungen(event.getSceneY())-25);
-                posX=rundenLeitungen(event.getSceneX());
-                posY=rundenLeitungen(event.getSceneY());
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
                     imageviewSpannungsquelle1.setImage(null);
                     imageviewSpannungsquelle1.removeEventHandler(MouseEvent.ANY, this);
+                }
+                //Todo Bild sollte nicht in die Vbox gezogen werden können
+                //else if(x<150) {System.out.println("Nein hier nicht");return;}
+                else {
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    if (imageviewSpannungsquelle1.getImage() == Spannungsquelle00T) {
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle00S);
+                    } else if (imageviewSpannungsquelle1.getImage() == Spannungsquelle45T) {
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle45S);
+                    } else if (imageviewSpannungsquelle1.getImage() == Spannungsquelle90T) {
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle90S);
+                    } else if (imageviewSpannungsquelle1.getImage() == Spannungsquelle135T) {
+                        imageviewSpannungsquelle1.setImage(Spannungsquelle135S);
+                    }
+                    imageviewSpannungsquelle1.setX(rundenLeitungen(event.getSceneX()) - 25);
+                    imageviewSpannungsquelle1.setY(rundenLeitungen(event.getSceneY()) - 25);
+                    posX = rundenLeitungen(event.getSceneX());
+                    posY = rundenLeitungen(event.getSceneY());
                 }
             }});
 

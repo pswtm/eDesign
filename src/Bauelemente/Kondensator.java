@@ -66,26 +66,28 @@ public class Kondensator extends Bauelement {
             @Override
             public void handle(MouseEvent event)
             {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewKondensator1.getImage()==Kondensator00T)
-                {imageviewKondensator1.setImage(Kondensator00S);}
-                else if(imageviewKondensator1.getImage()==Kondensator45T)
-                {imageviewKondensator1.setImage(Kondensator45S);}
-                else if(imageviewKondensator1.getImage()==Kondensator90T)
-                {imageviewKondensator1.setImage(Kondensator90S);}
-                else if(imageviewKondensator1.getImage()==Kondensator135T)
-                {imageviewKondensator1.setImage(Kondensator135S);}
-
-                imageviewKondensator1.setX(rundenLeitungen(event.getSceneX())-25);
-                imageviewKondensator1.setY(rundenLeitungen(event.getSceneY())-25);
-                posX=rundenLeitungen(event.getSceneX());
-                posY=rundenLeitungen(event.getSceneY());
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
                     imageviewKondensator1.setImage(null);
                     imageviewKondensator1.removeEventHandler(MouseEvent.ANY, this);
+                }
+                else {
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    if (imageviewKondensator1.getImage() == Kondensator00T) {
+                        imageviewKondensator1.setImage(Kondensator00S);
+                    } else if (imageviewKondensator1.getImage() == Kondensator45T) {
+                        imageviewKondensator1.setImage(Kondensator45S);
+                    } else if (imageviewKondensator1.getImage() == Kondensator90T) {
+                        imageviewKondensator1.setImage(Kondensator90S);
+                    } else if (imageviewKondensator1.getImage() == Kondensator135T) {
+                        imageviewKondensator1.setImage(Kondensator135S);
+                    }
+
+                    imageviewKondensator1.setX(rundenLeitungen(event.getSceneX()) - 25);
+                    imageviewKondensator1.setY(rundenLeitungen(event.getSceneY()) - 25);
+                    posX = rundenLeitungen(event.getSceneX());
+                    posY = rundenLeitungen(event.getSceneY());
                 }
             }});
     }
