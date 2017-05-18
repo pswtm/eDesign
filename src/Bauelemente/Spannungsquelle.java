@@ -109,6 +109,7 @@ public class Spannungsquelle extends Bauelement {
             public void handle(MouseEvent event) {
                 //Todo entweder Hilfe anzeigen weden Drehung oder kleine Buttons zum drehen
                 System.out.println("Drehung mit rechtsklick auf das Objekt: "+ID);
+
                 /*
                 imageviewSpannungsquelle1.setOnKeyReleased(new EventHandler<KeyEvent>() {
                     @Override

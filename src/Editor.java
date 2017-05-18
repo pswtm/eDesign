@@ -22,6 +22,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import java.awt.*;
+import java.awt.Label;
+import java.awt.TextField;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
@@ -39,6 +41,7 @@ import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.print.DocFlavor;
 import javax.swing.*;
+//import javax.xml.soap.Text;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
@@ -46,6 +49,7 @@ import java.util.Iterator;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import java.nio.charset.StandardCharsets;
+import javafx.scene.text.Text;
 
 public class Editor extends Application {
     //Variablen die auch in den Funktionen verwendet werden
@@ -67,6 +71,7 @@ public class Editor extends Application {
     BorderPane borderPane=new BorderPane();
     int IDLeitung=0,IDKondensator=0,IDSpule=0,IDSpannungsquelle=0,IDWiderstand=0;
     ArrayList<Bauelement> arraylist= new ArrayList<Bauelement>();
+    Text textToolTipps=new Text();
 
     public static void main(String[] args) {
         launch(args);
@@ -436,8 +441,12 @@ public class Editor extends Application {
                 + "-fx-padding: 10.5px;");
 
 
-        //HBox als untere Leiste
-
+        //HBox als untere Leiste mit Tooltipps
+        String tooltipps="Tooltipps: ";
+        String drehen="Zum Drehen des Bauteils: Rechtsklick auf das Bauteil";
+        textToolTipps.setText(tooltipps+drehen);
+        textToolTipps.setFill(Color.WHITE);
+        hboxLeiste.getChildren().add(textToolTipps);
         hboxLeiste.setPrefSize(100,15);
         //VBox Style
         hboxLeiste.setStyle("-fx-background-color: black;"
