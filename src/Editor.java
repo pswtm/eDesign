@@ -126,7 +126,7 @@ public class Editor extends Application {
         });
         fileMenu.getItems().add(save);
         fileMenu.getItems().add(new SeparatorMenuItem());
-        fileMenu.getItems().add(new MenuItem("Schließen"));
+        //fileMenu.getItems().add(new MenuItem("Schließen"));
 
         //Menüpunkt "Bearbeiten" erstellen
         Menu editMenu = new Menu("_Bearbeiten");
@@ -150,7 +150,8 @@ public class Editor extends Application {
         Menu helpMenu = new Menu("_Hilfe");
 
         //Menüleiste zusammenführen
-        menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
+        //Todo rest der Menüs besprechen wegen aussehen und ob mehr funktionen in den Menüs
+        menuBar.getMenus().addAll(fileMenu);//editMenu, viewMenu, helpMenu);
         //Vbox Größe
         vbox.setPrefSize(100,100);
         //VBox Style
@@ -267,8 +268,8 @@ public class Editor extends Application {
             {
                 borderPane.getChildren().remove(imageviewSpannungsquelle1);
                 double x=0,y=0;
-                x=rundenBauteile(event.getSceneX());
-                y=rundenBauteile(event.getSceneY());
+                x=rundenLeitungen(event.getSceneX());
+                y=rundenLeitungen(event.getSceneY());
                 IDSpannungsquelle++;
                 Spannungsquelle spannungsquelle=new Spannungsquelle(IDSpannungsquelle,x,y,0);
                 arraylist.add(spannungsquelle);
@@ -294,8 +295,8 @@ public class Editor extends Application {
                 borderPane.getChildren().remove(imageviewSpule1);
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenBauteile(event.getSceneX());
-                y=rundenBauteile(event.getSceneY());
+                x=rundenLeitungen(event.getSceneX());
+                y=rundenLeitungen(event.getSceneY());
                 IDSpule++;
                 Spule spule=new Spule(IDSpule,x,y,0);
                 arraylist.add(spule);
@@ -321,8 +322,8 @@ public class Editor extends Application {
                 borderPane.getChildren().remove(imageviewKondensator1);
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenBauteile(event.getSceneX());
-                y=rundenBauteile(event.getSceneY());
+                x=rundenLeitungen(event.getSceneX());
+                y=rundenLeitungen(event.getSceneY());
                 IDKondensator++;
                 Kondensator kondensator=new Kondensator(IDKondensator,x,y,0);
                 arraylist.add(kondensator);
@@ -348,8 +349,8 @@ public class Editor extends Application {
                 borderPane.getChildren().remove(imageviewWiderstand1);
                 double x=0,y=0;
                 //System.out.println("losgelassen an: X: "+event.getSceneX()+" Y: "+event.getSceneY());
-                x=rundenBauteile(event.getSceneX());
-                y=rundenBauteile(event.getSceneY());
+                x=rundenLeitungen(event.getSceneX());
+                y=rundenLeitungen(event.getSceneY());
                 IDWiderstand++;
                 Widerstand widerstand=new Widerstand(IDWiderstand,x,y,0);
                 arraylist.add(widerstand);
@@ -443,7 +444,7 @@ public class Editor extends Application {
 
 
         //HBox als untere Leiste mit Tooltipps
-        String tooltipps="Tooltipps: ";
+        String tooltipps="Tipps: ";
         String drehen="Zum Drehen des Bauteils: Rechtsklick auf das Bauteil";
         textToolTipps.setText(tooltipps+drehen);
         textToolTipps.setFill(Color.WHITE);

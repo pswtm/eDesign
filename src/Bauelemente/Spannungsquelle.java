@@ -91,10 +91,10 @@ public class Spannungsquelle extends Bauelement {
                 else if(imageviewSpannungsquelle1.getImage()==Spannungsquelle135T)
                 {imageviewSpannungsquelle1.setImage(Spannungsquelle135S);}
 
-                imageviewSpannungsquelle1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewSpannungsquelle1.setY(rundenBauteile(event.getSceneY())-25);
-                posX=rundenBauteile(event.getSceneX());
-                posY=rundenBauteile(event.getSceneY());
+                imageviewSpannungsquelle1.setX(rundenLeitungen(event.getSceneX())-25);
+                imageviewSpannungsquelle1.setY(rundenLeitungen(event.getSceneY())-25);
+                posX=rundenLeitungen(event.getSceneX());
+                posY=rundenLeitungen(event.getSceneY());
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
@@ -108,7 +108,7 @@ public class Spannungsquelle extends Bauelement {
             @Override
             public void handle(MouseEvent event) {
                 //Todo entweder Hilfe anzeigen weden Drehung oder kleine Buttons zum drehen
-                System.out.println("Drehung mit rechtsklick auf das Objekt: "+ID);
+                //System.out.println("Drehung mit rechtsklick auf das Objekt: "+ID);
 
                 /*
                 imageviewSpannungsquelle1.setOnKeyReleased(new EventHandler<KeyEvent>() {
@@ -176,6 +176,18 @@ public class Spannungsquelle extends Bauelement {
             return runden - (runden % 50);
         } else if (runden % 50 >= 25) {
             return runden + (50 - (runden % 50));
+        } else return 0;
+    }
+    public double rundenLeitungen(double runden)
+    {
+        double a=0,b=0;
+        if (runden % 25 < 12.5) {
+            a= runden - (runden % 25);
+            return a;
+
+        } else if (runden % 25 >= 12.5) {
+            b= runden +  (25-runden % 25);
+            return b;
         } else return 0;
     }
     public  double getOrientation() {return Orientation;}

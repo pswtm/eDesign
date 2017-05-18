@@ -76,10 +76,10 @@ public class Kondensator extends Bauelement {
                 else if(imageviewKondensator1.getImage()==Kondensator135T)
                 {imageviewKondensator1.setImage(Kondensator135S);}
 
-                imageviewKondensator1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewKondensator1.setY(rundenBauteile(event.getSceneY())-25);
-                posX=rundenBauteile(event.getSceneX());
-                posY=rundenBauteile(event.getSceneY());
+                imageviewKondensator1.setX(rundenLeitungen(event.getSceneX())-25);
+                imageviewKondensator1.setY(rundenLeitungen(event.getSceneY())-25);
+                posX=rundenLeitungen(event.getSceneX());
+                posY=rundenLeitungen(event.getSceneY());
 
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
@@ -109,6 +109,18 @@ public class Kondensator extends Bauelement {
             return runden - (runden % 50);
         } else if (runden % 50 >= 25) {
             return runden + (50 - (runden % 50));
+        } else return 0;
+    }
+    public double rundenLeitungen(double runden)
+    {
+        double a=0,b=0;
+        if (runden % 25 < 12.5) {
+            a= runden - (runden % 25);
+            return a;
+
+        } else if (runden % 25 >= 12.5) {
+            b= runden +  (25-runden % 25);
+            return b;
         } else return 0;
     }
     //Zeichnen Methode
