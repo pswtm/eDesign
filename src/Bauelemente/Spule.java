@@ -35,6 +35,7 @@ public class Spule extends Bauelement {
             public void handle(MouseEvent event) {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*
                     if(imageview.getImage()==S00)
                     {imageview.setImage(S45);Orientation=1;}
                     else if(imageview.getImage()==S45)
@@ -43,6 +44,12 @@ public class Spule extends Bauelement {
                     {imageview.setImage(S135);Orientation=3;}
                     else if(imageview.getImage()==S135)
                     {imageview.setImage(S00);Orientation=0;}
+                    */
+                    if(Orientation==0) {imageview.setImage(S45);Orientation=1;}
+                    else if(Orientation==1) {imageview.setImage(S90);Orientation=2;}
+                    else if(Orientation==2) {imageview.setImage(S135);Orientation=3;}
+                    else if(Orientation==3) {imageview.setImage(S00);Orientation=0;}
+
                 }}});
         //zeichnet während des drag das Transparente Bild
         imageview.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -50,6 +57,7 @@ public class Spule extends Bauelement {
             public void handle(MouseEvent event)
             {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
+                /*
                 if(imageview.getImage()==S00)
                 {imageview.setImage(T00);}
                 else if(imageview.getImage()==S45)
@@ -58,7 +66,11 @@ public class Spule extends Bauelement {
                 {imageview.setImage(T90);}
                 else if(imageview.getImage()==S135)
                 {imageview.setImage(T135);}
-
+                */
+                if(Orientation==0) {imageview.setImage(T00);}
+                else if(Orientation==1) {imageview.setImage(T45);}
+                else if(Orientation==2) {imageview.setImage(T90);}
+                else if(Orientation==3) {imageview.setImage(T135);}
                 imageview.setX(event.getSceneX()-25);
                 imageview.setY(event.getSceneY()-25);
             }});
@@ -75,6 +87,7 @@ public class Spule extends Bauelement {
                 }
                 else {
                     //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*
                     if (imageview.getImage() == T00) {
                         imageview.setImage(S00);
                     } else if (imageview.getImage() == T45) {
@@ -84,6 +97,11 @@ public class Spule extends Bauelement {
                     } else if (imageview.getImage() == T135) {
                         imageview.setImage(S135);
                     }
+                    */
+                    if(Orientation==0) {imageview.setImage(S00);}
+                    else if(Orientation==1) {imageview.setImage(S45);}
+                    else if(Orientation==2) {imageview.setImage(S90);}
+                    else if(Orientation==3) {imageview.setImage(S135);}
                     imageview.setX(rundenLeitungen(event.getSceneX()) - 25);
                     imageview.setY(rundenLeitungen(event.getSceneY()) - 25);
                     posX = rundenLeitungen(event.getSceneX());

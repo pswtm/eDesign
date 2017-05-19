@@ -33,8 +33,13 @@ public class Spannungsquelle extends Bauelement {
     Image T90=new Image("file:Images/Bauelementetransparent/spannungsquelle90T.png",50,50,false,false);
     Image T135=new Image("file:Images/Bauelementetransparent/spannungsquelle135T.png",50,50,false,false);
 
+    Image F00=new Image("file:Images/Bauelementefarbe/spannungsquelle00F.png",WidthHeight,WidthHeight,false,false);
+    Image F45=new Image("file:Images/Bauelementefarbe/spannungsquelle45F.png",WidthHeight,WidthHeight,false,false);
+    Image F90=new Image("file:Images/Bauelementefarbe/spannungsquelle90F.png",WidthHeight,WidthHeight,false,false);
+    Image F135=new Image("file:Images/Bauelementefarbe/spannungsquelle135F.png",WidthHeight,WidthHeight,false,false);
+
+
     ImageView imageview = new ImageView();
-    //BorderPane border=new BorderPane();
     boolean deleted=false;
 
     public Spannungsquelle(int ID,double x, double y, int Orientation1)
@@ -47,6 +52,7 @@ public class Spannungsquelle extends Bauelement {
             public void handle(MouseEvent event) {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*
                     if(imageview.getImage()==S00)
                     {imageview.setImage(S45);Orientation=1;}
                     else if(imageview.getImage()==S45)
@@ -55,6 +61,12 @@ public class Spannungsquelle extends Bauelement {
                     {imageview.setImage(S135);Orientation=3;}
                     else if(imageview.getImage()==S135)
                     {imageview.setImage(S00);Orientation=0;}
+                    */
+                    if(Orientation==0) {imageview.setImage(S45);Orientation=1;}
+                    else if(Orientation==1) {imageview.setImage(S90);Orientation=2;}
+                    else if(Orientation==2) {imageview.setImage(S135);Orientation=3;}
+                    else if(Orientation==3) {imageview.setImage(S00);Orientation=0;}
+
                 }}});
         //zeichnet während des drag das Transparente Bild
         imageview.setOnMouseDragged(new EventHandler<MouseEvent>(){
@@ -62,6 +74,7 @@ public class Spannungsquelle extends Bauelement {
             public void handle(MouseEvent event)
             {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
+                /*
                 if(imageview.getImage()==S00)
                 {imageview.setImage(T00);}
                 else if(imageview.getImage()==S45)
@@ -70,6 +83,11 @@ public class Spannungsquelle extends Bauelement {
                 {imageview.setImage(T90);}
                 else if(imageview.getImage()==S135)
                 {imageview.setImage(T135);}
+                */
+                if(Orientation==0) {imageview.setImage(T00);}
+                else if(Orientation==1) {imageview.setImage(T45);}
+                else if(Orientation==2) {imageview.setImage(T90);}
+                else if(Orientation==3) {imageview.setImage(T135);}
 
                 imageview.setX(event.getSceneX()-25);
                 imageview.setY(event.getSceneY()-25);
@@ -90,6 +108,7 @@ public class Spannungsquelle extends Bauelement {
                 //else if(x<150) {System.out.println("Nein hier nicht");return;}
                 else {
                     //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*)
                     if (imageview.getImage() == T00) {
                         imageview.setImage(S00);
                     } else if (imageview.getImage() == T45) {
@@ -99,6 +118,12 @@ public class Spannungsquelle extends Bauelement {
                     } else if (imageview.getImage() == T135) {
                         imageview.setImage(S135);
                     }
+                    */
+                    if(Orientation==0) {imageview.setImage(S00);}
+                    else if(Orientation==1) {imageview.setImage(S45);}
+                    else if(Orientation==2) {imageview.setImage(S90);}
+                    else if(Orientation==3) {imageview.setImage(S135);}
+
                     imageview.setX(rundenLeitungen(event.getSceneX()) - 25);
                     imageview.setY(rundenLeitungen(event.getSceneY()) - 25);
                     posX = rundenLeitungen(event.getSceneX());
@@ -121,8 +146,6 @@ public class Spannungsquelle extends Bauelement {
     //Zeichnen Methode
     public void draw1(BorderPane borderPane)
     {
-        //ka ob das gut ist funktioniert allerdings
-        //this.border=borderPane;
         imageview.setX(posX-25);
         imageview.setY(posY-25);
         if(Orientation==0) {imageview.setImage(S00);}
@@ -169,6 +192,5 @@ public class Spannungsquelle extends Bauelement {
     public  double getOrientation() {return Orientation;}
     public  double getPosX() {return posX;}
     public  double getPosY() {return posY;}
-
 
 }
