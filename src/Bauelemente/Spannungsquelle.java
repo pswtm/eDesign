@@ -58,11 +58,23 @@ public class Spannungsquelle extends Bauelement {
         imageview.setOnMouseExited(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
+                if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
+                    deleted=true;
+                    imageview.setImage(null);
+                    imageview.removeEventHandler(MouseEvent.ANY, this);
+                }
                 //Todo noch nicht ganz fertig
-                if(Orientation==0) {imageview.setImage(S00);}
-                else if(Orientation==1){imageview.setImage(S45);}
-                else if(Orientation==2){imageview.setImage(S90);}
-                else if(Orientation==3){imageview.setImage(S135);}
+                else {
+                    if (Orientation == 0) {
+                        imageview.setImage(S00);
+                    } else if (Orientation == 1) {
+                        imageview.setImage(S45);
+                    } else if (Orientation == 2) {
+                        imageview.setImage(S90);
+                    } else if (Orientation == 3) {
+                        imageview.setImage(S135);
+                    }
+                }
             }});
         //Rechtsklick Drehung bzw ändern des Bildes
         imageview.setOnMouseClicked(new EventHandler<MouseEvent>(){
