@@ -12,7 +12,8 @@ public class Leitung extends Bauelement{
     public double xend;
     public double yend;
     double xs,ys,xe,ye;
-    Color color=Color.rgb(238,238,238);
+    Color colorGrew=Color.rgb(238,238,238);
+    Color colorBlue=Color.rgb(42,95,160);
     Line line =new Line();
     BorderPane border=new BorderPane();
     boolean deleted=false;
@@ -27,7 +28,7 @@ public class Leitung extends Bauelement{
         line.setStartY(ystart);
         line.setEndX(xend);
         line.setEndY(yend);
-        line.setStroke(color);
+        line.setStroke(colorGrew);
         line.setStrokeWidth(5);
 
         //zeichnet während des drag
@@ -35,6 +36,7 @@ public class Leitung extends Bauelement{
         @Override
         public void handle(MouseEvent event)
         {
+            line.setStroke(colorBlue);
             posX=event.getSceneX()+xs;
             posY=event.getSceneY()+ys;
             xend=event.getSceneX()+xe;
@@ -53,12 +55,20 @@ public class Leitung extends Bauelement{
                 ys=posY-event.getSceneY();
                 xe=xend-event.getSceneX();
                 ye=yend-event.getSceneY();
+                line.setStroke(colorBlue);
+            }});
+        line.setOnMouseExited(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                line.setStroke(colorGrew);
+
             }});
         //zeichnet wenn dropped
         line.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
+                line.setStroke(colorGrew);
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
