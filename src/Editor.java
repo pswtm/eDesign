@@ -608,17 +608,28 @@ public class Editor extends Application {
             yEndLeitung=rundenLeitungen(event.getSceneY());
            //borderPane.getChildren().remove(lineZeichnen);
         }
+
+
         if(xStartLeitung!=0 && yStartLeitung!=0&&xEndLeitung!=0&&yEndLeitung!=0)
         {
-            IDLeitung++;
-            Leitung leitung1=new Leitung(IDLeitung ,xStartLeitung,yStartLeitung,0,xEndLeitung,yEndLeitung);
-            leitung1.draw1(borderPane);
-            //xmlstring=leitung1.toxml(xmlstring);
-            arraylist.add(leitung1);
-            xStartLeitung=0;
-            yStartLeitung=0;
-            xEndLeitung=0;
-            yEndLeitung=0;
+            if(xStartLeitung==xEndLeitung&&yStartLeitung==yEndLeitung)
+            {
+                //Leitungen dürfen nicht auf selben Punkt sein
+                //Todo überprüfen ob das so stimmt
+                xEndLeitung=0;
+                yEndLeitung=0;
+            }
+            else {
+                IDLeitung++;
+                Leitung leitung1 = new Leitung(IDLeitung, xStartLeitung, yStartLeitung, 0, xEndLeitung, yEndLeitung);
+                leitung1.draw1(borderPane);
+                //xmlstring=leitung1.toxml(xmlstring);
+                arraylist.add(leitung1);
+                xStartLeitung = 0;
+                yStartLeitung = 0;
+                xEndLeitung = 0;
+                yEndLeitung = 0;
+            }
 
         }
         else return;
