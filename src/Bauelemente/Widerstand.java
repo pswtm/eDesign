@@ -11,81 +11,102 @@ import javafx.scene.layout.BorderPane;
 public class Widerstand extends Bauelement {
 
     //Bilder von den Objekten beim drag and drop Schwarz und Transparent
-    Image Widerstand00S=new Image("file:Images/Bauelementeschwarz/widerstand00S.png",50,50,false,false);
-    Image Widerstand45S=new Image("file:Images/Bauelementeschwarz/widerstand45S.png",50,50,false,false);
-    Image Widerstand90S=new Image("file:Images/Bauelementeschwarz/widerstand90S.png",50,50,false,false);
-    Image Widerstand135S=new Image("file:Images/Bauelementeschwarz/widerstand135S.png",50,50,false,false);
+    Image S00=new Image("file:Images/Bauelementeschwarz/widerstand00S.png",50,50,false,false);
+    Image S45=new Image("file:Images/Bauelementeschwarz/widerstand45S.png",50,50,false,false);
+    Image S90=new Image("file:Images/Bauelementeschwarz/widerstand90S.png",50,50,false,false);
+    Image S135=new Image("file:Images/Bauelementeschwarz/widerstand135S.png",50,50,false,false);
 
-    Image Widerstand00T=new Image("file:Images/Bauelementetransparent/widerstand00T.png",50,50,false,false);
-    Image Widerstand45T=new Image("file:Images/Bauelementetransparent/widerstand45T.png",50,50,false,false);
-    Image Widerstand90T=new Image("file:Images/Bauelementetransparent/widerstand90T.png",50,50,false,false);
-    Image Widerstand135T=new Image("file:Images/Bauelementetransparent/widerstand135T.png",50,50,false,false);
+    Image T00=new Image("file:Images/Bauelementetransparent/widerstand00T.png",50,50,false,false);
+    Image T45=new Image("file:Images/Bauelementetransparent/widerstand45T.png",50,50,false,false);
+    Image T90=new Image("file:Images/Bauelementetransparent/widerstand90T.png",50,50,false,false);
+    Image T135=new Image("file:Images/Bauelementetransparent/widerstand135T.png",50,50,false,false);
 
-    ImageView imageviewWiderstand1 = new ImageView();
+    ImageView imageview = new ImageView();
     boolean deleted=false;
 
     public Widerstand(int ID,double x, double y, int Orientation1)
     {
         super(ID,x,y,Orientation1);
-        imageviewWiderstand1.setImage(Widerstand00S);
+        imageview.setImage(S00);
         //Rechtsklick Drehung bzw ändern des Bildes
-        imageviewWiderstand1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        imageview.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
                 if (event.getButton() == MouseButton.SECONDARY) {
-                    if(imageviewWiderstand1.getImage()==Widerstand00S)
-                    {imageviewWiderstand1.setImage(Widerstand45S);Orientation=1;}
-                    else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                    {imageviewWiderstand1.setImage(Widerstand90S);Orientation=2;}
-                    else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                    {imageviewWiderstand1.setImage(Widerstand135S);Orientation=3;}
-                    else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                    {imageviewWiderstand1.setImage(Widerstand00S);Orientation=0;}
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*
+                    if(imageview.getImage()==S00)
+                    {imageview.setImage(S45);Orientation=1;}
+                    else if(imageview.getImage()==S45)
+                    {imageview.setImage(S90);Orientation=2;}
+                    else if(imageview.getImage()==S90)
+                    {imageview.setImage(S135);Orientation=3;}
+                    else if(imageview.getImage()==S135)
+                    {imageview.setImage(S00);Orientation=0;}
+                    */
+                    if(Orientation==0) {imageview.setImage(S45);Orientation=1;}
+                    else if(Orientation==1) {imageview.setImage(S90);Orientation=2;}
+                    else if(Orientation==2) {imageview.setImage(S135);Orientation=3;}
+                    else if(Orientation==3) {imageview.setImage(S00);Orientation=0;}
+
                 }}});
         //zeichnet während des drag das Transparente Bild
-        imageviewWiderstand1.setOnMouseDragged(new EventHandler<MouseEvent>(){
+        imageview.setOnMouseDragged(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
                 //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewWiderstand1.getImage()==Widerstand00S)
-                {imageviewWiderstand1.setImage(Widerstand00T);}
-                else if(imageviewWiderstand1.getImage()==Widerstand45S)
-                {imageviewWiderstand1.setImage(Widerstand45T);}
-                else if(imageviewWiderstand1.getImage()==Widerstand90S)
-                {imageviewWiderstand1.setImage(Widerstand90T);}
-                else if(imageviewWiderstand1.getImage()==Widerstand135S)
-                {imageviewWiderstand1.setImage(Widerstand135T);}
+                /*
+                if(imageview.getImage()==S00)
+                {imageview.setImage(T00);}
+                else if(imageview.getImage()==S45)
+                {imageview.setImage(T45);}
+                else if(imageview.getImage()==S90)
+                {imageview.setImage(T90);}
+                else if(imageview.getImage()==S135)
+                {imageview.setImage(T135);}
+                */
+                if(Orientation==0) {imageview.setImage(T00);}
+                else if(Orientation==1) {imageview.setImage(T45);}
+                else if(Orientation==2) {imageview.setImage(T90);}
+                else if(Orientation==3) {imageview.setImage(T135);}
 
-                imageviewWiderstand1.setX(event.getSceneX()-25);
-                imageviewWiderstand1.setY(event.getSceneY()-25);
+                imageview.setX(event.getSceneX()-25);
+                imageview.setY(event.getSceneY()-25);
             }});
         //Ändert das Bild in das mit schwarzen Hintergrund beim Losllassen der Maustaste
-        imageviewWiderstand1.setOnMouseReleased(new EventHandler<MouseEvent>(){
+        imageview.setOnMouseReleased(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event)
             {
-                //Welches Bild ist aktuell? Wegen drehen des Bildes
-                if(imageviewWiderstand1.getImage()==Widerstand00T)
-                {imageviewWiderstand1.setImage(Widerstand00S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand45T)
-                {imageviewWiderstand1.setImage(Widerstand45S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand90T)
-                {imageviewWiderstand1.setImage(Widerstand90S);}
-                else if(imageviewWiderstand1.getImage()==Widerstand135T)
-                {imageviewWiderstand1.setImage(Widerstand135S);}
-
-                imageviewWiderstand1.setX(rundenBauteile(event.getSceneX())-25);
-                imageviewWiderstand1.setY(rundenBauteile(event.getSceneY())-25);
-                posX=rundenBauteile(event.getSceneX());
-                posY=rundenBauteile(event.getSceneY());
-
                 //Mülleimer Funktion löscht alle Händler und das Bild Klasse bleibt allerdings erhalten
                 if(event.getSceneX()<=125&&event.getSceneY()>=450&&event.getSceneY()<=500) {
                     deleted=true;
-                    imageviewWiderstand1.setImage(null);
-                    imageviewWiderstand1.removeEventHandler(MouseEvent.ANY, this);
+                    imageview.setImage(null);
+                    imageview.removeEventHandler(MouseEvent.ANY, this);
+                }
+                else {
+                    //Welches Bild ist aktuell? Wegen drehen des Bildes
+                    /*
+                    if (imageview.getImage() == T00) {
+                        imageview.setImage(S00);
+                    } else if (imageview.getImage() == T45) {
+                        imageview.setImage(S45);
+                    } else if (imageview.getImage() == T90) {
+                        imageview.setImage(S90);
+                    } else if (imageview.getImage() == T135) {
+                        imageview.setImage(S135);
+                    }
+                    */
+                    if(Orientation==0) {imageview.setImage(S00);}
+                    else if(Orientation==1) {imageview.setImage(S45);}
+                    else if(Orientation==2) {imageview.setImage(S90);}
+                    else if(Orientation==3) {imageview.setImage(S135);}
+
+                    imageview.setX(rundenLeitungen(event.getSceneX()) - 25);
+                    imageview.setY(rundenLeitungen(event.getSceneY()) - 25);
+                    posX = rundenLeitungen(event.getSceneX());
+                    posY = rundenLeitungen(event.getSceneY());
                 }
             }});
     }
@@ -110,18 +131,29 @@ public class Widerstand extends Bauelement {
             return runden + (50 - (runden % 50));
         } else return 0;
     }
-    //Zeichnen Methode
-    public void draw1( BorderPane borderPane)
+    public double rundenLeitungen(double runden)
     {
-        imageviewWiderstand1.setX(posX-25);
-        imageviewWiderstand1.setY(posY-25);
-        if(Orientation==0) {imageviewWiderstand1.setImage(Widerstand00S);}
-        else if(Orientation==1){imageviewWiderstand1.setImage(Widerstand45S);}
-        else if(Orientation==2){imageviewWiderstand1.setImage(Widerstand90S);}
-        else if(Orientation==3){imageviewWiderstand1.setImage(Widerstand135S);}
-        else imageviewWiderstand1.setImage(Widerstand00S);
+        double a=0,b=0;
+        if (runden % 25 < 12.5) {
+            a= runden - (runden % 25);
+            return a;
 
-        borderPane.getChildren().add(imageviewWiderstand1);
+        } else if (runden % 25 >= 12.5) {
+            b= runden +  (25-runden % 25);
+            return b;
+        } else return 0;
+    }
+    //Zeichnen Methode
+    public void draw1(BorderPane borderPane)
+    {
+        imageview.setX(posX-25);
+        imageview.setY(posY-25);
+        if(Orientation==0) {imageview.setImage(S00);}
+        else if(Orientation==1){imageview.setImage(S45);}
+        else if(Orientation==2){imageview.setImage(S90);}
+        else if(Orientation==3){imageview.setImage(S135);}
+        else imageview.setImage(S00);
+        borderPane.getChildren().add(imageview);
     }
     public  double getOrientation() {return Orientation;}
     public  double getPosX() {return posX;}
